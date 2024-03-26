@@ -1,6 +1,5 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import Favicon from "@/app/favicon.ico";
 import Header from "@/components/Header";
 import GettoFont from "next/font/local";
 
@@ -116,7 +115,7 @@ export default function RootLayout({
     <html lang="ko" className={pretendard.className}>
       <body>
         <Header />
-        <main>{children}</main>
+        <main className="">{children}</main>
       </body>
     </html>
   );

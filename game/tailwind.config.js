@@ -1,18 +1,70 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      primary: {
+        getto50: "#FFF3F3", //exlight
+        getto100: "#FFD4D4", //light
+        getto200: "#FAABAB",
+        getto300: "#F98686", //main
+        getto400: "#F56060",
+        getto500: "#FB4846",
+        getto600: "#D83F3E",
+        getto700: "#B83130",
+        getto800: "#961D1C",
+      },
+      secondary: {},
+      nutral: {
+        white: {
+          DEFAULT: "#FFFFFF",
+          // 0: "#FFFFFF",
+          "01": "#FAF8F8",
+          "02": "#E8E8E8",
+        },
+        gray: {
+          DEFAULT: "#C4C4C4",
+          // "01": "#C4C4C4",
+          "02": "#878585",
+          "03": "#645F5F",
+        },
+        black: {
+          DEFAULT: "#302C2C",
+          // "01": "#302C2C",
+          "02": "#1B1717",
+        },
+      },
+      caption: {
+        error01: "#FFF7EF",
+        error02: "#F0790B",
+        subBlue01: "#F1F3FF",
+        subBlue02: "#5166D3",
+      },
+    },
+    fontSize: {
+      "headBold-20": ["20px", { fontWeight: "700", lineHeight: "auto" }],
+      "headRegular-20": ["20px", { fontWeight: "400", lineHeight: "auto" }],
+      "headBegular-18": ["20px", { fontWeight: "400", lineHeight: "auto" }],
+      "headBold-18": ["18px", { fontWeight: "700", lineHeight: "auto" }],
+      "textBold-16": ["16px", { fontWeight: "700", lineHeight: "auto" }],
+      "textRegular-16": ["20px", { fontWeight: "400", lineHeight: "auto" }],
+      "textBold-14": ["14px", { fontWeight: "700", lineHeight: "auto" }],
+      "textRegular-14": ["14px", { fontWeight: "400", lineHeight: "auto" }],
+      "captionBold-12": ["12px", { fontWeight: "700", lineHeight: "auto" }],
+      "captionRegular-12": ["12px", { fontWeight: "700", lineHeight: "auto" }],
+      "bodyRegular-16": ["16px", { fontWeight: "400", lineHeight: "auto" }],
+      "bodyRegular-15": ["15px", { fontWeight: "400", lineHeight: "auto" }],
+      "bodyRegular-14": ["14px", { fontWeight: "400", lineHeight: "auto" }],
+    },
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
     },
   },
   plugins: [],
-}
+};
