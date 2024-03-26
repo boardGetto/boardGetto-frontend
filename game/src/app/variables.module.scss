@@ -1,0 +1,13 @@
+// @import "./styles/mixins";
+@import "../styles/mixins";
+$primary-color: #64ff00;
+
+.title {
+  color: $primary-color;
+}
+
+@include mobile() {
+  .title {
+    background-color: red;
+  }
+}
