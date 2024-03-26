@@ -1,6 +1,6 @@
-import Image from "next/image";
-import variables from "../app/variables.module.scss";
-import sampleImage from "/public/images/sample.png";
+import Image from 'next/image';
+import variables from './variables.module.scss';
+import sampleImage from '/public/images/sample.png';
 
 export default function Home() {
   return (
