@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import variables from './variables.module.scss';
-import sampleImage from '/public/images/sample.png';
+import sampleImage from '../../public/images/sample.png';
 
 export default function Home() {
   return (
-    <main className="">
+    <main>
       <Image
         src={sampleImage}
         alt="sample-image"
