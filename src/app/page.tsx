@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import variables from './variables.module.scss';
+import variables from '@/styles/variables.module.scss';
 import sampleImage from '../../public/images/sample.png';
 
 export default function Home() {
