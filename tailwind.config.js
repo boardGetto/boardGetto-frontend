@@ -23,20 +23,17 @@ module.exports = {
       secondary: {},
       nutral: {
         white: {
-          DEFAULT: '#FFFFFF',
-          // 0: "#FFFFFF",
-          '01': '#FAF8F8',
-          '02': '#E8E8E8',
+          '01': '#FFFFFF',
+          '02': '#FAF8F8',
+          '03': '#E8E8E8',
         },
         gray: {
-          DEFAULT: '#C4C4C4',
-          // "01": "#C4C4C4",
+          '01': '#C4C4C4',
           '02': '#878585',
           '03': '#645F5F',
         },
         black: {
-          DEFAULT: '#302C2C',
-          // "01": "#302C2C",
+          '01': '#302C2C',
           '02': '#1B1717',
         },
       },
