@@ -12,10 +12,7 @@ export default function Home() {
         height={50}
         priority
       />
-      <h1 className={variables.title}>Sass 적용test</h1>
-
-      <p className="bg-primary-getto50 text-headBold-20">test</p>
-      <p className="bg-primary-getto50 text-headBold-18">test</p>
+      <h1 className={variables.title}>Sass 적용 테스트</h1>
     </main>
   );
 }

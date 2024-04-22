@@ -11,7 +11,9 @@ module.exports = {
         getto50: '#FFF3F3', //exlight
         getto100: '#FFD4D4', //light
         getto200: '#FAABAB',
+        getto250: '#FF7C7C',
         getto300: '#F98686', //main
+        getto350: '#FF4C4C',
         getto400: '#F56060',
         getto500: '#FB4846',
         getto600: '#D83F3E',
