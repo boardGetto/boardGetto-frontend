@@ -1,11 +1,12 @@
 import BSCard from '@/components/common/BSCard';
+import BSMenu from '@/components/common/BSMenu';
 import BSNav from '@/components/common/BSNav';
 import BSProfile from '@/components/common/BSProfile';
 import Link from 'next/link';
 
 export default function Page() {
   return (
-    <div>
+    <>
       <BSProfile name="하마" />
       <div className="flex flex-col gap-4 mt-16">
         <Link href="/myprofile">
@@ -29,6 +30,8 @@ export default function Page() {
           <BSNav title="문의 및 피드백" />
         </Link>
       </div>
-    </div>
+
+      <BSMenu />
+    </>
   );
 }

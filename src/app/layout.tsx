@@ -1,6 +1,5 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import Header from '@/components/Header';
 import GettoFont from 'next/font/local';
 import Image from 'next/image';
 import layoutTitle from '../../public/images/layout-title.png';
@@ -118,7 +117,6 @@ export default function RootLayout({
   return (
     <html lang="ko" className={pretendard.className}>
       <body className="flex justify-center gap-28 bg-gradient-to-l from-primary-getto250 bg-primary-getto350">
-        {/* <Header /> */}
         <main className="h-screen w-[414px] bg-nutral-white-01 overflow-y-auto shadow-2xl px-4">
           {children}
         </main>
