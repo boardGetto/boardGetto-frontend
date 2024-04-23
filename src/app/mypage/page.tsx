@@ -13,7 +13,7 @@ export default function Page() {
           <BSNav title="나의 프로필" />
         </Link>
 
-        <BSCard saleCount="100" interestGame="8" />
+        <BSCard saleCount={100} interestGame={8} />
 
         <Link href="/active">
           <BSNav title="게임활동 관리" />
