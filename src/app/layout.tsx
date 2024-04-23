@@ -145,7 +145,7 @@ export default function RootLayout({
             <Image src={mainPhone} alt="sample-image" priority />
           </div>
           <p className="my-4 text-center text-nutral-white-01">
-            보드살롱 솔 문의 : thfdl0317@naver.com
+            보드살롱 깃허브솔 문의 : thfdl0317@naver.com
           </p>
         </section>
       </body>

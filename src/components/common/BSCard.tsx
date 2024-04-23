@@ -1,3 +1,5 @@
+import BSBadge from './BSBadge';
+
 interface BSCardProps {
   saleCount: number;
   interestGame: number;
@@ -16,14 +18,15 @@ export default function BSCard({
         <p className="mb-4 text-nutral-black-01 text-headBold-18">
           {saleCount > 20 ? `${saleCount}+` : saleCount}
         </p>
-        <p>판매게임</p>
+
+        <BSBadge label="판매게임" />
       </div>
 
       <div>
         <p className="mb-4 text-nutral-black-01 text-headBold-18">
           {interestGame}
         </p>
-        <p>관심게임 </p>
+        <BSBadge label="관심게임" />
       </div>
     </div>
   );
