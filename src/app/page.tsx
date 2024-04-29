@@ -1,18 +1,12 @@
-import Image from 'next/image';
-import variables from '@/styles/variables.module.scss';
-import sampleImage from '../../public/images/sample.png';
+import BSMenu from '@/components/common/BSMenu';
+
+import Main from '@/components/Main';
 
 export default function Home() {
   return (
     <main>
-      <Image
-        src={sampleImage}
-        alt="sample-image"
-        width={50}
-        height={50}
-        priority
-      />
-      <h1 className={variables.title}>Sass 적용 테스트</h1>
+      <Main />
+      <BSMenu />
     </main>
   );
 }

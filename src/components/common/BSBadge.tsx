@@ -1,17 +1,19 @@
-const defaultBadgeCss = 'py-1 px-2 rounded-lg text-captionRegular-12';
+import { ReactNode } from 'react';
+
+const defaultBadgeCss = 'w-fit py-1 px-2 rounded-lg text-captionRegular-12';
 
 let statusBadgeCss = '';
 
 interface BSBadgeProps {
-  label: string;
+  children: ReactNode;
   status?: 'isAuth' | 'noAuth' | 'normal';
   isHashTag?: boolean;
 }
 
 export default function BSBadge({
-  label = '',
   status = 'normal',
   isHashTag = false,
+  children,
 }: BSBadgeProps) {
   if (status === 'isAuth') {
     statusBadgeCss = 'text-caption-subBlue02  bg-caption-subBlue01';
@@ -22,7 +24,7 @@ export default function BSBadge({
   }
   return (
     <div className={`${defaultBadgeCss} ${statusBadgeCss}`}>
-      {isHashTag ? `#${label}` : label}
+      {isHashTag ? `#${children}` : children}
     </div>
   );
 }
