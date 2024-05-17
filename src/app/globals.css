@@ -7,3 +7,7 @@ html {
   /* max-width: 414px; */
   width: 100%;
 }
+
+button:hover {
+  opacity: 0.9;
+}

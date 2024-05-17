@@ -2,9 +2,11 @@ import './globals.css';
 import type { Metadata } from 'next';
 import GettoFont from 'next/font/local';
 import Image from 'next/image';
+import Provider from '@/util/Providers';
 import layoutTitle from '../../public/images/layout-title.png';
 import mainPhone from '../../public/images/main-phone.png';
 import eyes from '../../public/icons/eyes.svg';
+// import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const pretendard = GettoFont({
   src: './../../public/assets/fonts/PretendardVariable.woff2',
@@ -118,7 +120,7 @@ export default function RootLayout({
     <html lang="ko" className={pretendard.className}>
       <body className="flex justify-center gap-28 bg-gradient-to-l from-primary-getto250 bg-primary-getto350">
         <main className="h-screen w-[414px] bg-nutral-white-01 overflow-y-auto shadow-2xl px-4">
-          {children}
+          <Provider>{children}</Provider>
         </main>
         <section className=" flex flex-col w-[580px] justify-end gap-11">
           <div className="flex flex-col items-center justify-center">
@@ -143,7 +145,7 @@ export default function RootLayout({
             <Image src={mainPhone} alt="sample-image" priority />
           </div>
           <p className="my-4 text-center text-nutral-white-01">
-            보드살롱 깃허브솔 문의 : thfdl0317@naver.com
+            보드살롱 문의 : thfdl0317@naver.com
           </p>
         </section>
       </body>
