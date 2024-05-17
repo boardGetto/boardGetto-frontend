@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import homeMain from '../../public/icons/home-main.svg';
 import SearchIcon from '../../public/icons/search.svg';
+import BSTooltip from './common/BSTooltip';
 
 export default function Main() {
   return (
@@ -17,6 +18,9 @@ export default function Main() {
       <h1 className="bodyRegular-16 mt-2.5">보드게임 중고거래 플랫폼</h1>
       {/* <h1 className={variables.title}>Sass 적용 테스트</h1> */}
 
+      <BSTooltip position="top" content="testtest">
+        tt
+      </BSTooltip>
       <Link href="/home">
         <div className="gap-2 mt-[55px] py-2.5 px-[50px] border border-nutral-white-03 rounded-lg flex items-center justify-center">
           <Image

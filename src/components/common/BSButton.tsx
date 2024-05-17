@@ -1,16 +1,17 @@
 import { ReactNode } from 'react';
+import Image from 'next/image';
 
 const defaultBtnCss =
-  'w-full px-6  rounded-lg flex items-center justify-center';
-
-let btnSizeCss = '';
+  'w-full px-6  rounded-lg flex items-center justify-center gap-1';
 
 let btnColorCss = '';
 
 interface BSBadgeProps {
   children: ReactNode;
   size?: 'lg' | 'md' | 'sm';
-  mode?: 'main' | 'soft' | 'outlineRed' | 'outlineGray' | 'text';
+  mode?: 'main' | 'soft' | 'outlineRed' | 'outlineGray' | 'text' | 'whiteText';
+  isSrc?: string;
+  bgColor?: string;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -19,6 +20,8 @@ export default function BSButton({
   size = 'md',
   mode = 'soft',
   onClick,
+  isSrc = '',
+  bgColor = '',
 }: BSBadgeProps) {
   if (size === 'lg') {
     btnSizeCss = 'py-3 max-h-[72px] text-headBold-20';
@@ -40,6 +43,10 @@ export default function BSButton({
   } else if (mode === 'outlineGray') {
     btnColorCss =
       'bg-nutral-white-01  border border-nutral-gray-02 text-nutral-black-01 focus:bg-nutral-white-02';
+  } else if (mode === 'text') {
+    btnColorCss = '';
+  } else if (mode === 'whiteText') {
+    btnColorCss = 'text-nutral-white-03';
   } else {
     btnColorCss =
       'bg-primary-getto500  focus:bg-nutral-white-02 disabled:bg-nutral-white-02 disabled:text-nutral-gray-01';
@@ -49,6 +56,11 @@ export default function BSButton({
       type="button"
       onClick={onClick}
       className={`${defaultBtnCss} ${btnSizeCss} ${btnColorCss}`}
+      style={{ backgroundColor: bgColor }}
+    >
+      {isSrc && (
+        <Image src={isSrc} alt="icon" width={24} height={24} priority />
+      )}
     >
       {children}
     </button>
