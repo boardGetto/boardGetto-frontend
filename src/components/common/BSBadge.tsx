@@ -1,4 +1,4 @@
-const defaultBadgeCss = 'py-1 px-2 rounded-lg text-captionRegular-12';
+const defaultBadgeCss = 'py-1 px-2 rounded-lg text-captionRegular-12 w-fit';
 
 let statusBadgeCss = '';
 

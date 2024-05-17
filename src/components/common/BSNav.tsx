@@ -8,7 +8,7 @@ interface BSNavProps {
 export default function BSNav({ title = '' }: BSNavProps) {
   return (
     <div className="flex items-center justify-between py-5 transition duration-200 hover:bg-primary-getto50">
-      <p className="cursor-pointer text-nutral-black-02 text-textRegular-16">
+      <p className="cursor-pointer text-nutral-black-02 text-textRegular-14">
         {title}
       </p>
       <Image
