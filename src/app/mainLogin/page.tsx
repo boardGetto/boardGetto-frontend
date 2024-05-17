@@ -18,7 +18,7 @@ export default function Page() {
         mode="text"
         onClick={() => {}}
       >
-        카카오톡으로 로그인
+        카카오톡 로그인
       </BSButton>
       <BSButton
         bgColor="#313335"
@@ -26,7 +26,7 @@ export default function Page() {
         isSrc={githubIcon}
         onClick={() => {}}
       >
-        GitHub로 로그인
+        GitHub 로그인
       </BSButton>
       <BSButton
         isSrc={googleIcon}
@@ -34,7 +34,7 @@ export default function Page() {
         bgColor="#ffffff"
         onClick={() => {}}
       >
-        구글로 로그인
+        Google 로그인
       </BSButton>
       <BSButton
         isSrc={naverIcon}
@@ -42,7 +42,7 @@ export default function Page() {
         bgColor="#2DB400"
         onClick={() => {}}
       >
-        네이버로 로그인
+        네이버 로그인
       </BSButton>
     </div>
   );

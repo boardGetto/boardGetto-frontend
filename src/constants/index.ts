@@ -1,4 +1,3 @@
-export const COLLECTIONS = {
-  HOTEL: 'HOTEL',
-  ROOMS: 'ROOM',
-};
+// export const COLLECTIONS = {
+//   GAME: 'GAME',
+// };

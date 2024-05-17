@@ -1,23 +1,22 @@
 'use client';
 
-import SearchItemResult from '@/components/SearchItemResult';
 import BSBadge from '@/components/common/BSBadge';
 import Image from 'next/image';
 
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 // import PersonIcon from '../../../../public/icons/user.svg';
 
 export default function Page() {
-  const router = useRouter();
-  const tabList = [
-    { id: 0, label: '연관검색' },
-    { id: 1, label: '게임이름' },
-    { id: 2, label: '게임이름' },
-    { id: 3, label: '커플게임' },
-    { id: 4, label: '빙고' },
-    { id: 5, label: '전략게임' },
-    { id: 6, label: '파티게임' },
-  ];
+  // const router = useRouter();
+  // const tabList = [
+  //   { id: 0, label: '연관검색' },
+  //   { id: 1, label: '게임이름' },
+  //   { id: 2, label: '게임이름' },
+  //   { id: 3, label: '커플게임' },
+  //   { id: 4, label: '빙고' },
+  //   { id: 5, label: '전략게임' },
+  //   { id: 6, label: '파티게임' },
+  // ];
 
   const itemList = [
     { id: 0, src: '', price: '15000', count: '2~3', title: '할리갈리' },

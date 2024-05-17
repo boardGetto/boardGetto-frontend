@@ -3,11 +3,10 @@
 import { useState } from 'react';
 // import { DeleteFillIcon } from '../../../public/assets/icons/system';
 
-import { CloseIcon } from '../../../public/assets/icons/menu';
-import {
-  TooltipBottomArrowIcon,
-  TooltipTopArrowIcon,
-} from '../../../public/assets/icons/arrow';
+// import {
+//   TooltipBottomArrowIcon,
+//   TooltipTopArrowIcon,
+// } from '../../../public/assets/icons/arrow';
 
 // const defaultTooltipCss =
 //   'absolute hidden group-hover:inline-block  whitespace-nowrap px-4 py-2 text-nutral-white-01 bg-secondary-main rounded';
@@ -20,8 +19,8 @@ let positionCss = '';
 // const defaultPointCss =
 //   'absolute hidden group-hover:inline-block border-[10px]';
 
-const defaultPointCss = 'absolute inline-block';
-let pointCss = '';
+// const defaultPointCss = 'absolute inline-block';
+// let pointCss = '';
 
 interface TooltipProps {
   position: 'top' | 'bottom';
@@ -76,16 +75,8 @@ export default function WhTooltip({
             <p className={`${defaultTooltipCss} ${positionCss}`}>
               <span className="text-primary-main">{coreText}</span>
               {content}
-              <CloseIcon
-                onClick={handleClick}
-                className="ml-2 cursor-pointer"
-                stroke="#FAF8F6"
-                width={20}
-                height={20}
-              />
             </p>
-            {/* <span className={`${defaultPointCss} ${pointCss}`} /> */}
-            {position === 'top' ? (
+            {/* {position === 'top' ? (
               <span className={`${defaultPointCss} ${pointCss}`}>
                 <TooltipBottomArrowIcon width={14} height={14} />
               </span>
@@ -93,7 +84,7 @@ export default function WhTooltip({
               <span className={`${defaultPointCss} ${pointCss}`}>
                 <TooltipTopArrowIcon width={14} height={14} />
               </span>
-            )}
+            )} */}
           </div>
         )}
       </div>

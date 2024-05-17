@@ -4,6 +4,8 @@ import Image from 'next/image';
 const defaultBtnCss =
   'w-full px-6  rounded-lg flex items-center justify-center gap-1';
 
+let btnSizeCss = '';
+
 let btnColorCss = '';
 
 interface BSBadgeProps {
@@ -61,7 +63,6 @@ export default function BSButton({
       {isSrc && (
         <Image src={isSrc} alt="icon" width={24} height={24} priority />
       )}
-    >
       {children}
     </button>
   );
