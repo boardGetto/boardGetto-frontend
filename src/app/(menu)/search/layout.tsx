@@ -6,7 +6,7 @@ type Props = { children: ReactNode };
 export default function SearchLayout({ children }: Props) {
   return (
     <div>
-      <Header />
+      <Header title="헤더" />
       {children}
       <BSMenu />
     </div>
