@@ -5,6 +5,7 @@ import BSBadge from '@/components/common/BSBadge';
 import BSButton from '@/components/common/BSButton';
 import Image from 'next/image';
 import CloseIcon from '../../../public/icons/close.svg';
+import BSInput from '@/components/common/BSInput';
 
 export default function Page() {
   const [recommendList, setRecommendList] = useState([
@@ -52,7 +53,6 @@ export default function Page() {
           </div>
         ))}
       </div>
-
       <div>
         <h1 className="py-4 text-nutral-gray-02 textRegular-16">추천 검색어</h1>
         <div className="flex flex-wrap gap-3">
@@ -66,7 +66,6 @@ export default function Page() {
       <h1 className="text-nutral-gray-02 textRegular-16">
         상세하게 원하는 게임을 찾고 싶다면?
       </h1>
-
       <BSButton onClick={() => {}}>카테고리 검색하기</BSButton>
     </div>
   );

@@ -5,18 +5,18 @@ import { useRouter } from 'next/navigation';
 import RightArrow from '../../public/icons/right-arrow.svg';
 
 interface HeaderProps {
-  title: string;
+  title?: string;
 }
 
 export default function BSNav({ title = '' }: HeaderProps) {
   const router = useRouter();
 
   const handleBackBtn = () => {
-    router.push('/mypage');
+    router.back();
   };
 
   return (
-    <div className="flex items-center justify-between py-5">
+    <div className="flex items-center justify-between py-2">
       <Image
         src={RightArrow}
         alt="right-arrow"
