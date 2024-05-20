@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
-import { CloseIcon } from '../../../public/icons/close.svg';
 
 const defaultInputCss =
-  'text-nutral-black-02 text-textRegular-16 focus:border-primary-getto300 w-full py-4 px-2 text-body-02 placeholder:text-body-02 placeholder:text-nutral-gray-01 disabled:bg-nutral-white-03 rounded disabled:bg-nutral-white-02 disabled:text-nutral-white-04 disabled:border-0';
+  'w-full pl-4 py-3 pr-12 text-body-02 placeholder:text-body-02 placeholder:text-nutral-white-03 rounded disabled:bg-nutral-white-02 disabled:text-nutral-white-04 disabled:border-0';
 
-const isFocusBorderCss = 'border-nutral-white-03 border';
+const isFocusBorderCss =
+  'focus:outline-primary-pressing border-nutral-white-03 border';
 
-const isErrorCss = '';
+const defaultLabelCss = 'text-black-02 text-body-02 mb-3';
 
-const errorMsgCss = 'mt-2';
+const isErrorCss = 'border border-caption-main outline-caption-main';
+
+const errorMsgCss = 'text-caption-main text-caption-02 mt-2';
 
 const closeBtnCss = 'absolute right-4 cursor-pointer hover:opacity-80';
 
@@ -18,6 +19,7 @@ let inputSizeCss = '';
 interface InputProps {
   disabled?: boolean;
   placeholder?: string;
+  label?: string;
   isErr?: boolean;
   errorMsg?: string;
   value: string;
@@ -29,6 +31,7 @@ export default function WhInput({
   disabled = false,
   size = 'md',
   placeholder = '내용을 입력해주세요.',
+  label = '',
   isErr = false,
   errorMsg = '',
   value = '',
@@ -57,8 +60,12 @@ export default function WhInput({
   return (
     <div>
       <div className="relative flex flex-col ">
+        {label && (
+          <label htmlFor="레이블 이름" className={`${defaultLabelCss}`}>
+            {label}
+          </label>
+        )}
         <div className="flex items-center">
-          <input className="text-nutral-gray-01 text-textRegular-16 focus:border-primary-getto300 disabled:bg-nutral-white-03" />
           <input
             type="text"
             className={`${inputSizeCss} ${defaultInputCss} ${
@@ -70,13 +77,9 @@ export default function WhInput({
             onChange={handleChange}
           />
           {inputValue && (
-            <Image
-              src={CloseIcon}
+            <DeleteFillIcon
               className={`${closeBtnCss}`}
               onClick={handleClear}
-              priority
-              width={24}
-              height={24}
             />
           )}
         </div>

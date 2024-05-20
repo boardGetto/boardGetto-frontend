@@ -1,6 +1,7 @@
 'use client';
 
 import BSButton from '@/components/common/BSButton';
+import Link from 'next/link';
 import kakaoIcon from '../../../public/icons/kakao.svg';
 import googleIcon from '../../../public/icons/google.svg';
 import naverIcon from '../../../public/images/naver.png';
@@ -12,14 +13,16 @@ export default function Page() {
       <h1 className="mb-5 text-textRegular-16">
         간편하게 로그인하고 보드살롱을 이용해보세요!
       </h1>
-      <BSButton
-        isSrc={kakaoIcon}
-        bgColor="#f9e000"
-        mode="text"
-        onClick={() => {}}
-      >
-        카카오톡 로그인
-      </BSButton>
+      <Link href="/profileRegist">
+        <BSButton
+          isSrc={kakaoIcon}
+          bgColor="#f9e000"
+          mode="text"
+          onClick={() => {}}
+        >
+          카카오톡 로그인
+        </BSButton>
+      </Link>
       <BSButton
         bgColor="#313335"
         mode="whiteText"

@@ -16,8 +16,8 @@ export default function BSMenu() {
     {
       title: '검색하기',
       src: SearchIcon,
-      path: '/search',
-      segment: 'search',
+      path: '/gameSearch',
+      segment: 'gameSearch',
     },
     {
       title: '게임판매',
@@ -38,7 +38,7 @@ export default function BSMenu() {
       segment: 'mainLogin',
     },
   ];
- return (
+  return (
     <ul className="flex  gap-[84px] shadow-2xl rounded-2xl py-[14px] fixed mx-2 mb-11 px-8 z-30 bottom-0">
       {menuList.map((item) => (
         <Link href={item.path}>

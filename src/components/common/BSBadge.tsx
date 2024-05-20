@@ -20,7 +20,7 @@ export default function BSBadge({
   } else if (status === 'noAuth') {
     statusBadgeCss = 'text-caption-error02 bg-caption-error01 ';
   } else {
-    statusBadgeCss = 'text-nutral-gray-03 bg-nutral-white-02';
+    statusBadgeCss = 'text-nutral-gray-03 bg-nutral-white-03';
   }
   return (
     <div className={`${defaultBadgeCss} ${statusBadgeCss}`}>
