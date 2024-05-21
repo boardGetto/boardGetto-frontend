@@ -3,6 +3,7 @@
 import BSButton from '@/components/common/BSButton';
 import BSChip from '@/components/common/BSChip';
 import BSInput from '@/components/common/BSInput';
+import BSTextarea from '@/components/common/BSTextarea';
 import { Session } from 'inspector';
 
 export default function Page() {
@@ -66,6 +67,12 @@ export default function Page() {
         <BSButton mode="whiteText" onClick={() => {}}>
           보드살롱
         </BSButton>
+      </section>
+
+      {/* Textarea */}
+      <section className="flex flex-col gap-3">
+        <h1 className="my-1">Textarea</h1>
+        <BSTextarea value="" />
       </section>
     </div>
   );

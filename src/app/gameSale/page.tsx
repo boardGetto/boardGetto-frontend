@@ -4,6 +4,7 @@ import Image from 'next/image';
 import BSButton from '@/components/common/BSButton';
 import BSTextarea from '@/components/common/BSTextarea';
 import Link from 'next/link';
+import BSInput from '@/components/common/BSInput';
 import CameraIcon from '../../../public/icons/camera.svg';
 import GameImage1 from '../../../public/images/gameImage1.png';
 import GameImage2 from '../../../public/images/gameImage2.png';
@@ -11,7 +12,6 @@ import GameImage3 from '../../../public/images/gameImage3.png';
 import GameImage4 from '../../../public/images/gameImage4.png';
 import GuideIcon from '../../../public/icons/guide.svg';
 import MapPinIcon from '../../../public/icons/map-in.svg';
-import BSInput from '@/components/common/BSInput';
 
 export default function Page() {
   const gameCategory = [
