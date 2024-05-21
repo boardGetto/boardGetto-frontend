@@ -2,13 +2,14 @@ import BSBadge from '@/components/common/BSBadge';
 import Image from 'next/image';
 import ArrowIcon from '../../../../public/icons/right-arrow.svg';
 import FilterIcon from '../../../../public/icons/filter.svg';
-import CheckboxIcon from '../../../../public/icons/checkbox.svg';
 import GameImage1 from '../../../../public/images/gameImage1.png';
 import GameImage2 from '../../../../public/images/gameImage2.png';
 import GameImage3 from '../../../../public/images/gameImage3.png';
 import GameImage4 from '../../../../public/images/gameImage4.png';
 import LikeIcon from '../../../../public/icons/like-fill.svg';
 import PersonIcon from '../../../../public/icons/person.svg';
+import CheckBoxFill from '../../../../public/icons/checkbox-fill.svg';
+import CheckBoxBlank from '../../../../public/icons/checkbox-blank.svg';
 
 export default function Page() {
   const sameGames = [
@@ -115,7 +116,14 @@ export default function Page() {
 
         <div className="flex items-center gap-[10px]">
           <Image
-            src={CheckboxIcon}
+            src={CheckBoxFill}
+            alt="checkbox icon"
+            width={24}
+            height={24}
+            priority
+          />
+          <Image
+            src={CheckBoxBlank}
             alt="checkbox icon"
             width={24}
             height={24}

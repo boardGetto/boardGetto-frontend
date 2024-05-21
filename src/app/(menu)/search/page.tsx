@@ -36,6 +36,14 @@ export default function Search() {
         </ul>
       </div>
 
+      <BSButton
+        onClick={() => {
+          router.push('/gameSearch/result');
+        }}
+      >
+        검색하기
+      </BSButton>
+
       <div>
         <p className="my-4 text-nutral-gray-02">
           상세하기 원하는 게임을 찾고 싶다면?

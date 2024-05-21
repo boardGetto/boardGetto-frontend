@@ -4,10 +4,12 @@ import { useState } from 'react';
 import BSBadge from '@/components/common/BSBadge';
 import BSButton from '@/components/common/BSButton';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import CloseIcon from '../../../public/icons/close.svg';
-import BSInput from '@/components/common/BSInput';
 
 export default function Page() {
+  const router = useRouter();
+
   const [recommendList, setRecommendList] = useState([
     { id: 0, title: '방탈출' },
     { id: 1, title: '할로윈' },
@@ -18,6 +20,14 @@ export default function Page() {
     { id: 6, title: '방탈출게임' },
     { id: 7, title: '파티게임' },
   ]);
+
+  const handleSearch = () => {
+    router.push('/gameSearch/result');
+  };
+
+  const handleCategory = () => {
+    router.push('/categorySearch');
+  };
 
   const removeBtn = (id) => {
     setRecommendList((prevList) => {
@@ -49,6 +59,7 @@ export default function Page() {
               height={24}
               priority
               onClick={() => removeBtn(item.id)}
+              className="cursor-pointer"
             />
           </div>
         ))}
@@ -63,10 +74,14 @@ export default function Page() {
           ))}
         </div>
       </div>
+
+      <BSButton onClick={handleSearch}>검색하기</BSButton>
+
       <h1 className="text-nutral-gray-02 textRegular-16">
         상세하게 원하는 게임을 찾고 싶다면?
       </h1>
-      <BSButton onClick={() => {}}>카테고리 검색하기</BSButton>
+
+      <BSButton onClick={handleCategory}>카테고리 검색하기</BSButton>
     </div>
   );
 }

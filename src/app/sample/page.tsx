@@ -1,7 +1,9 @@
 'use client';
 
+import BSButton from '@/components/common/BSButton';
 import BSChip from '@/components/common/BSChip';
 import BSInput from '@/components/common/BSInput';
+import { Session } from 'inspector';
 
 export default function Page() {
   const gameList = [
@@ -24,7 +26,7 @@ export default function Page() {
   ];
 
   return (
-    <div>
+    <div className="flex flex-col gap-8">
       {/* chip */}
       <section>
         <h1 className="my-4">chip</h1>
@@ -37,12 +39,33 @@ export default function Page() {
         </div>
       </section>
 
+      {/* input */}
       <section className="flex flex-col gap-4">
         <h1 className="my-4">input</h1>
         <BSInput searchImg value="" />
         <BSInput value="" />
         <BSInput value="" isError errorMsg="에러메세지" />
         <BSInput value="" disabled />
+      </section>
+
+      {/* button */}
+      <section className="flex flex-col gap-3">
+        <h1 className="my-4">button</h1>
+        <BSButton mode="main" onClick={() => {}}>
+          보드살롱
+        </BSButton>
+        <BSButton mode="soft" onClick={() => {}}>
+          보드살롱
+        </BSButton>
+        <BSButton mode="outlineGray" onClick={() => {}}>
+          보드살롱
+        </BSButton>
+        <BSButton mode="text" onClick={() => {}}>
+          보드살롱
+        </BSButton>
+        <BSButton mode="whiteText" onClick={() => {}}>
+          보드살롱
+        </BSButton>
       </section>
     </div>
   );
