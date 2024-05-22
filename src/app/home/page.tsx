@@ -1,15 +1,18 @@
 import BSBadge from '@/components/common/BSBadge';
 import Image from 'next/image';
-import ArrowIcon from '../../../../public/icons/right-arrow.svg';
-import FilterIcon from '../../../../public/icons/filter.svg';
-import GameImage1 from '../../../../public/images/gameImage1.png';
-import GameImage2 from '../../../../public/images/gameImage2.png';
-import GameImage3 from '../../../../public/images/gameImage3.png';
-import GameImage4 from '../../../../public/images/gameImage4.png';
-import LikeIcon from '../../../../public/icons/like-fill.svg';
-import PersonIcon from '../../../../public/icons/person.svg';
-import CheckBoxFill from '../../../../public/icons/checkbox-fill.svg';
-import CheckBoxBlank from '../../../../public/icons/checkbox-blank.svg';
+import BSHeader from '@/components/common/BSHeader';
+import Link from 'next/link';
+import ArrowIcon from '../../../public/icons/right-arrow.svg';
+import FilterIcon from '../../../public/icons/filter.svg';
+import GameImage1 from '../../../public/images/gameImage1.png';
+import GameImage2 from '../../../public/images/gameImage2.png';
+import GameImage3 from '../../../public/images/gameImage3.png';
+import GameImage4 from '../../../public/images/gameImage4.png';
+import LikeIcon from '../../../public/icons/like-fill.svg';
+import PersonIcon from '../../../public/icons/person.svg';
+import BannerIcon01 from '../../../public/icons/banner-01.svg';
+import BannerIcon02 from '../../../public/icons/banner-02.svg';
+import NextArrow from '../../../public/icons/next-arrow.svg';
 
 export default function Page() {
   const sameGames = [
@@ -73,66 +76,43 @@ export default function Page() {
     },
   ];
 
-  const textCss = 'text-textRegular-14 text-nutral-black-02';
-
   return (
     <div className="flex flex-col">
-      <div className="flex items-center py-[14px]">
-        <h1 className="text-primary-getto500 text-textBold-14 mr-[14px]">
-          연관검색
-        </h1>
-        <ul className="flex gap-2">
-          {sameGames.map((item) => (
-            <li key={item.id}>
-              <BSBadge status="normal">{item.title}</BSBadge>
-            </li>
-          ))}
-        </ul>
+      <BSHeader />
+      <div className="flex flex-col justify-between my-2 bg-primary-getto50 h-[153px] px-5 py-[6px] rounded">
+        <div className="flex items-center gap-3">
+          <Image
+            src={BannerIcon01}
+            alt="checkbox black"
+            width={50}
+            height={50}
+            className="mt-8"
+          />
+          {/* <Image
+            src={BannerCard}
+            alt="checkbox black"
+            width={200}
+            height={200}
+          /> */}
+          <span>보드살롱보드살롱</span>
+          <Image
+            src={BannerIcon02}
+            alt="checkbox black"
+            width={50}
+            height={50}
+            className="mb-6"
+          />
+        </div>
+        <Link
+          href="/categoryExplain"
+          className="flex items-center justify-end gap-1"
+        >
+          <span className="duration-200 text-primary-getto500 textBold-14 hover:text-primary-getto200">
+            게임 카테고리 설명보기
+          </span>
+          <Image src={NextArrow} alt="checkbox black" width={22} height={22} />
+        </Link>
       </div>
-
-      {/* option start */}
-      <div className="flex justify-around py-6 border-t border-b border-nutral-white-03">
-        <div className="flex items-center gap-[10px]">
-          <p className={textCss}>최신순</p>
-          <Image
-            src={ArrowIcon}
-            alt="order arrow icon"
-            width={24}
-            height={24}
-            priority
-          />
-        </div>
-
-        <div className="flex items-center gap-[10px]">
-          <p className={textCss}>필터</p>
-          <Image
-            src={FilterIcon}
-            alt="filter icon"
-            width={24}
-            height={24}
-            priority
-          />
-        </div>
-
-        <div className="flex items-center gap-[10px]">
-          <Image
-            src={CheckBoxFill}
-            alt="checkbox icon"
-            width={24}
-            height={24}
-            priority
-          />
-          <Image
-            src={CheckBoxBlank}
-            alt="checkbox icon"
-            width={24}
-            height={24}
-            priority
-          />
-          <p>새 제품만 보기</p>
-        </div>
-      </div>
-      {/* option end */}
 
       {/* gameList */}
       {gameList.map((item) => (

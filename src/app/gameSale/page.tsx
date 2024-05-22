@@ -4,6 +4,7 @@ import Image from 'next/image';
 import BSButton from '@/components/common/BSButton';
 import BSTextarea from '@/components/common/BSTextarea';
 import Link from 'next/link';
+import BSInput from '@/components/common/BSInput';
 import CameraIcon from '../../../public/icons/camera.svg';
 import GameImage1 from '../../../public/images/gameImage1.png';
 import GameImage2 from '../../../public/images/gameImage2.png';
@@ -11,7 +12,6 @@ import GameImage3 from '../../../public/images/gameImage3.png';
 import GameImage4 from '../../../public/images/gameImage4.png';
 import GuideIcon from '../../../public/icons/guide.svg';
 import MapPinIcon from '../../../public/icons/map-in.svg';
-import BSInput from '@/components/common/BSInput';
 
 export default function Page() {
   const gameCategory = [
@@ -113,18 +113,11 @@ export default function Page() {
         <Image src={GuideIcon} alt="guide icon" width={24} height={24} />
       </div>
 
-      <input
-        className="px-3 py-4 border rounded-lg border-primary-getto300"
-        placeholder="상품명을 입력해주세요."
-      />
+      <BSInput placeholder="상품명을 입력해주세요." value="" />
 
       {/* 게임소개 */}
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">게임 소개</h1>
-
-      <input
-        className="px-3 py-4 border rounded-lg border-primary-getto300"
-        placeholder="게시글 제목"
-      />
+      <BSInput placeholder="게시글 제목" value="" />
 
       <BSTextarea
         placeholder="게임 판매 게시글 내용을 작성해주세요.
@@ -136,7 +129,7 @@ export default function Page() {
           대표 카테고리
         </h1>
         <Link
-          href="/gameCategory"
+          href="/categoryExplain"
           className="text-textRegular-14 text-nutral-gray-02"
         >
           설명보기
@@ -147,8 +140,8 @@ export default function Page() {
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">필요 인원</h1>
 
       <div className="flex">
-        <input placeholder="최소 인원" />
-        <input placeholder="최대 인원" />
+        <BSInput placeholder="최소 인원" value="" />
+        <BSInput placeholder="최대 인원" value="" />
       </div>
 
       {/* 게임 플레이 시간은 어떤가요? */}
@@ -160,14 +153,14 @@ export default function Page() {
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">
         게임 플레이 시간은 어떤가요?
       </h1>
-      <input />
+      <BSInput value="" />
       <span>거래 협의 가능</span>
 
       {/* 판매 가격 */}
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">
         제품 상태는 어떤가요?
       </h1>
-      <input />
+      <BSInput value="" />
 
       {/* 판매 가격 */}
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">
@@ -178,7 +171,7 @@ export default function Page() {
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">
         판매자 정책에 대해 선택해주세요.
       </h1>
-      <input />
+      <BSInput value="" />
 
       {/* 거래 주소 */}
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">
@@ -193,7 +186,7 @@ export default function Page() {
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">
         카카오톡 오픈 프로필 링크
       </h1>
-      <input placeholder="오픈카톡방 링크를 입력해주세요." />
+      <BSInput placeholder="오픈카톡방 링크를 입력해주세요" value="" />
 
       <div className="flex flex-wrap gap-3">
         {gameCategory.map((item) => (
@@ -228,7 +221,6 @@ export default function Page() {
         placeholder="게임 판매 게시글 내용을 작성해주세요.
 친절한 게임 설명은 판매에 도움이 됩니다."
       />
-
       <BSButton onClick={() => {}}>등록 완료</BSButton>
     </div>
   );

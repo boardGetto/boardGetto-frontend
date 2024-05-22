@@ -1,17 +1,18 @@
 import Image from 'next/image';
 // import variables from '@/styles/variables.module.scss';
 import Link from 'next/link';
-import homeMain from '../../public/icons/home-main.svg';
+// import homeMain from '../../public/icons/home-main.svg';
 import SearchIcon from '../../public/icons/search.svg';
 import BSTooltip from './common/BSTooltip';
+import MainImg from '../../public/images/main.png';
 
 export default function Main() {
   return (
     <div className="flex flex-col items-center mt-[130px]">
       <Image
-        src={homeMain}
-        width={200}
-        height={200}
+        src={MainImg}
+        width={400}
+        height={400}
         alt="sample-image"
         priority
       />

@@ -1,89 +1,105 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import CloseIcon from '../../../public/icons/close-btn.svg';
+import SearchIcon from '../../../public/icons/search.svg';
 
 const defaultInputCss =
-  'w-full pl-4 py-3 pr-12 text-body-02 placeholder:text-body-02 placeholder:text-nutral-white-03 rounded disabled:bg-nutral-white-02 disabled:text-nutral-white-04 disabled:border-0';
+  'w-full py-[10px] pr-12 text-body-02 placeholder:text-body-02 placeholder:text-nutral-white-03 rounded-lg disabled:bg-nutral-white-03 disabled:text-nutral-white-03 disabled:bg-opacity-30 border-nutral-white-03';
 
 const isFocusBorderCss =
-  'focus:outline-primary-pressing border-nutral-white-03 border';
+  'focus:outline-primary-getto500 border-nutral-getto500 border';
 
-const defaultLabelCss = 'text-black-02 text-body-02 mb-3';
+const defaultLabelCss = 'text-nutral-gray-02 mb-1 text-captionRegular-12';
 
-const isErrorCss = 'border border-caption-main outline-caption-main';
+const isErrorCss = 'border border-caption-error02 outline-caption-error02';
 
-const errorMsgCss = 'text-caption-main text-caption-02 mt-2';
+const errorMsgCss =
+  'text-caption-error02 text-caption-error02 mt-1 text-captionBold-12 text-end';
+
+const searchCss = 'absolute left-4 focus focus:text-primary-getto300';
 
 const closeBtnCss = 'absolute right-4 cursor-pointer hover:opacity-80';
 
-let inputSizeCss = '';
-
-interface InputProps {
+interface BSInputProps {
   disabled?: boolean;
   placeholder?: string;
   label?: string;
-  isErr?: boolean;
+  isError?: boolean;
   errorMsg?: string;
   value: string;
+  searchImg?: boolean;
   handleInputChange?: (value: string) => void;
-  size?: 'lg' | 'md' | 'sm';
 }
 
-export default function WhInput({
+export default function BSInput({
   disabled = false,
-  size = 'md',
   placeholder = '내용을 입력해주세요.',
   label = '',
-  isErr = false,
+  isError = false,
   errorMsg = '',
   value = '',
+  searchImg = false,
   handleInputChange,
-}: InputProps) {
-  const [inputValue, setInputValue] = useState('');
+}: BSInputProps) {
+  const [inputValue, setInputValue] = useState(value);
 
-  if (size === 'lg') {
-    inputSizeCss = 'h-11';
-  } else if (size === 'md') {
-    inputSizeCss = 'h-10';
-  } else if (size === 'sm') {
-    inputSizeCss = 'h-9';
-  }
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-    handleInputChange(e.target.value);
+    if (handleInputChange) {
+      handleInputChange(e.target.value);
+    }
   };
 
   const handleClear = () => {
     setInputValue('');
-    handleInputChange('');
+    if (handleInputChange) {
+      handleInputChange('');
+    }
   };
 
   return (
     <div>
-      <div className="relative flex flex-col ">
+      <div className="relative flex flex-col">
         {label && (
-          <label htmlFor="레이블 이름" className={`${defaultLabelCss}`}>
+          <label htmlFor="input-field" className={`${defaultLabelCss}`}>
             {label}
           </label>
         )}
         <div className="flex items-center">
+          {searchImg && (
+            <Image
+              src={SearchIcon}
+              alt="search icon"
+              width={24}
+              height={24}
+              priority
+              className={searchCss}
+            />
+          )}
           <input
             type="text"
-            className={`${inputSizeCss} ${defaultInputCss} ${
-              isErr ? `${isErrorCss}` : `${isFocusBorderCss}`
-            }`}
+            className={`${defaultInputCss} ${isError ? isErrorCss : isFocusBorderCss} ${searchImg ? 'p-12' : 'pl-4'}`}
             disabled={disabled}
             placeholder={placeholder}
-            value={value}
+            value={inputValue}
             onChange={handleChange}
           />
           {inputValue && (
-            <DeleteFillIcon
-              className={`${closeBtnCss}`}
+            <Image
+              src={CloseIcon}
+              alt="close icon"
+              width={24}
+              height={24}
+              className={closeBtnCss}
               onClick={handleClear}
             />
           )}
         </div>
-        {isErr && <span className={errorMsgCss}>{errorMsg}</span>}
+        {isError && <span className={errorMsgCss}>{errorMsg}</span>}
       </div>
     </div>
   );
