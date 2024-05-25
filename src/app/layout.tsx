@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import GettoFont from 'next/font/local';
 import Image from 'next/image';
 import Provider from '@/util/Providers';
+import GameItemAddButton from '@/components/test/GameItemAddButton';
 import layoutTitle from '../../public/images/layout-title.png';
 import mainPhone from '../../public/images/main-phone.png';
 import eyes from '../../public/icons/eyes.svg';
@@ -147,6 +148,7 @@ export default function RootLayout({
           <p className="my-4 text-center text-nutral-white-01">
             보드살롱 문의 : thfdl0317@naver.com
           </p>
+          <GameItemAddButton />
         </section>
       </body>
     </html>

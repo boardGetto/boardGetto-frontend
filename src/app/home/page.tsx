@@ -116,6 +116,7 @@ export default function Page() {
 
       {/* gameList */}
       {gameList.map((item) => (
+        // onClick={router.push(`/${game.id}`)}
         <div className="py-3 pt-4 border-b border-nutral-white-03">
           <div className="flex gap-4">
             <Image src={GameImage1} alt="order arrow icon" priority />
