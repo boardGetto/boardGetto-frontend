@@ -21,8 +21,10 @@ export default function GameItemAddButton() {
     alert('ddd');
   };
   return (
-    <button type="button" onClick={handleBtnClick}>
-      파베 테스트
-    </button>
+    <div>
+      {/* <button type="button" onClick={handleBtnClick}>
+        파베 테스트
+      </button> */}
+    </div>
   );
 }
