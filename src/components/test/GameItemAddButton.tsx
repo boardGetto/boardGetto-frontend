@@ -1,43 +1,30 @@
-// import { doc, collection, writeBatch } from 'firebase/firestore';
-// import { store } from '@/remote/firebase';
-// import { COLLECTIONS } from '@/constants';
-// import BSButton from '../common/BSButton';
-// import { HOTEL_NAMES, IMAGES, HOTEL, EVENTS, ROOMS } from '@/mock/data';
+'use client';
 
-// function random(min: number, max: number) {
-//   return Math.floor(Math.random() * (max - min + 1) + min);
-// }
+import { doc, collection, writeBatch } from 'firebase/firestore';
 
-// export default function GameItemAddButton() {
-//   const batch = writeBatch(store);
-//   const handleBtnClick = () => {
-//     const hotels = HOTEL_NAMES.map((hotelName, idx) => {
-//       return {
-//         name: hotelName,
-//         mainImageUrl: IMAGES[Math.floor(Math.random() * IMAGES.length)],
-//         images: IMAGES,
-//         price: random(130000, 200000),
-//         starRating: random(1, 5),
-//         ...HOTEL,
-//         ...(EVENTS[idx] != null && { events: EVENTS[idx] }),
-//       };
-//     });
+import { COLLECTIONS } from '@/constants/collection';
+import { GAME_GATEGORY } from '@/mock/data';
+import { store } from '../../firebase/firebase';
 
-//     hotels.forEach((hotel) => {
-//       const hotelDocRef = doc(collection(store, COLLECTIONS.HOTEL));
+export default function GameItemAddButton() {
+  const handleBtnClick = async () => {
+    const batch = writeBatch(store);
 
-//       batch.set(hotelDocRef, hotel);
+    GAME_GATEGORY.forEach((game) => {
+      const hotelDocRef = doc(collection(store, COLLECTIONS.GAME_GATEGORY));
 
-//       ROOMS.forEach((room) => {
-//         const subDocRef = doc(collection(hotelDocRef, COLLECTIONS.ROOMS));
+      batch.set(hotelDocRef, game);
+    });
 
-//         batch.set(subDocRef, room);
-//       });
-//     });
+    await batch.commit();
 
-//     batch.commit();
-
-//     console.log('hoels', hotels);
-//   };
-//   return <BSButton onClick={handleBtnClick}>gamexxzs</BSButton>;
-// }
+    alert('ddd');
+  };
+  return (
+    <div>
+      {/* <button type="button" onClick={handleBtnClick}>
+        파베 테스트
+      </button> */}
+    </div>
+  );
+}

@@ -23,7 +23,7 @@ export default function BSChip({
   onClick = () => {},
 }: BSChipProps) {
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="flex flex-wrap gap-3 text-textRegular-14">
       <button
         type="button"
         disabled={disabled}

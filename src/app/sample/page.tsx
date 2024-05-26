@@ -1,10 +1,12 @@
 'use client';
 
+import MyActiveTab from '@/components/MyActiveTab';
 import BSButton from '@/components/common/BSButton';
 import BSChip from '@/components/common/BSChip';
+import BSHelpBox from '@/components/common/BSHelpBox';
 import BSInput from '@/components/common/BSInput';
 import BSTextarea from '@/components/common/BSTextarea';
-import { Session } from 'inspector';
+import { useState } from 'react';
 
 export default function Page() {
   const gameList = [
@@ -25,6 +27,8 @@ export default function Page() {
     { id: 15, title: '순발력' },
     { id: 16, title: '경쟁' },
   ];
+
+  const [currentTab, setCurrentTab] = useState('0');
 
   return (
     <div className="flex flex-col gap-8">
@@ -73,6 +77,21 @@ export default function Page() {
       <section className="flex flex-col gap-3">
         <h1 className="my-1">Textarea</h1>
         <BSTextarea value="" />
+      </section>
+
+      {/* Tab */}
+      <section className="flex flex-col gap-3">
+        <h1 className="my-1">Tab</h1>
+        <p>현재 탭 : {currentTab}</p>
+        <MyActiveTab value={currentTab} onChange={setCurrentTab} />
+      </section>
+
+      {/* Tooltip */}
+      <section className="flex flex-col gap-3">
+        <h1 className="my-1">Tooltip</h1>
+        <BSHelpBox position="bottom" content="test">
+          test
+        </BSHelpBox>
       </section>
     </div>
   );

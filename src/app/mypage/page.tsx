@@ -15,7 +15,7 @@ export default function Page() {
 
         <BSCard saleCount={100} interestGame={8} />
 
-        <Link href="/active">
+        <Link href="/mypage/active">
           <BSNav title="게임활동 관리" />
         </Link>
       </div>
