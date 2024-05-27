@@ -9,9 +9,10 @@ import githubIcon from '../../../public/icons/github.svg';
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-3 mt-[300px]">
-      <h1 className="mb-5 text-textRegular-16">
-        간편하게 로그인하고 보드살롱을 이용해보세요!
+    <div className="flex flex-col gap-3 mt-[240px]">
+      <h1 className="mb-4 text-center text-headBold-18 text-primary-getto350 ">
+        간편하게 로그인하고 <br />
+        보드살롱을 이용해보세요!
       </h1>
       <Link href="/profileRegist">
         <BSButton

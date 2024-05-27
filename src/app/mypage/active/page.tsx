@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 import BSBadge from '@/components/common/BSBadge';
+import BSCard from '@/components/common/BSCard';
 import GameImage1 from '../../../../public/images/gameImage1.png';
 import GameImage2 from '../../../../public/images/gameImage2.png';
 import GameImage3 from '../../../../public/images/gameImage3.png';
@@ -122,6 +123,65 @@ const myInterestList = [
   },
 ];
 
+const gameList = [
+  {
+    id: 0,
+    title: '요즘 핫한 인기게임 팝니다.',
+    gameName: '스플렌더',
+    img: '/images/gameImage1.png',
+    isNew: 'true',
+    price: 150000,
+    people: '3~5',
+    like: true,
+    account: 1,
+    address: '강남구 압구정동',
+    time: '3시간 전',
+    tag: ['전략', '테마', '전쟁'],
+  },
+  {
+    id: 1,
+    title: '게임이름2',
+    gameName: 'test',
+    img: '/images/gameImage1.png',
+    isNew: 'true',
+    price: 150000,
+    people: '1~2',
+    like: true,
+    account: 14,
+    address: '강남구 압구정동',
+    time: '3시간 전',
+    tag: ['전략', '테마', '전쟁'],
+  },
+  {
+    id: 2,
+    title: '게임이름1',
+    gameName: 'test',
+    img: '/images/gameImage1.png',
+    isNew: 'true',
+    price: 150000,
+    people: '3~5',
+    like: true,
+    account: 22,
+    address: '강남구 압구정동',
+    time: '3시간 전',
+    tag: ['전략', '테마', '전쟁'],
+  },
+  {
+    id: 3,
+    title: '게임이름1',
+    gameName: 'test',
+    img: '/images/gameImage1.png',
+    isNew: 'true',
+    price: 150000,
+    people: '3~5',
+    like: false,
+    account: 22,
+    address: '강남구 압구정동',
+    time: '3시간 전',
+    tag: ['전략', '테마', '전쟁'],
+  },
+];
+
 export default function Page() {
   const [currentTab, setCurrentTab] = useState('0');
 
@@ -171,6 +231,22 @@ export default function Page() {
               </p>
             </div>
           </div>
+        ))}
+
+      {currentTab === '1' &&
+        gameList.map((item) => (
+          <BSCard
+            img={item.img}
+            title={item.title}
+            gameName={item.gameName}
+            price={item.price}
+            people={item.people}
+            like={item.like}
+            account={item.account}
+            address={item.address}
+            time={item.time}
+            isNew={item.isNew}
+          />
         ))}
     </div>
   );
