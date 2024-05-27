@@ -16,7 +16,7 @@ export default function BSMenu() {
     {
       title: '검색하기',
       src: SearchIcon,
-      path: '/gameSearch',
+      path: '/search',
       segment: 'gameSearch',
     },
     {
@@ -39,7 +39,7 @@ export default function BSMenu() {
     },
   ];
   return (
-    <ul className="flex  gap-[84px] shadow-2xl rounded-2xl py-[14px] fixed mx-2 mb-11 px-8 z-30 bottom-0">
+    <ul className="flex  justify-center gap-[84px] shadow-2xl rounded-2xl py-[14px] fixed mx-2 mb-11 px-8 z-30 bottom-0 bg-nutral-white-01">
       {menuList.map((item) => (
         <Link href={item.path}>
           <ul>

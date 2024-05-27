@@ -51,7 +51,7 @@ module.exports = {
       'headBegular-18': ['20px', { fontWeight: '400', lineHeight: 'auto' }],
       'headBold-18': ['18px', { fontWeight: '700', lineHeight: 'auto' }],
       'textBold-16': ['16px', { fontWeight: '700', lineHeight: 'auto' }],
-      'textRegular-16': ['20px', { fontWeight: '400', lineHeight: 'auto' }],
+      'textRegular-16': ['16px', { fontWeight: '400', lineHeight: 'auto' }],
       'textBold-14': ['14px', { fontWeight: '700', lineHeight: 'auto' }],
       'textRegular-14': ['14px', { fontWeight: '400', lineHeight: 'auto' }],
       'captionBold-12': ['12px', { fontWeight: '700', lineHeight: 'auto' }],

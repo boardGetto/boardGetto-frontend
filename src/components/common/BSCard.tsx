@@ -45,15 +45,15 @@ export default function BSCard({
           height={100}
         />
         <div className="flex flex-col justify-between">
-          <p className="mb-2 text-headBegular-18">{title}</p>
+          <p className="mb-2 text-textRegular-16">{title}</p>
           <div className="flex">
             {isNew && <BSBadge status="isAuth">새제품</BSBadge>}
             <span className="px-2 py-1 rounded-r text-nutral-black-01 text-textRegular-14 bg-caption-subBlue01 w-fit">
               {gameName}
             </span>
           </div>
-          <div className="flex justify-between gap-10 mt-3">
-            <span className="text-headBold-20">{price}&nbsp;원</span>
+          <div className="flex justify-between mt-3">
+            <span className="text-headBold-18">{price}&nbsp;원</span>
             <div className="flex items-center">
               <Image
                 src={PersonIcon}

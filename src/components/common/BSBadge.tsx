@@ -17,11 +17,11 @@ export default function BSBadge({
 }: BSBadgeProps) {
   if (status === 'isAuth') {
     statusBadgeCss =
-      'text-textBold-14 text-caption-subBlue02  bg-caption-subBlue01';
+      'text-textRegular-14 text-caption-subBlue02  bg-caption-subBlue01';
   } else if (status === 'noAuth') {
     statusBadgeCss = 'text-caption-error02 bg-caption-error01 ';
   } else {
-    statusBadgeCss = 'text-nutral-gray-03 bg-nutral-white-03';
+    statusBadgeCss = 'text-nutral-gray-03 bg-nutral-white-02';
   }
   return (
     <div className={` ${defaultBadgeCss} ${statusBadgeCss}`}>

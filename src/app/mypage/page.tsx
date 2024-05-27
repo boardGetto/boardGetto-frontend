@@ -1,4 +1,5 @@
 import BSCard from '@/components/common/BSCard';
+import BSHeader from '@/components/common/BSHeader';
 import BSMenu from '@/components/common/BSMenu';
 import BSNav from '@/components/common/BSNav';
 import BSProfile from '@/components/common/BSProfile';
@@ -7,6 +8,7 @@ import Link from 'next/link';
 export default function Page() {
   return (
     <>
+      <BSHeader title="마이페이지" />
       <BSProfile name="하마" />
       <div className="flex flex-col gap-4 mt-16">
         <Link href="/mypage/profile">

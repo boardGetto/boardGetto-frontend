@@ -110,7 +110,12 @@ export default function Page() {
           <span className="duration-200 text-primary-getto500 textBold-14 hover:text-primary-getto200">
             게임 카테고리 설명보기
           </span>
-          <Image src={NextArrow} alt="checkbox black" width={22} height={22} />
+          <Image
+            src={NextArrow}
+            alt="checkbox black"
+            width={22}
+            height={22}
+          />
         </Link>
       </div>
 

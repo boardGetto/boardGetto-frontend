@@ -5,6 +5,7 @@ import BSButton from '@/components/common/BSButton';
 import ProfileSample from '../../../public/icons/myprofile.svg';
 import CameraIcon from '../../../public/icons/camera.svg';
 import MapPinIcon from '../../../public/icons/map-in.svg';
+import BSHeader from '@/components/common/BSHeader';
 
 export default function Page() {
   const gameList = [
@@ -27,6 +28,7 @@ export default function Page() {
   ];
   return (
     <div>
+      <BSHeader title="프로필 작성하기" rightText="건너뛰기" link="/mypage" />
       <div className="flex flex-col items-center justify-center mt-6 pb-[50px] border-b border-nutral-white-03 ">
         <Image
           src={ProfileSample}
