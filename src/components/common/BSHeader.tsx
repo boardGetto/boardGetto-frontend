@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import RightArrow from '../../../public/icons/right-arrow.svg';
+import HomeIcon from '../../../public/icons/home.svg';
+import BSIcon from './BSIcon';
 
 interface BSHeaderProps {
   title?: string;
@@ -12,6 +14,7 @@ interface BSHeaderProps {
   children?: ReactNode;
   link?: string;
   rightText?: string;
+  isHome?: boolean;
 }
 
 export default function BSHeader({
@@ -20,6 +23,7 @@ export default function BSHeader({
   children,
   link = '',
   rightText = '',
+  isHome = false,
 }: BSHeaderProps) {
   const router = useRouter();
 
@@ -48,9 +52,14 @@ export default function BSHeader({
       {rightText && (
         <Link
           href={link}
-          className="text-textRegular-14 text-nutral-gray-03 hover:text-primary-getto400"
+          className="duration-200 text-textRegular-14 text-nutral-gray-03 hover:text-primary-getto400"
         >
           {rightText}
+        </Link>
+      )}
+      {isHome && (
+        <Link href="/">
+          <BSIcon iconUrl={HomeIcon} alt="going home icon" />
         </Link>
       )}
     </div>

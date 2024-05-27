@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function Page() {
   return (
     <>
-      <BSHeader title="마이페이지" />
+      <BSHeader title="마이페이지" isHome />
       <BSProfile name="하마" />
       <div className="flex flex-col gap-4 mt-16">
         <Link href="/mypage/profile">

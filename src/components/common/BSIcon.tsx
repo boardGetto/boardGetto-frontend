@@ -20,7 +20,10 @@ export default function BSIcon({
   onClick,
 }: BSIconProps) {
   return (
-    <div style={{ color, margin }} className="cursor-pointer hover:opacity-45">
+    <div
+      style={{ color, margin }}
+      className="duration-200 cursor-pointer hover:opacity-45"
+    >
       <Image
         src={iconUrl}
         alt={alt}
