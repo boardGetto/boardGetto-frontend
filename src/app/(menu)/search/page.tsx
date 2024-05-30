@@ -29,7 +29,7 @@ export default function Page() {
     router.push('/categorySearch');
   };
 
-  const removeBtn = (id) => {
+  const removeBtn = (id: number) => {
     setRecommendList((prevList) => {
       const newList = [...prevList];
       const index = newList.findIndex((item) => item.id === id);
