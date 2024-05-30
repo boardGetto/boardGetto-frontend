@@ -35,7 +35,7 @@ export default function BSRadio({
   }
 
   return (
-    <div className={`inline-flex ${wrapCss} `}>
+    <div className={`inline-flex items-center wrapCss ${wrapCss} `}>
       <input
         className={`${defaultRadioCss} ${sizeCss}`}
         type="radio"
@@ -50,7 +50,7 @@ export default function BSRadio({
       {/* 브라우저에서 HTML 요소의 id 속성은 일반적으로 문자열로 사용, 따라서 id props를 string 타입으로 지정 */}
       <label
         htmlFor={id}
-        className={`ml-1 cursor-pointer  ${labelCss} ${checked ? 'text-nutral-black-02' : 'text-nutral-gray-02'}`}
+        className={`ml-2 cursor-pointer  ${labelCss} ${checked ? 'text-nutral-black-02' : 'text-nutral-gray-02'}`}
       >
         {children}
       </label>

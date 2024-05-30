@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import BSButton from '@/components/common/BSButton';
 import BSHeader from '@/components/common/BSHeader';
+import BSInput from '@/components/common/BSInput';
+import BSTextarea from '@/components/common/BSTextarea';
 import ProfileSample from '../../../public/icons/myprofile.svg';
 import CameraIcon from '../../../public/icons/camera.svg';
 import MapPinIcon from '../../../public/icons/map-in.svg';
@@ -46,7 +48,7 @@ export default function Page() {
           className="p-1 rounded-full bg-primary-getto50"
         />
 
-        <input placeholder="프로필명 입력" />
+        <BSInput placeholder="프로필 입력" value="" />
       </div>
 
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">나의 활동</h1>
@@ -57,10 +59,8 @@ export default function Page() {
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">
         프로필 소개
       </h1>
-      <textarea
-        placeholder="나의 프로필 소개를 입력해주세요."
-        className="border border-nutral-white-03"
-      />
+
+      <BSTextarea placeholder="나의 프로필 소개를 입력해주세요." value="" />
 
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">
         좋아하는 게임

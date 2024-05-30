@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import MyProfile from '../../../public/icons/myprofile.svg';
-import BSBadge from './BSBadge';
 
 interface BSMyProfile {
   image?: string;
@@ -17,8 +16,6 @@ export default function BSProfile({ image = '', name = '' }: BSMyProfile) {
       )}
 
       <p className="my-2 mt-4 text-textBold-16 text-nutral-black-02">{name}</p>
-
-      <BSBadge status="isAuth" label="본인인증완료" />
     </div>
   );
 }

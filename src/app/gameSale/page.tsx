@@ -8,6 +8,7 @@ import BSInput from '@/components/common/BSInput';
 import BSHeader from '@/components/common/BSHeader';
 import { useState } from 'react';
 import BSRadio from '@/components/common/BSRadio';
+import BSIcon from '@/components/common/BSIcon';
 import CameraIcon from '../../../public/icons/camera.svg';
 import GameImage1 from '../../../public/images/gameImage1.png';
 import GameImage2 from '../../../public/images/gameImage2.png';
@@ -15,13 +16,14 @@ import GameImage3 from '../../../public/images/gameImage3.png';
 import GameImage4 from '../../../public/images/gameImage4.png';
 import GuideIcon from '../../../public/icons/guide.svg';
 import MapPinIcon from '../../../public/icons/map-in.svg';
+import NextArrow from '../../../public/icons/next-arrow.svg';
 
 export default function Page() {
-  const [textareaValue, setTextareaValue] = useState('');
+  // const [textareaValue, setTextareaValue] = useState('');
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setTextareaValue(event.target.value);
-  };
+  // const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  //   setTextareaValue(event.target.value);
+  // };
 
   const gameCategory = [
     { id: 0, title: '공포' },
@@ -105,11 +107,19 @@ export default function Page() {
     console.log(value);
   };
 
+  const [gameStatus, setGameStatus] = useState('');
+
+  const handleGameStatus = (value: string) => {
+    setGameStatus(value);
+  };
+
   // const textCss = 'text-textRegular-14 text-nutral-black-02';
 
+  const gameStatusCss =
+    'flex items-center  px-6 py-4 rounded-lg bg-nutral-white-02';
   return (
     <div>
-      <BSHeader title="보드게임 등록하기" />
+      <BSHeader title="보드게임 등록하기" rightText="임시저장" />
       <div className="py-[30px] border-b border-nutral-white-03">
         {/* image add */}
         <div className="flex flex-col items-center gap-1 p-6 border h-100px w-fit rounded-xl border-primary-getto100">
@@ -127,24 +137,30 @@ export default function Page() {
       </div>
 
       <div className="flex justify-between">
-        <h1 className="py-6 text-nutral-black-01 text-textBold-16">상품명</h1>
+        <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+          상품명
+        </h1>
         <Image src={GuideIcon} alt="guide icon" width={24} height={24} />
       </div>
 
       <BSInput placeholder="상품명을 입력해주세요." value="" />
 
       {/* 게임소개 */}
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">게임 소개</h1>
-      <BSInput placeholder="게시글 제목" value="" />
+      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+        게임 소개
+      </h1>
 
-      <BSTextarea
-        placeholder="게임 판매 게시글 내용을 작성해주세요.
+      <div className="flex flex-col gap-2">
+        <BSInput placeholder="게시글 제목" value="" />
+
+        <BSTextarea
+          placeholder="게임 판매 게시글 내용을 작성해주세요.
 친절한 게임 설명은 판매에 도움이 됩니다."
-        value=""
-      />
-
+          value=""
+        />
+      </div>
       <div className="flex items-center justify-between">
-        <h1 className="py-6 text-nutral-black-01 text-textBold-16">
+        <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
           대표 카테고리
         </h1>
         <Link
@@ -155,16 +171,26 @@ export default function Page() {
         </Link>
       </div>
 
-      {/* 필요 인원 */}
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">필요 인원</h1>
+      <div className="flex flex-wrap gap-3">
+        {gameCategory.map((item) => (
+          <div className="px-4 py-2 border text-primary-getto500 border-primary-getto500 rounded-3xl ">
+            {item.title}
+          </div>
+        ))}
+      </div>
 
-      <div className="flex">
+      {/* 필요 인원 */}
+      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+        필요 인원
+      </h1>
+
+      <div className="flex gap-3">
         <BSInput placeholder="최소 인원" value="" />
         <BSInput placeholder="최대 인원" value="" />
       </div>
 
       {/* 게임 플레이 시간은 어떤가요? */}
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">
+      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
         게임 플레이 시간은 어떤가요?
       </h1>
       <div className="flex flex-col gap-4">
@@ -207,29 +233,59 @@ export default function Page() {
       </div>
 
       {/* 판매 가격 */}
-      <BSInput value="" />
-      <span>거래 협의 가능</span>
+      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+        판매 가격
+      </h1>
+      <BSInput placeholder="원하는 판매가격을 입력해주세요." value="" />
+      <span className="mt-2 text-textRegular-14 text-nutral-gray-03">
+        거래 협의 가능
+      </span>
 
       {/* 판매 가격 */}
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">
+      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
         제품 상태는 어떤가요?
       </h1>
       <BSInput value="" />
 
       {/* 판매 가격 */}
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">
+      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
         제품 상태는 어떤가요?
       </h1>
 
+      <div className="flex gap-4">
+        <div className={`grow-1 ${gameStatusCss}`}>
+          <BSRadio
+            id="new"
+            name="new"
+            value="new"
+            checked={gameStatus === 'new'}
+            onChange={handleGameStatus}
+          >
+            새제품
+          </BSRadio>
+        </div>
+        <div className={`grow-2 ${gameStatusCss}`}>
+          <BSRadio
+            id="noNew"
+            name="noNew"
+            value="noNew"
+            checked={gameStatus === 'noNew'}
+            onChange={handleGameStatus}
+          >
+            사용감 있음
+          </BSRadio>
+          <BSIcon className="ml-1" alt="game-status-icon" iconUrl={NextArrow} />
+        </div>
+      </div>
       {/* 판매자 정책에 대해 선택해주세요. */}
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">
+      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
         판매자 정책에 대해 선택해주세요.
       </h1>
       <BSInput value="" />
 
       {/* 거래 주소 */}
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">
-        판매자 정책에 대해 선택해주세요.
+      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+        거래 주소
       </h1>
 
       <BSButton isSrc={MapPinIcon} onClick={() => {}}>
@@ -237,18 +293,10 @@ export default function Page() {
       </BSButton>
 
       {/* 카카오톡 오픈 프로필 링크 */}
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">
+      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
         카카오톡 오픈 프로필 링크
       </h1>
       <BSInput placeholder="오픈카톡방 링크를 입력해주세요" value="" />
-
-      <div className="flex flex-wrap gap-3">
-        {gameCategory.map((item) => (
-          <div className="px-4 py-2 border text-primary-getto500 border-primary-getto500 rounded-3xl ">
-            {item.title}
-          </div>
-        ))}
-      </div>
 
       <div className="mt-4 overflow-y-scroll bg-nutral-white-02 rounded-lg  max-h-[456px] px-4 ">
         {/* result 같은 거 있음 */}
@@ -271,11 +319,6 @@ export default function Page() {
         ))}
       </div>
 
-      <BSTextarea
-        placeholder="게임 판매 게시글 내용을 작성해주세요. 친절한 게임 설명은 판매에 도움이 됩니다."
-        value={textareaValue} // 여기서 textareaValue는 실제로 사용하는 state나 변수입니다.
-        onChange={handleChange} // textarea의 내용이 변경될 때 호출되는 함수입니다.
-      />
       <BSButton onClick={() => {}}>등록 완료</BSButton>
     </div>
   );
