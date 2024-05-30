@@ -4,9 +4,10 @@ import React, { ReactNode } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import RightArrow from '../../../public/icons/right-arrow.svg';
+// import RightArrow from '../../../public/icons/right-arrow.svg';
 import HomeIcon from '../../../public/icons/home.svg';
 import BSIcon from './BSIcon';
+import BackBtn from '../../../public/icons/back-btn.svg';
 
 interface BSHeaderProps {
   title?: string;
@@ -35,14 +36,15 @@ export default function BSHeader({
     <div className="flex items-center justify-between gap-4 py-4">
       <div className="flex items-center">
         <Image
-          src={RightArrow}
+          src={BackBtn}
           alt="right-arrow"
           width={24}
           height={24}
           priority
-          className="mr-4 rotate-180 cursor-pointer"
+          className="mr-4 cursor-pointer"
           onClick={handleBackBtn}
         />
+        {/* <BSIcon iconUrl={BackBtn} alt="header-icon" onClick={handleBackBtn} /> */}
         <p className="text-nutral-black-02 text-textBold-16">{title}</p>
 
         {/* 🖐️todo : 안에다 넣어 사용할 순 없을까? 그럼 searchImg, value 이 외 데이터는? */}

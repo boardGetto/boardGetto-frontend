@@ -1,10 +1,7 @@
 import BSButton from '@/components/common/BSButton';
 import BSChip from '@/components/common/BSChip';
-import { useState } from 'react';
 
 export default function InterestGameList() {
-  const [currentTab, setCurrentTab] = useState();
-
   const statusList = [
     { id: 0, title: '판매중', status: 0 },
     { id: 1, title: '판매완료', status: 1 },

@@ -38,28 +38,21 @@ export default function BSMenu() {
       segment: 'mainLogin',
     },
   ];
+
   return (
-    <ul className="flex  justify-center gap-[84px] shadow-2xl rounded-2xl py-[14px] fixed mx-2 mb-11 px-8 z-30 bottom-0 bg-nutral-white-01">
+    <ul className="flex justify-center gap-[84px] shadow-2xl rounded-2xl py-[14px] fixed mx-2 mb-11 px-8 z-30 bottom-0 bg-nutral-white-01">
       {menuList.map((item) => (
-        <Link href={item.path}>
-          <ul>
-            <li
-              key={item.title}
-              className={`${defaultMenuCss} ${segment === item.segment ? 'text-primary-getto350' : ''}`}
-            >
-              <Image
-                src={item.src}
-                alt="menu"
-                priority
-                width={24}
-                height={24}
-              />
-              <span className="mt-2 text-nutral-gray-02 text-bodyRegular-14">
-                {item.title}
-              </span>
-            </li>
-          </ul>
-        </Link>
+        <li
+          key={item.title}
+          className={`${defaultMenuCss} ${segment === item.segment ? 'text-primary-getto350' : ''}`}
+        >
+          <Link href={item.path} key={item.path}>
+            <Image src={item.src} alt="menu" priority width={24} height={24} />
+            <span className="mt-2 text-nutral-gray-02 text-bodyRegular-14">
+              {item.title}
+            </span>
+          </Link>
+        </li>
       ))}
     </ul>
   );

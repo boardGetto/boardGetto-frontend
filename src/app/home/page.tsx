@@ -2,8 +2,6 @@ import BSBadge from '@/components/common/BSBadge';
 import Image from 'next/image';
 import BSHeader from '@/components/common/BSHeader';
 import Link from 'next/link';
-import ArrowIcon from '../../../public/icons/right-arrow.svg';
-import FilterIcon from '../../../public/icons/filter.svg';
 import GameImage1 from '../../../public/images/gameImage1.png';
 import GameImage2 from '../../../public/images/gameImage2.png';
 import GameImage3 from '../../../public/images/gameImage3.png';
@@ -15,12 +13,6 @@ import BannerIcon02 from '../../../public/icons/banner-02.svg';
 import NextArrow from '../../../public/icons/next-arrow.svg';
 
 export default function Page() {
-  const sameGames = [
-    { id: 0, title: '게임이름1' },
-    { id: 1, title: '게임이름2' },
-    { id: 2, title: '게임이름3' },
-  ];
-
   const gameList = [
     {
       id: 0,
@@ -110,12 +102,7 @@ export default function Page() {
           <span className="duration-200 text-primary-getto500 textBold-14 hover:text-primary-getto200">
             게임 카테고리 설명보기
           </span>
-          <Image
-            src={NextArrow}
-            alt="checkbox black"
-            width={22}
-            height={22}
-          />
+          <Image src={NextArrow} alt="checkbox black" width={22} height={22} />
         </Link>
       </div>
 

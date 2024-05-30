@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 import BSButton from '@/components/common/BSButton';
+import BSHeader from '@/components/common/BSHeader';
 import ProfileSample from '../../../public/icons/myprofile.svg';
 import CameraIcon from '../../../public/icons/camera.svg';
 import MapPinIcon from '../../../public/icons/map-in.svg';
-import BSHeader from '@/components/common/BSHeader';
 
 export default function Page() {
   const gameList = [

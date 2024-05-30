@@ -68,61 +68,6 @@ const mySalseGameList = [
   },
 ];
 
-const myInterestList = [
-  {
-    id: 0,
-    title: '게임이름1',
-    img: GameImage1,
-    new: 'true',
-    price: '150000',
-    people: '3~5',
-    like: true,
-    account: 1,
-    address: '강남구 압구정동',
-    time: '3시간 전',
-    tag: ['전략', '테마', '전쟁'],
-  },
-  {
-    id: 1,
-    title: '게임이름2',
-    img: GameImage2,
-    new: 'true',
-    price: '150000',
-    people: '1~2',
-    like: true,
-    account: 14,
-    address: '강남구 압구정동',
-    time: '3시간 전',
-    tag: ['전략', '테마', '전쟁'],
-  },
-  {
-    id: 2,
-    title: '게임이름1',
-    img: GameImage3,
-    new: 'true',
-    price: '150000',
-    people: '3~5',
-    like: true,
-    account: 22,
-    address: '강남구 압구정동',
-    time: '3시간 전',
-    tag: ['전략', '테마', '전쟁'],
-  },
-  {
-    id: 3,
-    title: '게임이름1',
-    img: GameImage4,
-    new: 'true',
-    price: '150000',
-    people: '3~5',
-    like: true,
-    account: 22,
-    address: '강남구 압구정동',
-    time: '3시간 전',
-    tag: ['전략', '테마', '전쟁'],
-  },
-];
-
 const gameList = [
   {
     id: 0,

@@ -1,16 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import BSButton from '@/components/common/BSButton';
-import { useRouter } from 'next/navigation';
 import BSHeader from '@/components/common/BSHeader';
 import Link from 'next/link';
 import BSChip from '@/components/common/BSChip';
 
 export default function Page() {
-  const router = useRouter();
-
-  const [recommendList, setRecommendList] = useState([
+  const [recommendList] = [
     { id: 0, title: '방탈출' },
     { id: 1, title: '할로윈' },
     { id: 2, title: '파티' },
@@ -19,7 +15,7 @@ export default function Page() {
     { id: 5, title: '전략게임' },
     { id: 6, title: '방탈출게임' },
     { id: 7, title: '파티게임' },
-  ]);
+  ];
 
   const gameLevel = [
     { id: 0, level: '최상' },
@@ -55,7 +51,7 @@ export default function Page() {
 
         <div className="flex flex-wrap gap-3">
           {recommendList.map((item) => (
-            <BSChip>{item.title}</BSChip>
+            <BSChip key={item.id}>{item.title}</BSChip>
           ))}
         </div>
       </div>

@@ -5,6 +5,7 @@ import BSButton from '@/components/common/BSButton';
 import BSTextarea from '@/components/common/BSTextarea';
 import Link from 'next/link';
 import BSInput from '@/components/common/BSInput';
+import BSHeader from '@/components/common/BSHeader';
 import CameraIcon from '../../../public/icons/camera.svg';
 import GameImage1 from '../../../public/images/gameImage1.png';
 import GameImage2 from '../../../public/images/gameImage2.png';
@@ -92,6 +93,7 @@ export default function Page() {
 
   return (
     <div>
+      <BSHeader title="보드게임 등록하기" />
       <div className="py-[30px] border-b border-nutral-white-03">
         {/* image add */}
         <div className="flex flex-col items-center gap-1 p-6 border h-100px w-fit rounded-xl border-primary-getto100">
@@ -122,6 +124,7 @@ export default function Page() {
       <BSTextarea
         placeholder="게임 판매 게시글 내용을 작성해주세요.
 친절한 게임 설명은 판매에 도움이 됩니다."
+        value=""
       />
 
       <div className="flex items-center justify-between">

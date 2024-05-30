@@ -1,4 +1,4 @@
-import Header from '@/components/Header';
+import BSHeader from '@/components/common/BSHeader';
 import { ReactNode } from 'react';
 
 interface LayoutProps {
@@ -8,7 +8,7 @@ interface LayoutProps {
 export default function ProfileLayout({ children }: LayoutProps) {
   return (
     <div>
-      <Header title="수정하기" />
+      <BSHeader title="수정하기" />
       {children}
     </div>
   );

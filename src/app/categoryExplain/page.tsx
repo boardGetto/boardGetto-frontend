@@ -14,52 +14,6 @@ interface GameCategory {
   clicked: boolean;
 }
 
-export default function Page() {
-  const [gameCategory, setGameCategory] =
-    useState<GameCategory[]>(GAME_CATEGORY);
-
-  const handleToggleClick = (id: number) => {
-    setGameCategory((prevCategories) =>
-      prevCategories.map((category) =>
-        category.id === id
-          ? { ...category, isShow: !category.isShow, clicked: true }
-          : // 이전 상태를 유지하면서 새로운 상태값을 만들어야함
-            { ...category, clicked: false }
-      )
-    );
-  };
-
-  return (
-    <div className="flex flex-col gap-[14px]">
-      <BSHeader title="대표 카테고리 설명" />
-      {gameCategory.map((item) => (
-        <div
-          key={item.id}
-          className={`flex flex-col gap-4 border rounded-xl  shadow px-4 pt-8 pb-10 ${item.clicked ? 'border-primary-getto500 duration-700' : 'border-nutral-white-02 duration-700'}`}
-        >
-          <div className="flex justify-between">
-            <p
-              className={`text-nutral-black-01 text-textBold-16 ${item.clicked ? 'text-primary-getto500' : ''}`}
-            >
-              {item.title}
-            </p>
-            <BSIcon
-              iconUrl={ArrowIcon}
-              className={`mr-4 ${item.isShow ? '-rotate-90 duration-300' : 'rotate-90 duration-300'}`}
-              color={item.clicked ? '#FB4846' : ''}
-              onClick={() => handleToggleClick(item.id)}
-              alt="arrow-icon"
-            />
-          </div>
-          <p className="text-nutral-black-01 text-bodyRegular-15">{item.sum}</p>
-
-          {item.isShow && <p>{item.content}</p>}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 const GAME_CATEGORY: GameCategory[] = [
   {
     id: 0,
@@ -125,3 +79,49 @@ const GAME_CATEGORY: GameCategory[] = [
     clicked: false,
   },
 ];
+
+export default function Page() {
+  const [gameCategory, setGameCategory] =
+    useState<GameCategory[]>(GAME_CATEGORY);
+
+  const handleToggleClick = (id: number) => {
+    setGameCategory((prevCategories) =>
+      prevCategories.map((category) =>
+        category.id === id
+          ? { ...category, isShow: !category.isShow, clicked: true }
+          : // 이전 상태를 유지하면서 새로운 상태값을 만들어야함
+            { ...category, clicked: false }
+      )
+    );
+  };
+
+  return (
+    <div className="flex flex-col gap-[14px]">
+      <BSHeader title="대표 카테고리 설명" />
+      {gameCategory.map((item) => (
+        <div
+          key={item.id}
+          className={`flex flex-col gap-4 border rounded-xl  shadow px-4 pt-8 pb-10 ${item.clicked ? 'border-primary-getto500 duration-700' : 'border-nutral-white-02 duration-700'}`}
+        >
+          <div className="flex justify-between">
+            <p
+              className={`text-nutral-black-01 text-textBold-16 ${item.clicked ? 'text-primary-getto500' : ''}`}
+            >
+              {item.title}
+            </p>
+            <BSIcon
+              iconUrl={ArrowIcon}
+              className={`mr-4 ${item.isShow ? '-rotate-90 duration-300' : 'rotate-90 duration-300'}`}
+              color={item.clicked ? '#FB4846' : ''}
+              onClick={() => handleToggleClick(item.id)}
+              alt="arrow-icon"
+            />
+          </div>
+          <p className="text-nutral-black-01 text-bodyRegular-15">{item.sum}</p>
+
+          {item.isShow && <p>{item.content}</p>}
+        </div>
+      ))}
+    </div>
+  );
+}

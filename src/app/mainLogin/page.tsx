@@ -62,6 +62,7 @@ export default function Page() {
             width={100}
             height={100}
             priority
+            data-aos="fade-left"
           />
           <h1
             className="text-headBold-18 text-primary-getto350 "
