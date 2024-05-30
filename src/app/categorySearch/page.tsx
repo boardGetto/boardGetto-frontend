@@ -6,7 +6,7 @@ import Link from 'next/link';
 import BSChip from '@/components/common/BSChip';
 
 export default function Page() {
-  const [recommendList] = [
+  const recommendList = [
     { id: 0, title: '방탈출' },
     { id: 1, title: '할로윈' },
     { id: 2, title: '파티' },
