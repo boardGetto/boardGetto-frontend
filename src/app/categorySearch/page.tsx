@@ -4,6 +4,8 @@ import BSButton from '@/components/common/BSButton';
 import BSHeader from '@/components/common/BSHeader';
 import Link from 'next/link';
 import BSChip from '@/components/common/BSChip';
+import { useState } from 'react';
+import BSRadio from '@/components/common/BSRadio';
 
 export default function Page() {
   const recommendList = [
@@ -30,6 +32,35 @@ export default function Page() {
 
   const handleSearchClick = () => {
     // todo
+  };
+
+  const [playTime1, setPlayTime1] = useState('');
+  const [playTime2, setPlayTime2] = useState('');
+  const [playTime3, setPlayTime3] = useState('');
+  const [playTime4, setPlayTime4] = useState('');
+
+  const handlePlayTime1 = (value: string) => {
+    setPlayTime1(value);
+
+    console.log(value);
+  };
+
+  const handlePlayTime2 = (value: string) => {
+    setPlayTime2(value);
+
+    console.log(value);
+  };
+
+  const handlePlayTime3 = (value: string) => {
+    setPlayTime3(value);
+
+    console.log(value);
+  };
+
+  const handlePlayTime4 = (value: string) => {
+    setPlayTime4(value);
+
+    console.log(value);
   };
 
   return (
@@ -68,10 +99,6 @@ export default function Page() {
       {/* 3. 필요 인원 */}
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">필요 인원</h1>
 
-      {/* 4. 게임 플레이 시간은 어떤가요? */}
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">
-        게임 플레이 시간은 어떤가요?
-      </h1>
       <div className="flex">
         {/* 🖐️ todo : 이런 경우는 className을 컴포넌트 안에 넣어야하나, 그렇게 되면 스타일링 지정한 것들이 효율적이지 못하게 되는 거아닌가 태그가 많은 건 안좋다 방안필요 */}
         <div className="grow-[1]">
@@ -84,6 +111,49 @@ export default function Page() {
         </div>
       </div>
 
+      {/* 4. 게임 플레이 시간은 어떤가요? */}
+      <h1 className="py-6 text-nutral-black-01 text-textBold-16">
+        게임 플레이 시간은 어떤가요?
+      </h1>
+
+      <div className="flex flex-col gap-4">
+        <BSRadio
+          id="15minutes"
+          name="15minutes"
+          value="15minutes"
+          checked={playTime1 === '15minutes'}
+          onChange={handlePlayTime1}
+        >
+          15분 이하
+        </BSRadio>
+        <BSRadio
+          id="until30minutes"
+          name="until30minutes"
+          value="until30minutes"
+          checked={playTime2 === 'until30minutes'}
+          onChange={handlePlayTime2}
+        >
+          15 ~ 30분
+        </BSRadio>
+        <BSRadio
+          id="untilHours"
+          name="untilHours"
+          value="untilHours"
+          checked={playTime3 === 'untilHours'}
+          onChange={handlePlayTime3}
+        >
+          30 ~ 1시간
+        </BSRadio>
+        <BSRadio
+          id="moreHours"
+          name="moreHours"
+          value="moreHours"
+          checked={playTime4 === 'moreHours'}
+          onChange={handlePlayTime4}
+        >
+          1시간 이상
+        </BSRadio>
+      </div>
       {/* 5. 가격 */}
       <div className="flex items-center">
         <h1 className="py-6 text-nutral-black-01 text-textBold-16">가격</h1>

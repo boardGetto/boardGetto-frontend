@@ -5,6 +5,7 @@ import BSButton from '@/components/common/BSButton';
 import BSChip from '@/components/common/BSChip';
 import BSHelpBox from '@/components/common/BSHelpBox';
 import BSInput from '@/components/common/BSInput';
+import BSRadio from '@/components/common/BSRadio';
 import BSTextarea from '@/components/common/BSTextarea';
 import { useState } from 'react';
 
@@ -29,6 +30,22 @@ export default function Page() {
   ];
 
   const [currentTab, setCurrentTab] = useState('0');
+
+  const [testRadio1, setTestRadio1] = useState('');
+  const [testRadio2, setTestRadio2] = useState('');
+  const [testRadio3, setTestRadio3] = useState('');
+
+  const handleGetto1Radio = (value: string) => {
+    setTestRadio1(value);
+  };
+
+  const handleGetto2Radio = (value: string) => {
+    setTestRadio2(value);
+  };
+
+  const handleGetto3Radio = (value: string) => {
+    setTestRadio3(value);
+  };
 
   return (
     <div className="flex flex-col gap-8">
@@ -92,6 +109,88 @@ export default function Page() {
         <BSHelpBox position="bottom" content="test">
           test
         </BSHelpBox>
+      </section>
+
+      {/* radio */}
+      <section className="flex flex-col gap-3">
+        <h1 className="my-1">Radio</h1>
+        <div className="flex flex-col gap-8">
+          {/* radio */}
+          <section className="flex flex-col gap-3">
+            <h1 className="my-md">Radio</h1>
+
+            {/* raido1 */}
+            <section className="flex gap-4">
+              <BSRadio
+                id="getto1"
+                name="getto1"
+                value="getto1"
+                checked={testRadio1 === 'getto1'}
+                onChange={handleGetto1Radio}
+              >
+                라디오 테스트 sm
+              </BSRadio>
+
+              <BSRadio
+                id="salrong1"
+                name="salrong1"
+                value="salrong1"
+                checked={testRadio1 === 'salrong1'}
+                onChange={handleGetto1Radio}
+              >
+                라디오 테스트 sm
+              </BSRadio>
+            </section>
+
+            {/* radio2 */}
+            <section className="flex gap-4">
+              <BSRadio
+                id="getto2"
+                name="getto2"
+                value="getto2"
+                size="md"
+                checked={testRadio2 === 'getto2'}
+                onChange={handleGetto2Radio}
+              >
+                라디오 테스트 md
+              </BSRadio>
+
+              <BSRadio
+                id="salrong2"
+                name="salrong2"
+                value="salrong2"
+                size="md"
+                checked={testRadio2 === 'salrong2'}
+                onChange={handleGetto2Radio}
+              >
+                라디오 테스트 md
+              </BSRadio>
+            </section>
+
+            {/* radio3 */}
+            <section className="flex gap-4">
+              <BSRadio
+                id="getto3"
+                name="getto3"
+                value="getto3"
+                checked={testRadio3 === 'getto3'}
+                onChange={handleGetto3Radio}
+              >
+                라디오 테스트
+              </BSRadio>
+
+              <BSRadio
+                id="salrong3"
+                name="salrong3"
+                value="salrong3"
+                checked={testRadio3 === 'salrong3'}
+                onChange={handleGetto3Radio}
+              >
+                라디오 테스트
+              </BSRadio>
+            </section>
+          </section>
+        </div>
       </section>
     </div>
   );

@@ -6,6 +6,8 @@ import BSTextarea from '@/components/common/BSTextarea';
 import Link from 'next/link';
 import BSInput from '@/components/common/BSInput';
 import BSHeader from '@/components/common/BSHeader';
+import { useState } from 'react';
+import BSRadio from '@/components/common/BSRadio';
 import CameraIcon from '../../../public/icons/camera.svg';
 import GameImage1 from '../../../public/images/gameImage1.png';
 import GameImage2 from '../../../public/images/gameImage2.png';
@@ -15,6 +17,12 @@ import GuideIcon from '../../../public/icons/guide.svg';
 import MapPinIcon from '../../../public/icons/map-in.svg';
 
 export default function Page() {
+  const [textareaValue, setTextareaValue] = useState('');
+
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setTextareaValue(event.target.value);
+  };
+
   const gameCategory = [
     { id: 0, title: '공포' },
     { id: 1, title: '가족' },
@@ -89,6 +97,14 @@ export default function Page() {
     },
   ];
 
+  const [playTime, setPlayTime] = useState('');
+
+  const handlePlayTime = (value: string) => {
+    setPlayTime(value);
+
+    console.log(value);
+  };
+
   // const textCss = 'text-textRegular-14 text-nutral-black-02';
 
   return (
@@ -151,11 +167,46 @@ export default function Page() {
       <h1 className="py-6 text-nutral-black-01 text-textBold-16">
         게임 플레이 시간은 어떤가요?
       </h1>
+      <div className="flex flex-col gap-4">
+        <BSRadio
+          id="15minutes"
+          name="15minutes"
+          value="15minutes"
+          checked={playTime === '15minutes'}
+          onChange={handlePlayTime}
+        >
+          15분 이하
+        </BSRadio>
+        <BSRadio
+          id="until30minutes"
+          name="until30minutes"
+          value="until30minutes"
+          checked={playTime === 'until30minutes'}
+          onChange={handlePlayTime}
+        >
+          15 ~ 30분
+        </BSRadio>
+        <BSRadio
+          id="untilHours"
+          name="untilHours"
+          value="untilHours"
+          checked={playTime === 'untilHours'}
+          onChange={handlePlayTime}
+        >
+          30 ~ 1시간
+        </BSRadio>
+        <BSRadio
+          id="moreHours"
+          name="moreHours"
+          value="moreHours"
+          checked={playTime === 'moreHours'}
+          onChange={handlePlayTime}
+        >
+          1시간 이상
+        </BSRadio>
+      </div>
 
       {/* 판매 가격 */}
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">
-        게임 플레이 시간은 어떤가요?
-      </h1>
       <BSInput value="" />
       <span>거래 협의 가능</span>
 
@@ -221,8 +272,9 @@ export default function Page() {
       </div>
 
       <BSTextarea
-        placeholder="게임 판매 게시글 내용을 작성해주세요.
-친절한 게임 설명은 판매에 도움이 됩니다."
+        placeholder="게임 판매 게시글 내용을 작성해주세요. 친절한 게임 설명은 판매에 도움이 됩니다."
+        value={textareaValue} // 여기서 textareaValue는 실제로 사용하는 state나 변수입니다.
+        onChange={handleChange} // textarea의 내용이 변경될 때 호출되는 함수입니다.
       />
       <BSButton onClick={() => {}}>등록 완료</BSButton>
     </div>

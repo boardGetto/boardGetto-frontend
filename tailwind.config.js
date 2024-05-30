@@ -60,6 +60,10 @@ module.exports = {
       'bodyRegular-15': ['15px', { fontWeight: '400', lineHeight: 'auto' }],
       'bodyRegular-14': ['14px', { fontWeight: '400', lineHeight: 'auto' }],
     },
+    boxShadow: {
+      'getto-line-05': 'inset 0 0 0 5px #FB4846',
+      'getto-line-06': 'inset 0 0 0 6px #FB4846',
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
