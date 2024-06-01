@@ -1,6 +1,11 @@
+"use client"
+
 import BSBadge from '@/components/common/BSBadge';
 import Image from 'next/image';
-import ArrowIcon from '../../../../../public/icons/right-arrow.svg';
+import BSIcon from '@/components/common/BSIcon';
+import { useRouter } from 'next/navigation';
+import BSHeader from '@/components/common/BSHeader';
+import BSInput from '@/components/common/BSInput';
 import FilterIcon from '../../../../../public/icons/filter.svg';
 import GameImage1 from '../../../../../public/images/gameImage1.png';
 import GameImage2 from '../../../../../public/images/gameImage2.png';
@@ -10,8 +15,12 @@ import LikeIcon from '../../../../../public/icons/like-fill.svg';
 import PersonIcon from '../../../../../public/icons/person.svg';
 import CheckBoxFill from '../../../../../public/icons/checkbox-fill.svg';
 import CheckBoxBlank from '../../../../../public/icons/checkbox-blank.svg';
+import DownArrow from '../../../../../public/icons/down-arrow.svg';
 
 export default function Page() {
+
+  const router = useRouter();
+
   const sameGames = [
     { id: 0, title: '게임이름1' },
     { id: 1, title: '게임이름2' },
@@ -77,6 +86,11 @@ export default function Page() {
 
   return (
     <div className="flex flex-col">
+      {/* header */}
+      <BSHeader>
+        <BSInput placeholder="보드게임 검색하기" searchImg value="" />
+      </BSHeader>
+      {/* header end */}
       <div className="flex items-center py-[14px]">
         <h1 className="text-primary-getto500 text-textBold-14 mr-[14px]">
           연관검색
@@ -94,41 +108,21 @@ export default function Page() {
       <div className="flex justify-around py-6 border-t border-b border-nutral-white-03">
         <div className="flex items-center gap-[10px]">
           <p className={textCss}>최신순</p>
-          <Image
-            src={ArrowIcon}
-            alt="order arrow icon"
-            width={24}
-            height={24}
-            priority
-          />
+          <BSIcon iconUrl={DownArrow} alt='order arrow'/>
         </div>
 
         <div className="flex items-center gap-[10px]">
           <p className={textCss}>필터</p>
-          <Image
-            src={FilterIcon}
-            alt="filter icon"
-            width={24}
-            height={24}
-            priority
+          <BSIcon 
+            iconUrl={FilterIcon}
+            alt='filter icon'
+            onClick={()=>{router.push('/search/filter')}}
           />
         </div>
 
         <div className="flex items-center gap-[10px]">
-          <Image
-            src={CheckBoxFill}
-            alt="checkbox icon"
-            width={24}
-            height={24}
-            priority
-          />
-          <Image
-            src={CheckBoxBlank}
-            alt="checkbox icon"
-            width={24}
-            height={24}
-            priority
-          />
+          <BSIcon iconUrl={CheckBoxFill} alt='checkbox icon'/>
+          <BSIcon iconUrl={CheckBoxBlank} alt='checkbox icon'/>
           <p>새 제품만 보기</p>
         </div>
       </div>

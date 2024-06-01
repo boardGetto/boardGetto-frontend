@@ -4,10 +4,13 @@ import React, { ReactNode } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-// import RightArrow from '../../../public/icons/right-arrow.svg';
 import HomeIcon from '../../../public/icons/home.svg';
 import BSIcon from './BSIcon';
 import BackBtn from '../../../public/icons/back-btn.svg';
+import CloseIcon from '../../../public/icons/close-black.svg'; // to do 아이콘 색상 커스텀 
+ 
+
+
 
 interface BSHeaderProps {
   title?: string;
@@ -16,6 +19,7 @@ interface BSHeaderProps {
   link?: string;
   rightText?: string;
   isHome?: boolean;
+  isClose?: boolean;
 }
 
 export default function BSHeader({
@@ -25,6 +29,7 @@ export default function BSHeader({
   link = '',
   rightText = '',
   isHome = false,
+  isClose=false
 }: BSHeaderProps) {
   const router = useRouter();
 
@@ -64,6 +69,7 @@ export default function BSHeader({
           <BSIcon iconUrl={HomeIcon} alt="going home icon" />
         </Link>
       )}
+      {isClose && (<BSIcon onClick={handleBackBtn} iconUrl={CloseIcon} alt='close button icon'/>)}
     </div>
   );
 }
