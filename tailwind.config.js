@@ -35,6 +35,7 @@ module.exports = {
         black: {
           '01': '#302C2C',
           '02': '#1B1717',
+          '03': '#383838',
         },
       },
       caption: {
@@ -50,7 +51,7 @@ module.exports = {
       'headBegular-18': ['20px', { fontWeight: '400', lineHeight: 'auto' }],
       'headBold-18': ['18px', { fontWeight: '700', lineHeight: 'auto' }],
       'textBold-16': ['16px', { fontWeight: '700', lineHeight: 'auto' }],
-      'textRegular-16': ['20px', { fontWeight: '400', lineHeight: 'auto' }],
+      'textRegular-16': ['16px', { fontWeight: '400', lineHeight: 'auto' }],
       'textBold-14': ['14px', { fontWeight: '700', lineHeight: 'auto' }],
       'textRegular-14': ['14px', { fontWeight: '400', lineHeight: 'auto' }],
       'captionBold-12': ['12px', { fontWeight: '700', lineHeight: 'auto' }],
@@ -58,6 +59,10 @@ module.exports = {
       'bodyRegular-16': ['16px', { fontWeight: '400', lineHeight: 'auto' }],
       'bodyRegular-15': ['15px', { fontWeight: '400', lineHeight: 'auto' }],
       'bodyRegular-14': ['14px', { fontWeight: '400', lineHeight: 'auto' }],
+    },
+    boxShadow: {
+      'getto-line-05': 'inset 0 0 0 5px #FB4846',
+      'getto-line-06': 'inset 0 0 0 6px #FB4846',
     },
     extend: {
       backgroundImage: {

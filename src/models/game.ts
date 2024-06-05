@@ -1,39 +1,11 @@
-export interface Game {
-  comment: string;
-  contents: string;
-  id: string;
-  images: string[];
-  location: { directions: string; pointGeolocation: { x: number; y: number } };
-  mainImageUrl: string;
-  name: string;
+export interface GAME {
+  title: string;
+  new: boolean;
+  gameName: string;
   price: number;
-  starRating: number;
-  events?: {
-    name: string;
-    promoEndTime?: string;
-    tagThemeStyle: {
-      backgroundColor: string;
-      fontColor: string;
-    };
-  };
-  recommendHotels: string[];
-  forms: ReservationForm[];
+  people: string;
+  like: boolean;
+  likeCount: number;
+  address: string;
+  create_at: string;
 }
-
-interface BaseForm {
-  id: string;
-  label: string;
-  required: string;
-  helpMessage?: string;
-}
-
-interface TextFieldForm extends BaseForm {
-  type: 'TEXT_FIELD';
-}
-
-interface SelectFieldForm extends BaseForm {
-  type: 'SELECT';
-  options: Array<{ label: string; value: string }>;
-}
-
-export type ReservationForm = TextFieldForm | SelectFieldForm;

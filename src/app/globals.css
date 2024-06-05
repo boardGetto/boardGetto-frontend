@@ -11,3 +11,16 @@ html {
 button:hover {
   opacity: 0.9;
 }
+
+::-webkit-scrollbar {
+  @apply w-1;
+  @apply h-1;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-primary-getto100;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-nutral-white-01;
+}

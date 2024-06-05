@@ -1,39 +1,34 @@
+'use client';
+
 import Image from 'next/image';
-// import variables from '@/styles/variables.module.scss';
 import Link from 'next/link';
-import homeMain from '../../public/icons/home-main.svg';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
 import SearchIcon from '../../public/icons/search.svg';
-import BSTooltip from './common/BSTooltip';
+import homeMain from '../../public/images/main2.png';
+
+import BSButton from './common/BSButton';
 
 export default function Main() {
+  useEffect(() => {
+    Aos.init({ duration: 800 });
+  });
+
   return (
-    <div className="flex flex-col items-center mt-[130px]">
+    <div className="flex flex-col items-center mt-[130px] gap-4">
       <Image
         src={homeMain}
-        width={200}
-        height={200}
+        width={180}
+        height={180}
         alt="sample-image"
         priority
       />
-      <h1 className="bodyRegular-16 mt-2.5">보드게임 중고거래 플랫폼</h1>
-      {/* <h1 className={variables.title}>Sass 적용 테스트</h1> */}
-
-      <BSTooltip position="top" content="testtest">
-        tt
-      </BSTooltip>
-      <Link href="/home">
-        <div className="gap-2 mt-[55px] py-2.5 px-[50px] border border-nutral-white-03 rounded-lg flex items-center justify-center">
-          <Image
-            src={SearchIcon}
-            alt="SearchIcon"
-            width={24}
-            height={24}
-            priority
-          />
-          <span className="text-bodyRegular-14 text-nutral-gray-01">
-            어떤 게임을 해볼까요?
-          </span>
-        </div>
+      <Link href="/home" data-aos="zoom-out">
+        <BSButton isSrc={SearchIcon} onClick={() => {}}>
+          어떤 게임을 해볼까요?
+        </BSButton>
       </Link>
     </div>
   );

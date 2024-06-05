@@ -1,0 +1,175 @@
+"use client"
+
+import BSBadge from '@/components/common/BSBadge';
+import Image from 'next/image';
+import BSIcon from '@/components/common/BSIcon';
+import { useRouter } from 'next/navigation';
+import BSHeader from '@/components/common/BSHeader';
+import BSInput from '@/components/common/BSInput';
+import FilterIcon from '../../../../../public/icons/filter.svg';
+import GameImage1 from '../../../../../public/images/gameImage1.png';
+import GameImage2 from '../../../../../public/images/gameImage2.png';
+import GameImage3 from '../../../../../public/images/gameImage3.png';
+import GameImage4 from '../../../../../public/images/gameImage4.png';
+import LikeIcon from '../../../../../public/icons/like-fill.svg';
+import PersonIcon from '../../../../../public/icons/person.svg';
+import CheckBoxFill from '../../../../../public/icons/checkbox-fill.svg';
+import CheckBoxBlank from '../../../../../public/icons/checkbox-blank.svg';
+import DownArrow from '../../../../../public/icons/down-arrow.svg';
+
+export default function Page() {
+
+  const router = useRouter();
+
+  const sameGames = [
+    { id: 0, title: '게임이름1' },
+    { id: 1, title: '게임이름2' },
+    { id: 2, title: '게임이름3' },
+  ];
+
+  const gameList = [
+    {
+      id: 0,
+      title: '게임이름1',
+      img: GameImage1,
+      new: 'true',
+      price: '150000',
+      people: '3~5',
+      like: true,
+      account: 1,
+      address: '강남구 압구정동',
+      time: '3시간 전',
+      tag: ['전략', '테마', '전쟁'],
+    },
+    {
+      id: 1,
+      title: '게임이름2',
+      img: GameImage2,
+      new: 'true',
+      price: '150000',
+      people: '1~2',
+      like: true,
+      account: 14,
+      address: '강남구 압구정동',
+      time: '3시간 전',
+      tag: ['전략', '테마', '전쟁'],
+    },
+    {
+      id: 2,
+      title: '게임이름1',
+      img: GameImage3,
+      new: 'true',
+      price: '150000',
+      people: '3~5',
+      like: true,
+      account: 22,
+      address: '강남구 압구정동',
+      time: '3시간 전',
+      tag: ['전략', '테마', '전쟁'],
+    },
+    {
+      id: 3,
+      title: '게임이름1',
+      img: GameImage4,
+      new: 'true',
+      price: '150000',
+      people: '3~5',
+      like: true,
+      account: 22,
+      address: '강남구 압구정동',
+      time: '3시간 전',
+      tag: ['전략', '테마', '전쟁'],
+    },
+  ];
+
+  const textCss = 'text-textRegular-14 text-nutral-black-02';
+
+  return (
+    <div className="flex flex-col">
+      {/* header */}
+      <BSHeader>
+        <BSInput placeholder="보드게임 검색하기" searchImg value="" />
+      </BSHeader>
+      {/* header end */}
+      <div className="flex items-center py-[14px]">
+        <h1 className="text-primary-getto500 text-textBold-14 mr-[14px]">
+          연관검색
+        </h1>
+        <ul className="flex gap-2">
+          {sameGames.map((item) => (
+            <li key={item.id}>
+              <BSBadge status="normal">{item.title}</BSBadge>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* option start */}
+      <div className="flex justify-around py-6 border-t border-b border-nutral-white-03">
+        <div className="flex items-center gap-[10px]">
+          <p className={textCss}>최신순</p>
+          <BSIcon iconUrl={DownArrow} alt='order arrow'/>
+        </div>
+
+        <div className="flex items-center gap-[10px]">
+          <p className={textCss}>필터</p>
+          <BSIcon 
+            iconUrl={FilterIcon}
+            alt='filter icon'
+            onClick={()=>{router.push('/search/filter')}}
+          />
+        </div>
+
+        <div className="flex items-center gap-[10px]">
+          <BSIcon iconUrl={CheckBoxFill} alt='checkbox icon'/>
+          <BSIcon iconUrl={CheckBoxBlank} alt='checkbox icon'/>
+          <p>새 제품만 보기</p>
+        </div>
+      </div>
+      {/* option end */}
+
+      {/* gameList */}
+      {gameList.map((item) => (
+        <div className="py-3 pt-4 border-b border-nutral-white-03">
+          <div className="flex gap-4">
+            <Image src={GameImage1} alt="order arrow icon" priority />
+            <div className="flex flex-col justify-between">
+              <p>{item.title}</p>
+              {item.new && <BSBadge status="isAuth">새제품</BSBadge>}
+              <div className="flex justify-between mt-5">
+                <span>{item.price}&nbsp;원</span>
+                <div className="flex items-center">
+                  <Image
+                    src={PersonIcon}
+                    alt="person icon"
+                    width={20}
+                    height={20}
+                    priority
+                  />
+                  <span>{item.people}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center justify-between mt-2">
+            <div className="flex items-center gap-1 text-textRegular-14 text-nutral-black-02">
+              <Image
+                src={LikeIcon}
+                alt="order arrow icon"
+                width={16}
+                height={16}
+                priority
+              />
+              {item.account}
+            </div>
+
+            <p className="text-captionRegular-12 text-nutral-gray-02">
+              {item.address}
+              <span>{item.time}</span>
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}

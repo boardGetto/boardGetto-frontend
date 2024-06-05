@@ -13,12 +13,6 @@ export default function Profile() {
         <BSItemList title="판매 활동" content="20회" />
 
         <BSItemList title="활동지역" content="지역인증 안함" />
-
-        <p className="text-nutral-black-01 text-textBold-16">프로필 소개</p>
-        {/* <BSTextarea /> */}
-
-        <p className="text-nutral-black-01 text-textBold-16">좋아하는 게임</p>
-        {/* <BSChip /> */}
       </div>
     </div>
   );
