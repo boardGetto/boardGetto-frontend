@@ -7,9 +7,9 @@ interface LayoutProps {
 
 export default function ProfileLayout({ children }: LayoutProps) {
   return (
-    <div>
-      <BSHeader title="수정하기" />
+    <>
+      <BSHeader isBack rightText="수정하기" link="/mypage/profile/edit" />
       {children}
-    </div>
+    </>
   );
 }

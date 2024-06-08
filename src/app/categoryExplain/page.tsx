@@ -97,11 +97,11 @@ export default function Page() {
 
   return (
     <div className="flex flex-col gap-[14px]">
-      <BSHeader title="대표 카테고리 설명" />
+      <BSHeader title="대표 테마 설명" isBack />
       {gameCategory.map((item) => (
         <div
           key={item.id}
-          className={`flex flex-col gap-4 border rounded-xl  shadow px-4 pt-8 pb-10 ${item.clicked ? 'border-primary-getto500 duration-700' : 'border-nutral-white-02 duration-700'}`}
+          className={` flex flex-col gap-4 border rounded-xl  shadow px-4 pt-8 pb-10 ${item.clicked ? 'border-primary-getto100 duration-500' : 'border-nutral-white-02 duration-700'}`}
         >
           <div className="flex justify-between">
             <p

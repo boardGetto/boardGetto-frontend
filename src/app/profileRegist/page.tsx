@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <div>
       <BSHeader title="프로필 작성하기" rightText="건너뛰기" link="/mypage" />
-      <div className="flex flex-col items-center justify-center mt-6 pb-[50px] border-b border-nutral-white-03 ">
+      <div className="relative flex flex-col gap-4 items-center justify-center mt-6 pb-[50px] border-b border-nutral-white-03 ">
         <Image
           src={ProfileSample}
           alt="profile sample icon"
@@ -43,30 +43,31 @@ export default function Page() {
         <Image
           src={CameraIcon}
           alt="camera icon"
-          width={24}
-          height={24}
-          className="p-1 rounded-full bg-primary-getto50"
+          width={28}
+          height={28}
+          className="absolute p-1.5 mt-4 ml-16 rounded-full bg-primary-getto50"
         />
-
-        <BSInput placeholder="프로필 입력" value="" />
+        <BSInput placeholder="프로필명 입력" value="" />
       </div>
 
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">나의 활동</h1>
+      <h1 className="pt-6 pb-3 text-nutral-black-01 text-textBold-16">
+        나의 활동
+      </h1>
       <BSButton isSrc={MapPinIcon} onClick={() => {}}>
         활동 주소 입력하기
       </BSButton>
 
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">
+      <h1 className="pt-6 pb-3 text-nutral-black-01 text-textBold-16">
         프로필 소개
       </h1>
 
       <BSTextarea placeholder="나의 프로필 소개를 입력해주세요." value="" />
 
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">
+      <h1 className="pt-6 pb-3 text-nutral-black-01 text-textBold-16">
         좋아하는 게임
       </h1>
 
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-3 mb-20">
         {gameList.map((item) => (
           <div className="px-4 py-2 border text-primary-getto500 border-primary-getto500 rounded-3xl ">
             {item.title}
@@ -74,9 +75,11 @@ export default function Page() {
         ))}
       </div>
 
-      <BSButton mode="whiteText" onClick={() => {}}>
-        저장하기
-      </BSButton>
+      <div className="fixed bottom-0">
+        <BSButton mode="main" onClick={() => {}}>
+          저장하기
+        </BSButton>
+      </div>
     </div>
   );
 }

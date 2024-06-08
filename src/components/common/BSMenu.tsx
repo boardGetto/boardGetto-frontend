@@ -46,7 +46,11 @@ export default function BSMenu() {
           key={item.title}
           className={`${defaultMenuCss} ${segment === item.segment ? 'text-primary-getto350' : ''}`}
         >
-          <Link href={item.path} key={item.path}>
+          <Link
+            href={item.path}
+            key={item.path}
+            className="flex flex-col items-center justify-center"
+          >
             <Image src={item.src} alt="menu" priority width={24} height={24} />
             <span className="mt-2 text-nutral-gray-02 text-bodyRegular-14">
               {item.title}

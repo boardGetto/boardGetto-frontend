@@ -18,17 +18,21 @@ export default function Page() {
         </Link>
 
         <div className="flex justify-around border border-nutral-white-03 rounded-2xl py-6 px-[87px]">
-          <div className="flex flex-col items-center gap-[15px]">
-            <span className="text-headBold-18">
-              {saleCount}
-              {saleCount > 50 && <span>+</span>}
-            </span>
-            <BSBadge>판매게임</BSBadge>
-          </div>
-          <div className="flex flex-col items-center gap-[15px]">
-            <span className="text-headBold-18">{interestGame}</span>
-            <BSBadge>판매게임</BSBadge>
-          </div>
+          <Link href="/mypage/active">
+            <div className="flex flex-col items-center gap-[15px]">
+              <span className="text-headBold-18">
+                {saleCount}
+                {saleCount > 50 && <span>+</span>}
+              </span>
+              <BSBadge>판매게임</BSBadge>
+            </div>
+          </Link>
+          <Link href="/mypage/active">
+            <div className="flex flex-col items-center gap-[15px]">
+              <span className="text-headBold-18">{interestGame}</span>
+              <BSBadge>관심게임</BSBadge>
+            </div>
+          </Link>
         </div>
 
         <Link href="/mypage/active">

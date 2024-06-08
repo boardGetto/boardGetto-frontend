@@ -5,6 +5,7 @@ import BSBadge from '@/components/common/BSBadge';
 import BSButton from '@/components/common/BSButton';
 import GameImage1 from '../../../public/images/gameImage1.png';
 import LikeIcon from '../../../public/icons/like-blank.svg';
+import BSHeader from '@/components/common/BSHeader';
 
 export default function Page() {
   const gameList = {
@@ -31,6 +32,7 @@ export default function Page() {
 
   return (
     <div>
+      <BSHeader isBack />
       <div className="flex items-center">
         <Image
           src={gameList.img}

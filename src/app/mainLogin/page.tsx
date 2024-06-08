@@ -10,7 +10,6 @@ import BSHeader from '@/components/common/BSHeader';
 import kakaoIcon from '../../../public/icons/kakao.svg';
 import googleIcon from '../../../public/icons/google.svg';
 import naverIcon from '../../../public/images/naver.png';
-import githubIcon from '../../../public/icons/github.svg';
 import characterIcon from '../../../public/images/character.png';
 
 export default function Page() {
@@ -26,13 +25,6 @@ export default function Page() {
       text: '카카오톡 로그인',
       href: '/profileRegist',
       onClick: () => {},
-    },
-    {
-      id: 'github',
-      icon: githubIcon,
-      bgColor: '#313335',
-      text: 'GitHub 로그인',
-      onClick: () => signIn('github'),
     },
     {
       id: 'google',

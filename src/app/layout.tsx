@@ -150,9 +150,9 @@ export default function RootLayout({
               priority
             />
           </div>
-          <p className="my-4 text-center text-nutral-white-01">
+          {/* <p className="my-4 text-center text-nutral-white-01">
             보드살롱 문의 : thfdl0317@naver.com
-          </p>
+          </p> */}
         </section>
       </body>
     </html>

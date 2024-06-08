@@ -65,7 +65,7 @@ export default function Page() {
 
   return (
     <div className="flex flex-col">
-      <BSHeader title="카테고리 검색" />
+      <BSHeader title="테마 검색" isClose />
       {/* 1. 좋아하는 게임 */}
       <div>
         <div className="flex items-center justify-between">
