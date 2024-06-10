@@ -119,7 +119,7 @@ export default function Page() {
     'flex items-center  px-6 py-4 rounded-lg bg-nutral-white-02';
   return (
     <div>
-      <BSHeader title="보드게임 등록하기" rightText="임시저장" />
+      <BSHeader title="보드게임 등록하기" isBack rightText="임시저장" />
       <div className="py-[30px] border-b border-nutral-white-03">
         {/* image add */}
         <div className="flex flex-col items-center gap-1 p-6 border h-100px w-fit rounded-xl border-primary-getto100">

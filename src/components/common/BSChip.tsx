@@ -3,7 +3,7 @@
 import React, { ReactNode } from 'react';
 
 const defaultCss =
-  'duration-300 px-4 py-2 border text-primary-getto500 border-primary-getto500 rounded-3xl w-fit hover hover:bg-primary-getto50';
+  'duration-300 px-4 py-2 border bg-nutral-white-01 text-primary-getto500 border-primary-getto500 rounded-3xl w-fit hover hover:bg-primary-getto50';
 
 const isCheckCss = 'bg-primary-getto500 text-nutral-white-01';
 

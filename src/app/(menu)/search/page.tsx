@@ -6,6 +6,8 @@ import BSButton from '@/components/common/BSButton';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import CloseIcon from '../../../../public/icons/close.svg';
+import BSInput from '@/components/common/BSInput';
+import BSHeader from '@/components/common/BSHeader';
 
 export default function Page() {
   const router = useRouter();
@@ -42,6 +44,9 @@ export default function Page() {
 
   return (
     <div className="flex flex-col gap-8">
+      <BSHeader isBack>
+        <BSInput placeholder="보드게임 검색하기" searchImg value="" />
+      </BSHeader>
       <div>
         <h1 className="py-4 text-nutral-gray-02 textRegular-16">최근 검색어</h1>
         {recommendList.map((item) => (

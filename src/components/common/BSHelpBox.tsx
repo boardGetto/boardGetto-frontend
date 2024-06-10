@@ -1,22 +1,15 @@
-import { useState } from 'react';
 import BottomArrow from '../../../public/icons/toolTip/bottom-arrow.svg';
 import TopArrow from '../../../public/icons/toolTip/top-arrow.svg';
+import BSIcon from './BSIcon';
 
 const defaultTooltipCss =
-  'absolute flex justify-center items-center inline-block whitespace-nowrap px-4 py-2 text-nutral-white-01 bg-caption-subBlue02 rounded';
-const defaultPointCss =
-  'absolute hidden group-hover:inline-block border-[10px]';
-const positions = {
-  top: {
-    tooltip: 'left-28 -translate-x-1/2 bottom-[calc(100%+11px)]',
-    point:
-      'left-3 bottom-full border-l-transparent border-r-transparent border-b-0 border-t-secondary-main',
-  },
-  bottom: {
-    tooltip: 'left-1/5 -translate-x-1/2 top-[calc(100%+11px)]',
-    point: 'right-5 border-t-0 border-b-secondary-main',
-  },
-};
+  'absolute flex justify-center items-center whitespace-nowrap px-4 py-2 text-nutral-white-01 bg-caption-subBlue02 rounded';
+
+let positionCss = '';
+
+const defaultPointCss = 'absolute hidden border-[10px]';
+
+let pointCss = '';
 
 interface BSHelpBoxProps {
   position: 'bottom' | 'top';
@@ -29,36 +22,34 @@ export default function BSHelpBox({
   content = '',
   children,
 }: BSHelpBoxProps) {
-  const [isShow, setIsShow] = useState(false);
+  if (position === 'top') {
+    positionCss = 'left-28 -translate-x-1/2 bottom-[calc(100%+11px)]';
+  } else if (position === 'bottom') {
+    positionCss = 'left-1/5 -translate-x-1/2 top-[calc(100%+11px)]';
+  }
 
-  const handleClick = () => {
-    setIsShow((prev) => !prev);
-  };
-
-  const { tooltip, point } = positions[position];
+  if (position === 'top') {
+    pointCss = 'left-6 bottom-full';
+  } else if (position === 'bottom') {
+    pointCss = 'right-6';
+  }
 
   return (
     <div>
       <div className="relative group">
-        <button
-          type="button"
-          onClick={handleClick}
-          className="mx-2 cursor-pointer text-secondary-main"
-        >
-          {children}
-        </button>
-        {isShow && (
-          <div>
-            <p className={`${defaultTooltipCss} ${tooltip}`}>{content}</p>
-            <span className={`${defaultPointCss} ${point}`}>
-              {position === 'top' ? (
-                <TopArrow width={14} height={14} />
-              ) : (
-                <BottomArrow width={14} height={14} />
-              )}
+        <div className="text-secondary-main text-body-03 ">{children}</div>
+        <div>
+          <p className={`${defaultTooltipCss} ${positionCss}`}>{content}</p>
+          {position === 'top' ? (
+            <span className={`${defaultPointCss} ${pointCss}`}>
+              <BSIcon alt="game-status-icon" iconUrl={BottomArrow} />
             </span>
-          </div>
-        )}
+          ) : (
+            <span className={`${defaultPointCss} ${pointCss}`}>
+              <BSIcon alt="game-status-icon" iconUrl={TopArrow} />
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import BSBadge from '@/components/common/BSBadge';
 import BSButton from '@/components/common/BSButton';
+import BSHeader from '@/components/common/BSHeader';
 import GameImage1 from '../../../public/images/gameImage1.png';
 import LikeIcon from '../../../public/icons/like-blank.svg';
-import BSHeader from '@/components/common/BSHeader';
 
 export default function Page() {
   const gameList = {

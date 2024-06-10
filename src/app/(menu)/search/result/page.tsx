@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import BSBadge from '@/components/common/BSBadge';
 import Image from 'next/image';
@@ -18,7 +18,6 @@ import CheckBoxBlank from '../../../../../public/icons/checkbox-blank.svg';
 import DownArrow from '../../../../../public/icons/down-arrow.svg';
 
 export default function Page() {
-
   const router = useRouter();
 
   const sameGames = [
@@ -87,7 +86,7 @@ export default function Page() {
   return (
     <div className="flex flex-col">
       {/* header */}
-      <BSHeader>
+      <BSHeader isBack>
         <BSInput placeholder="보드게임 검색하기" searchImg value="" />
       </BSHeader>
       {/* header end */}
@@ -108,21 +107,23 @@ export default function Page() {
       <div className="flex justify-around py-6 border-t border-b border-nutral-white-03">
         <div className="flex items-center gap-[10px]">
           <p className={textCss}>최신순</p>
-          <BSIcon iconUrl={DownArrow} alt='order arrow'/>
+          <BSIcon iconUrl={DownArrow} alt="order arrow" />
         </div>
 
         <div className="flex items-center gap-[10px]">
           <p className={textCss}>필터</p>
-          <BSIcon 
+          <BSIcon
             iconUrl={FilterIcon}
-            alt='filter icon'
-            onClick={()=>{router.push('/search/filter')}}
+            alt="filter icon"
+            onClick={() => {
+              router.push('/search/filter');
+            }}
           />
         </div>
 
         <div className="flex items-center gap-[10px]">
-          <BSIcon iconUrl={CheckBoxFill} alt='checkbox icon'/>
-          <BSIcon iconUrl={CheckBoxBlank} alt='checkbox icon'/>
+          <BSIcon iconUrl={CheckBoxFill} alt="checkbox icon" />
+          <BSIcon iconUrl={CheckBoxBlank} alt="checkbox icon" />
           <p>새 제품만 보기</p>
         </div>
       </div>

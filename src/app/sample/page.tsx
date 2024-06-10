@@ -103,14 +103,6 @@ export default function Page() {
         <MyActiveTab value={currentTab} onChange={setCurrentTab} />
       </section>
 
-      {/* Tooltip */}
-      <section className="flex flex-col gap-3">
-        <h1 className="my-1">Tooltip</h1>
-        <BSHelpBox position="bottom" content="test">
-          test
-        </BSHelpBox>
-      </section>
-
       {/* radio */}
       <section className="flex flex-col gap-3">
         <h1 className="my-1">Radio</h1>
@@ -191,6 +183,14 @@ export default function Page() {
             </section>
           </section>
         </div>
+      </section>
+
+      {/* Tooltip */}
+      <section className="flex flex-col gap-3">
+        <h1 className="my-1">Tooltip</h1>
+        <BSHelpBox position="bottom" content="test">
+          test
+        </BSHelpBox>
       </section>
     </div>
   );
