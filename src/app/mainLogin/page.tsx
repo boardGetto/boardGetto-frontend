@@ -45,7 +45,7 @@ export default function Page() {
 
   return (
     <div className="">
-      <BSHeader title="로그인 하기" />
+      <BSHeader title="로그인 하기" isBack />
       <div className="flex flex-col gap-3 mt-[180px]">
         <div className="flex items-center justify-center gap-2">
           <Image

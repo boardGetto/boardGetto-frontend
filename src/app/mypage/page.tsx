@@ -10,7 +10,7 @@ export default function Page() {
   const interestGame = 8;
   return (
     <>
-      <BSHeader title="마이페이지" isHome />
+      <BSHeader title="마이페이지" isHome isBack />
       <BSProfile name="하마" />
       <div className="flex flex-col gap-4 mt-16">
         <Link href="/mypage/profile">

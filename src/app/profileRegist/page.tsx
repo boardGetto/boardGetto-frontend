@@ -30,7 +30,12 @@ export default function Page() {
   ];
   return (
     <div>
-      <BSHeader title="프로필 작성하기" rightText="건너뛰기" link="/mypage" />
+      <BSHeader
+        title="프로필 작성하기"
+        rightText="건너뛰기"
+        link="/mypage"
+        isBack
+      />
       <div className="relative flex flex-col gap-4 items-center justify-center mt-6 pb-[50px] border-b border-nutral-white-03 ">
         <Image
           src={ProfileSample}
@@ -75,11 +80,11 @@ export default function Page() {
         ))}
       </div>
 
-      <div className="fixed bottom-0">
+      {/* <div className="fixed bottom-0">
         <BSButton mode="main" onClick={() => {}}>
           저장하기
         </BSButton>
-      </div>
+      </div> */}
     </div>
   );
 }

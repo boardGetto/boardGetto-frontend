@@ -318,8 +318,9 @@ export default function Page() {
           </div>
         ))}
       </div>
-
-      <BSButton onClick={() => {}}>등록 완료</BSButton>
+      <div className="my-5">
+        <BSButton onClick={() => {}}>등록 완료</BSButton>
+      </div>
     </div>
   );
 }

@@ -14,7 +14,7 @@ import GameImage4 from '../../../../../public/images/gameImage4.png';
 import LikeIcon from '../../../../../public/icons/like-fill.svg';
 import PersonIcon from '../../../../../public/icons/person.svg';
 import CheckBoxFill from '../../../../../public/icons/checkbox-fill.svg';
-import CheckBoxBlank from '../../../../../public/icons/checkbox-blank.svg';
+// import CheckBoxBlank from '../../../../../public/icons/checkbox-blank.svg';
 import DownArrow from '../../../../../public/icons/down-arrow.svg';
 
 export default function Page() {
@@ -29,37 +29,37 @@ export default function Page() {
   const gameList = [
     {
       id: 0,
-      title: '게임이름1',
+      title: '할리갈리',
       img: GameImage1,
       new: 'true',
-      price: '150000',
-      people: '3~5',
+      price: '3000',
+      people: '2~5',
       like: true,
       account: 1,
-      address: '강남구 압구정동',
+      address: '관악구 신림동',
       time: '3시간 전',
       tag: ['전략', '테마', '전쟁'],
     },
     {
       id: 1,
-      title: '게임이름2',
+      title: '광기의 저택',
       img: GameImage2,
       new: 'true',
-      price: '150000',
-      people: '1~2',
+      price: '15000',
+      people: '3~4',
       like: true,
       account: 14,
-      address: '강남구 압구정동',
+      address: '동작구 상도동',
       time: '3시간 전',
       tag: ['전략', '테마', '전쟁'],
     },
     {
       id: 2,
-      title: '게임이름1',
+      title: '루미큐브',
       img: GameImage3,
       new: 'true',
-      price: '150000',
-      people: '3~5',
+      price: '10000',
+      people: '3~6',
       like: true,
       account: 22,
       address: '강남구 압구정동',
@@ -68,11 +68,11 @@ export default function Page() {
     },
     {
       id: 3,
-      title: '게임이름1',
+      title: '달무티',
       img: GameImage4,
       new: 'true',
-      price: '150000',
-      people: '3~5',
+      price: '8000',
+      people: '3~9',
       like: true,
       account: 22,
       address: '강남구 압구정동',
@@ -123,7 +123,7 @@ export default function Page() {
 
         <div className="flex items-center gap-[10px]">
           <BSIcon iconUrl={CheckBoxFill} alt="checkbox icon" />
-          <BSIcon iconUrl={CheckBoxBlank} alt="checkbox icon" />
+          {/* <BSIcon iconUrl={CheckBoxBlank} alt="checkbox icon" /> */}
           <p>새 제품만 보기</p>
         </div>
       </div>

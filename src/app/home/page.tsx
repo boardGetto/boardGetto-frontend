@@ -11,6 +11,7 @@ import PersonIcon from '../../../public/icons/person.svg';
 import BannerIcon01 from '../../../public/icons/banner-01.svg';
 import BannerIcon02 from '../../../public/icons/banner-02.svg';
 import NextArrow from '../../../public/icons/next-arrow.svg';
+import Character2 from '../../../public/images/character2.png';
 
 export default function Page() {
   const gameList = [
@@ -70,9 +71,9 @@ export default function Page() {
 
   return (
     <div className="flex flex-col">
-      <BSHeader />
-      <div className="flex flex-col justify-between my-2 bg-primary-getto50 h-[153px] px-5 py-[6px] rounded">
-        <div className="flex items-center gap-3">
+      <BSHeader isBack />
+      <div className="flex flex-col justify-between my-2 bg-primary-getto50 px-5 py-[6px] rounded">
+        <div className="flex items-center py-2.5 justify-evenly">
           <Image
             src={BannerIcon01}
             alt="checkbox black"
@@ -80,13 +81,9 @@ export default function Page() {
             height={50}
             className="mt-8"
           />
-          {/* <Image
-            src={BannerCard}
-            alt="checkbox black"
-            width={200}
-            height={200}
-          /> */}
-          <span>보드살롱보드살롱</span>
+
+          {/* Character2 */}
+          <Image src={Character2} alt="Character" width={90} height={90} />
           <Image
             src={BannerIcon02}
             alt="checkbox black"
