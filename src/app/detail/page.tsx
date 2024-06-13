@@ -4,10 +4,26 @@ import Image from 'next/image';
 import BSBadge from '@/components/common/BSBadge';
 import BSButton from '@/components/common/BSButton';
 import BSHeader from '@/components/common/BSHeader';
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { GameDetailType, fetchGameDetail } from '@/Service/gameService';
 import GameImage1 from '../../../public/images/gameImage1.png';
 import LikeIcon from '../../../public/icons/like-blank.svg';
 
 export default function Page() {
+  const { name } = useParams();
+  const [games, setGames] = useState<GameDetailType | null>(null);
+
+  useEffect(() => {
+    if (!name) {
+      return;
+    }
+    (async () => {
+      const detail = await fetchGameDetail(name);
+      setGames(detail);
+    })();
+  }, [name]);
+
   const gameList = {
     id: 0,
     profile: LikeIcon,
@@ -30,13 +46,17 @@ export default function Page() {
       '어쩌고 저쩌고 이래서 팔아요. 잘 하고 싶었는데 생각보다 손이 잘 안가네요. 어쩔 수 없지요. 저보다 더 잘 갖고 놀아주실 사람을 찾아요. 어쩌고 어쩌공 오오오오',
   };
 
+  if (!name || !games) {
+    return null;
+  }
+
   return (
     <div>
       <BSHeader isBack />
       <div className="flex items-center">
         <Image
-          src={gameList.img}
-          alt="camera icon"
+          src={games.images.dreamWorldFront}
+          alt={games.name}
           width={60}
           height={60}
           priority

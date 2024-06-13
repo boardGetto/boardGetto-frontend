@@ -4,17 +4,46 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
+import useInfiniteScroll from 'react-infinite-scroll-hook';
+import { GameListResponseType, fetchGame } from '../Service/gameService';
 import SearchIcon from '../../public/icons/search.svg';
 import homeMain from '../../public/images/main2.png';
-
 import BSButton from './common/BSButton';
+import BSCard from './common/BSCard';
 
 export default function Main() {
+  const [games, setGames] = useState<GameListResponseType>({
+    count: 0,
+    next: '',
+    results: [],
+  });
+
+  const [infiniteRef] = useInfiniteScroll({
+    loading: false,
+    hasNextPage: games.next !== '',
+    onLoadMore: async () => {
+      const moreGames = await fetchGame(games.next);
+      setGames({
+        ...moreGames,
+        results: [...games.results, ...moreGames.results],
+      });
+      console.log('more');
+    },
+
+    disabled: false,
+    rootMargin: '0px 0px 400px 0px',
+  });
+
   useEffect(() => {
     Aos.init({ duration: 800 });
-  });
+
+    (async () => {
+      const games = await fetchGame();
+      setGames(games);
+    })();
+  }, []);
 
   return (
     <div className="flex flex-col items-center mt-[130px] gap-4">
@@ -30,6 +59,15 @@ export default function Main() {
           어떤 게임을 해볼까요?
         </BSButton>
       </Link>
+
+      <div>
+        {games.results.map((games, index) => (
+          <div key={`${games.name}_${index}`}>
+            <BSCard gameName={games.name} />
+          </div>
+        ))}
+      </div>
+      <div ref={infiniteRef}>Loading</div>
     </div>
   );
 }

@@ -1,21 +1,27 @@
 import Image from 'next/image';
+// import { useNavigate } from 'react-dom';
+import { useRouter } from 'next/navigation';
+import { GameDetailType, fetchGameDetail } from '@/Service/gameService';
+import { useEffect, useState } from 'react';
 import LikeIcon from '../../../public/icons/like-fill.svg';
 import NoLikeIcon from '../../../public/icons/like-blank.svg';
 import PersonIcon from '../../../public/icons/person.svg';
 import BSBadge from './BSBadge';
 import BSIcon from './BSIcon';
+import BSImageSkeleton from './BSImageSkeleton';
+import { useIntersectionObserver } from 'react-intersection-observer-hook';
 
 interface BSCardProps {
-  img: string;
-  title: string;
-  gameName: string;
-  isNew: boolean;
-  price: number;
-  people: string;
-  like: boolean;
-  account: number;
-  address: string;
-  time: string;
+  img?: string;
+  title?: string;
+  gameName?: string;
+  isNew?: boolean;
+  price?: number;
+  people?: string;
+  like?: boolean;
+  account?: number;
+  address?: string;
+  time?: string;
 }
 
 export default function BSCard({
@@ -30,12 +36,46 @@ export default function BSCard({
   address,
   time,
 }: BSCardProps) {
+  const router = useRouter();
+  const [games, setGames] = useState<GameDetailType | null>(null);
+
+  const [ref, { entry }] = useIntersectionObserver();
+  const isVisible = entry && entry.isIntersecting;
+
+  const handleClick = () => {
+    router.push(`/detail/${gameName}`);
+  };
+
+  useEffect(() => {
+    if (!isVisible) {
+      return;
+    }
+
+    (async () => {
+      const detail = await fetchGameDetail(gameName);
+      setGames(detail);
+    })();
+  }, [gameName, isVisible]);
+
+  if (!games) {
+    return (
+      <div className="py-3 pt-4 border-b border-nutral-white-03" ref={ref}>
+        <BSImageSkeleton />;
+      </div>
+    );
+  }
+
   return (
-    <div className="py-3 pt-4 border-b border-nutral-white-03">
+    <button
+      type="button"
+      onClick={handleClick}
+      className="py-3 pt-4 border-b border-nutral-white-03"
+      ref={ref}
+    >
       <div className="flex gap-4">
         <Image
-          src={img}
-          alt={`${gameName} image`}
+          src={games.images.dreamWorldFront}
+          alt={`${games} image`}
           priority
           width={100}
           height={100}
@@ -76,6 +116,6 @@ export default function BSCard({
           {address} <span className="ml-1">{time}</span>
         </p>
       </div>
-    </div>
+    </button>
   );
 }
