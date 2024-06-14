@@ -6,7 +6,6 @@ import Provider from '@/util/Providers';
 import layoutTitle from '../../public/images/layout-title.png';
 import mainPhone from '../../public/images/main-phone.png';
 import eyes from '../../public/icons/eyes.svg';
-// import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const pretendard = GettoFont({
   src: './../../public/assets/fonts/PretendardVariable.woff2',

@@ -4,6 +4,7 @@ import BSHeader from '@/components/common/BSHeader';
 import { ReactNode, useEffect } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+
 interface LayoutProps {
   children: ReactNode;
 }

@@ -5,9 +5,9 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import HomeIcon from '../../../public/icons/home.svg';
-import BSIcon from './BSIcon';
 import BackBtn from '../../../public/icons/back-btn.svg';
 import CloseIcon from '../../../public/icons/close-black.svg'; // to do 아이콘 색상 커스텀
+import BSIcon from './BSIcon';
 
 interface BSHeaderProps {
   title?: string;

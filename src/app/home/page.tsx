@@ -12,6 +12,7 @@ import BannerIcon01 from '../../../public/icons/banner-01.svg';
 import BannerIcon02 from '../../../public/icons/banner-02.svg';
 import NextArrow from '../../../public/icons/next-arrow.svg';
 import Character2 from '../../../public/images/character2.png';
+import BSIcon from '@/components/common/BSIcon';
 
 export default function Page() {
   const gameList = [

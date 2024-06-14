@@ -1,7 +1,6 @@
-// export default function BSImageSkeleton() {
-//   return <div>ddddddd</div>;
-// }
+import BSIcon from './BSIcon';
+import Character2 from '../../../public/icons/banner-01.svg';
 
 export default function BSImageSkeleton() {
-  return <div>testddddd</div>;
+  return <BSIcon iconUrl={Character2} alt="Character icon" />;
 }

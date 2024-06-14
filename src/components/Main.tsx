@@ -46,11 +46,11 @@ export default function Main() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center mt-[130px] gap-4">
+    <div className="flex flex-col items-center gap-4 mt-14">
       <Image
         src={homeMain}
-        width={180}
-        height={180}
+        width={130}
+        height={130}
         alt="sample-image"
         priority
       />

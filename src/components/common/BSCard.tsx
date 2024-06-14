@@ -1,18 +1,17 @@
 import Image from 'next/image';
-// import { useNavigate } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import { GameDetailType, fetchGameDetail } from '@/Service/gameService';
 import { useEffect, useState } from 'react';
+import { useIntersectionObserver } from 'react-intersection-observer-hook';
+
 import LikeIcon from '../../../public/icons/like-fill.svg';
 import NoLikeIcon from '../../../public/icons/like-blank.svg';
 import PersonIcon from '../../../public/icons/person.svg';
 import BSBadge from './BSBadge';
 import BSIcon from './BSIcon';
 import BSImageSkeleton from './BSImageSkeleton';
-import { useIntersectionObserver } from 'react-intersection-observer-hook';
 
 interface BSCardProps {
-  img?: string;
   title?: string;
   gameName?: string;
   isNew?: boolean;
@@ -25,7 +24,6 @@ interface BSCardProps {
 }
 
 export default function BSCard({
-  img,
   title,
   gameName,
   isNew = false,
