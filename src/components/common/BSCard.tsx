@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { GameDetailType, fetchGameDetail } from '@/Service/gameService';
+import { useRouter } from 'next/navigation'; // useRouter가 올바른 import 방법입니다.
+// import { GameDetailType, fetchGameDetail } from '@/Service/gameService';
 import { useEffect, useState } from 'react';
-import { useIntersectionObserver } from 'react-intersection-observer-hook';
+// import { useIntersectionObserver } from 'react-intersection-observer-hook';
 
 import LikeIcon from '../../../public/icons/like-fill.svg';
 import NoLikeIcon from '../../../public/icons/like-blank.svg';
@@ -16,11 +16,13 @@ interface BSCardProps {
   gameName?: string;
   isNew?: boolean;
   price?: number;
-  people?: string;
+  minPlayerCount?: number;
+  maxPlayerCount?: number;
   like?: boolean;
   account?: number;
   address?: string;
   time?: string;
+  img?: string;
 }
 
 export default function BSCard({
@@ -28,52 +30,62 @@ export default function BSCard({
   gameName,
   isNew = false,
   price,
-  people,
+  minPlayerCount,
+  maxPlayerCount,
   like,
   account,
   address,
   time,
+  img,
 }: BSCardProps) {
   const router = useRouter();
-  const [games, setGames] = useState<GameDetailType | null>(null);
+  // const [games, setGames] = useState<GameDetailType | null>(null);
 
-  const [ref, { entry }] = useIntersectionObserver();
-  const isVisible = entry && entry.isIntersecting;
+  // const [ref, { entry }] = useIntersectionObserver();
+  // const isVisible = entry && entry.isIntersecting;
 
   const handleClick = () => {
-    router.push(`/detail/${gameName}`);
+    if (gameName) {
+      router.push(`/detail/${gameName}`);
+    }
   };
 
-  useEffect(() => {
-    if (!isVisible) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (!isVisible || !gameName) {
+  //     return;
+  //   }
 
-    (async () => {
-      const detail = await fetchGameDetail(gameName);
-      setGames(detail);
-    })();
-  }, [gameName, isVisible]);
+  //   const fetchGameData = async () => {
+  //     try {
+  //       const detail = await fetchGameDetail(gameName);
+  //       setGames(detail);
+  //     } catch (error) {
+  //       console.error('Error fetching game detail:', error);
+  //     }
+  //   };
 
-  if (!games) {
-    return (
-      <div className="py-3 pt-4 border-b border-nutral-white-03" ref={ref}>
-        <BSImageSkeleton />;
-      </div>
-    );
-  }
+  //   fetchGameData();
+  // }, [gameName, isVisible]);
+
+  // if (!games) {
+  //   return (
+  //     <div className="py-3 pt-4 border-b border-nutral-white-03" ref={ref}>
+  //       <BSImageSkeleton />
+  //     </div>
+  //   );
+  // }
 
   return (
     <button
       type="button"
       onClick={handleClick}
       className="py-3 pt-4 border-b border-nutral-white-03"
-      ref={ref}
+      // ref={ref}
     >
       <div className="flex gap-4">
         <Image
-          src={games.images.dreamWorldFront}
-          alt={`${games} image`}
+          img={img} // 예시에서 사용된 games.images는 실제 데이터에 맞게 수정해야 합니다.
+          alt={`${title} image`} // 올바른 alt 속성 사용
           priority
           width={100}
           height={100}
@@ -96,7 +108,10 @@ export default function BSCard({
                 height={20}
                 priority
               />
-              <span>{people}</span>
+              <div className="flex items-center ml-1">
+                <span>{minPlayerCount} -&nbsp;</span>
+                <span>{maxPlayerCount}</span>
+              </div>
             </div>
           </div>
         </div>
