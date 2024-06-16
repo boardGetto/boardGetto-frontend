@@ -35,7 +35,7 @@ interface FetchGamesResponse {
 const remote = axios.create();
 
 export const fetchGames = async (): Promise<FetchGamesResponse> => {
-  const defaultUrl = '/api/products?page=0&size=10'; // 프록시된 URL 사용
+  const defaultUrl = '/api/products?page=0&size=10';
   const response = await remote.get<FetchGamesResponse>(defaultUrl);
   return response.data;
 };
