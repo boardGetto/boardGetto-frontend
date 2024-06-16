@@ -9,6 +9,7 @@ import NoLikeIcon from '../../../public/icons/like-blank.svg';
 import PersonIcon from '../../../public/icons/person.svg';
 import BSBadge from './BSBadge';
 import BSIcon from './BSIcon';
+import SampleGameImage from '../../../public/images/gameImage5.png';
 import BSImageSkeleton from './BSImageSkeleton';
 
 interface BSCardProps {
@@ -83,13 +84,22 @@ export default function BSCard({
       // ref={ref}
     >
       <div className="flex gap-4">
-        <Image
-          img={img} // 예시에서 사용된 games.images는 실제 데이터에 맞게 수정해야 합니다.
-          alt={`${title} image`} // 올바른 alt 속성 사용
-          priority
-          width={100}
-          height={100}
-        />
+        {img ? (
+          <Image
+            src={SampleGameImage}
+            alt={`${title} image`}
+            priority
+            width={100}
+            height={100}
+          />
+        ) : (
+          <Image
+            src={SampleGameImage}
+            alt={`${title} image`}
+            width={100}
+            height={100}
+          />
+        )}
         <div className="flex flex-col justify-between">
           <p className="mb-2 text-textRegular-16">{title}</p>
           <div className="flex">
