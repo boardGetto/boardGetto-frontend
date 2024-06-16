@@ -34,8 +34,10 @@ interface FetchGamesResponse {
 
 const remote = axios.create();
 
-export const fetchGames = async (): Promise<FetchGamesResponse> => {
-  const defaultUrl = '/api/products?page=0&size=10';
-  const response = await remote.get<FetchGamesResponse>(defaultUrl);
+export const fetchGames = async (
+  page: number = 0
+): Promise<FetchGamesResponse> => {
+  const requestUrl = `/api/products?page=${page}&size=10`;
+  const response = await remote.get<FetchGamesResponse>(requestUrl);
   return response.data;
 };

@@ -5,7 +5,8 @@ import Link from 'next/link';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
-import { fetchGames } from '../Service/gameService';
+import useInfiniteScroll from 'react-infinite-scroll-hook';
+import { fetchGames } from '../service/gameService';
 import SearchIcon from '../../public/icons/search.svg';
 import homeMain from '../../public/images/main2.png';
 import BSButton from './common/BSButton';
@@ -23,16 +24,30 @@ interface Game {
 
 export default function Main() {
   const [games, setGames] = useState<Game[]>([]);
+  const [page, setPage] = useState(0);
+  const [hasNextPage, setHasNextPage] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  const loadMoreGames = async () => {
+    setLoading(true);
+    const result = await fetchGames(page);
+    setGames((prevGames) => [...prevGames, ...result.content]);
+    setHasNextPage(!result.last);
+    setPage((prevPage) => prevPage + 1);
+    setLoading(false);
+  };
+
+  const [infiniteRef] = useInfiniteScroll({
+    loading,
+    hasNextPage,
+    onLoadMore: loadMoreGames,
+    disabled: false,
+    rootMargin: '0px 0px 400px 0px',
+  });
 
   useEffect(() => {
     Aos.init({ duration: 800 });
-
-    const loadGames = async () => {
-      const result = await fetchGames();
-      setGames(result.content); // response의 content 배열을 state에 저장
-    };
-
-    loadGames();
+    loadMoreGames();
   }, []);
 
   return (
@@ -62,6 +77,7 @@ export default function Main() {
           />
         </div>
       ))}
+      <div ref={infiniteRef}>{loading && 'Loading...'}</div>
     </div>
   );
 }
