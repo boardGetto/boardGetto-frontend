@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation'; // useRouter가 올바른 import 방법입니다.
 // import { GameDetailType, fetchGameDetail } from '@/Service/gameService';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 // import { useIntersectionObserver } from 'react-intersection-observer-hook';
 
 import LikeIcon from '../../../public/icons/like-fill.svg';

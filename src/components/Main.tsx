@@ -65,8 +65,8 @@ export default function Main() {
         </BSButton>
       </Link>
 
-      {games.map((game, index) => (
-        <div key={`${game.id}-${index}`}>
+      {games.map((game) => (
+        <div key={`${game.id}-${game.title}`}>
           <BSCard
             title={game.title}
             gameName={game.boardGameTitle}
