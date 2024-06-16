@@ -6,7 +6,7 @@ import BSButton from '@/components/common/BSButton';
 import BSHeader from '@/components/common/BSHeader';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { GameDetailType, fetchGameDetail } from '@/Service/gameService';
+import { GameDetailType, fetchGameDetail } from '@/service/gameService';
 import GameImage1 from '../../../public/images/gameImage1.png';
 import LikeIcon from '../../../public/icons/like-blank.svg';
 

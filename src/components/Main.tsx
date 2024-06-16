@@ -5,48 +5,38 @@ import Link from 'next/link';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
-
-import useInfiniteScroll from 'react-infinite-scroll-hook';
-import { GameListResponseType, fetchGame } from '../Service/gameService';
+import { fetchGames } from '../Service/gameService';
 import SearchIcon from '../../public/icons/search.svg';
 import homeMain from '../../public/images/main2.png';
 import BSButton from './common/BSButton';
 import BSCard from './common/BSCard';
 
+interface Game {
+  id: number;
+  thumbnailUrl: string;
+  title: string;
+  boardGameTitle: string;
+  price: number;
+  minPlayerCount: number;
+  maxPlayerCount: number;
+}
+
 export default function Main() {
-  const [games, setGames] = useState<GameListResponseType>({
-    count: 0,
-    next: '',
-    results: [],
-  });
-
-  const [infiniteRef] = useInfiniteScroll({
-    loading: false,
-    hasNextPage: games.next !== '',
-    onLoadMore: async () => {
-      const moreGames = await fetchGame(games.next);
-      setGames({
-        ...moreGames,
-        results: [...games.results, ...moreGames.results],
-      });
-      console.log('more');
-    },
-
-    disabled: false,
-    rootMargin: '0px 0px 400px 0px',
-  });
+  const [games, setGames] = useState<Game[]>([]);
 
   useEffect(() => {
     Aos.init({ duration: 800 });
 
-    (async () => {
-      const games = await fetchGame();
-      setGames(games);
-    })();
+    const loadGames = async () => {
+      const result = await fetchGames();
+      setGames(result.content); // response의 content 배열을 state에 저장
+    };
+
+    loadGames();
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-4 mt-14">
+    <div className="flex flex-col items-center gap-4 mt-[140px]">
       <Image
         src={homeMain}
         width={130}
@@ -60,14 +50,18 @@ export default function Main() {
         </BSButton>
       </Link>
 
-      <div>
-        {games.results.map((games, index) => (
-          <div key={`${games.name}_${index}`}>
-            <BSCard gameName={games.name} />
-          </div>
-        ))}
-      </div>
-      <div ref={infiniteRef}>Loading</div>
+      {games.map((game) => (
+        <div key={game.id}>
+          <BSCard
+            title={game.title}
+            gameName={game.boardGameTitle}
+            img={game.thumbnailUrl}
+            price={game.price}
+            minPlayerCount={game.minPlayerCount}
+            maxPlayerCount={game.maxPlayerCount}
+          />
+        </div>
+      ))}
     </div>
   );
 }
