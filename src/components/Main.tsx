@@ -51,7 +51,7 @@ export default function Main() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-4 mt-[140px]">
+    <div className="flex flex-col items-center gap-4 mt-20">
       <Image
         src={homeMain}
         width={130}
@@ -65,8 +65,8 @@ export default function Main() {
         </BSButton>
       </Link>
 
-      {games.map((game) => (
-        <div key={game.id}>
+      {games.map((game, index) => (
+        <div key={`${game.id}-${index}`}>
           <BSCard
             title={game.title}
             gameName={game.boardGameTitle}
