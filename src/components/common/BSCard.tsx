@@ -10,7 +10,7 @@ import PersonIcon from '../../../public/icons/person.svg';
 import BSBadge from './BSBadge';
 import BSIcon from './BSIcon';
 import SampleGameImage from '../../../public/images/gameImage5.png';
-import BSImageSkeleton from './BSImageSkeleton';
+// import BSImageSkeleton from './BSImageSkeleton';
 
 interface BSCardProps {
   title?: string;
