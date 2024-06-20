@@ -1,13 +1,23 @@
+'use client';
+
 import BSBadge from '@/components/common/BSBadge';
 import BSHeader from '@/components/common/BSHeader';
 import BSMenu from '@/components/common/BSMenu';
 import BSNav from '@/components/common/BSNav';
 import BSProfile from '@/components/common/BSProfile';
 import Link from 'next/link';
+import React, { useState } from 'react';
 
 export default function Page() {
   const saleCount = 100;
   const interestGame = 8;
+  const [selected, setSelected] = useState('');
+
+  const onChangeHandler = (e) => {
+    setSelected(e.target.value);
+  };
+
+  console.log(selected);
   return (
     <>
       <BSHeader title="마이페이지" isHome isBack />
@@ -50,6 +60,29 @@ export default function Page() {
           <BSNav title="문의 및 피드백" />
         </Link>
       </div>
+
+      {/* test */}
+      <label>
+        <input
+          type="radio"
+          name="selected"
+          id="device"
+          value="test1"
+          onChange={onChangeHandler}
+        />
+        test1
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="selected"
+          id="device"
+          value="test2"
+          onChange={onChangeHandler}
+        />
+        test2
+      </label>
+      {/* test */}
 
       <BSMenu />
     </>

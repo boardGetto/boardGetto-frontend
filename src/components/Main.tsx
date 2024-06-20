@@ -54,19 +54,20 @@ export default function Main() {
 
   return (
     <div className="flex flex-col items-center gap-4 mt-20">
-      <Image
-        src={homeMain}
-        width={130}
-        height={130}
-        alt="sample-image"
-        priority
-      />
-      <Link href="/home" data-aos="zoom-out">
-        <BSButton isSrc={SearchIcon} onClick={() => {}}>
-          어떤 게임을 해볼까요?
-        </BSButton>
-      </Link>
-
+      <div className="flex flex-col items-center justify-center gap-4">
+        <Image
+          src={homeMain}
+          width={130}
+          height={130}
+          alt="sample-image"
+          priority
+        />
+        <Link href="/home" data-aos="zoom-out">
+          <BSButton isSrc={SearchIcon} onClick={() => {}}>
+            어떤 게임을 해볼까요?
+          </BSButton>
+        </Link>
+      </div>
       {games.map((game) => (
         <div key={`${game.id}-${game.title}`}>
           <BSCard
