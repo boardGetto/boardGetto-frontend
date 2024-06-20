@@ -6,7 +6,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
-import { css } from '@emotion/react';
+// import { css } from '@emotion/react';
 // import styled from '@emotion/styled';
 import { fetchGames } from '../service/gameService';
 import SearchIcon from '../../public/icons/search.svg';
@@ -88,7 +88,3 @@ export default function Main() {
 // const Container = styled.div`
 //   background-color: pink;
 // `;
-
-const bold = css`
-  font-weight: bold;
-`;

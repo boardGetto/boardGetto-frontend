@@ -62,7 +62,7 @@ export default function Page() {
       </div>
 
       {/* test */}
-      <label>
+      <label htmlFor="test1">
         <input
           type="radio"
           name="selected"
@@ -72,7 +72,7 @@ export default function Page() {
         />
         test1
       </label>
-      <label>
+      <label htmlFor="test2">
         <input
           type="radio"
           name="selected"
