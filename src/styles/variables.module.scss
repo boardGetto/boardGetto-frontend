@@ -11,3 +11,7 @@ $primary-color: #64ff00;
     background-color: red;
   }
 }
+
+.flexCenterCol {
+  @include justifyPosition(center, column);
+}

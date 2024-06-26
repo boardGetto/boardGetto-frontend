@@ -117,30 +117,27 @@ export default function Page() {
 
   const gameStatusCss =
     'flex items-center  px-6 py-4 rounded-lg bg-nutral-white-02';
+
+  const addImageCss =
+    'flex flex-col items-center gap-1 p-6 border h-100px w-fit rounded-xl border-primary-getto100';
   return (
     <div>
       <BSHeader title="보드게임 등록하기" isBack rightText="임시저장" />
       <div className="py-[30px] border-b border-nutral-white-03">
         {/* image add */}
-        <div className="flex flex-col items-center gap-1 p-6 border h-100px w-fit rounded-xl border-primary-getto100">
-          <Image
-            src={CameraIcon}
-            alt="camera icon"
-            width={24}
-            height={24}
-            priority
-          />
+        <div className={addImageCss}>
+          <BSIcon iconUrl={CameraIcon} alt="camera icon" />
           <span className="px-2 py-1 rounded-lg bg-primary-getto100 text-primary-getto250 text-textBold-14">
             0/10
           </span>
         </div>
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex items-center justify-between">
         <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
           상품명
         </h1>
-        <Image src={GuideIcon} alt="guide icon" width={24} height={24} />
+        <BSIcon iconUrl={GuideIcon} alt="guide icon" />
       </div>
 
       <BSInput placeholder="상품명을 입력해주세요." value="" />

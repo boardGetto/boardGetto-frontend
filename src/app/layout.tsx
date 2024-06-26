@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import GettoFont from 'next/font/local';
 import Image from 'next/image';
 import Provider from '@/util/Providers';
+import variables from '@/styles/variables.module.scss';
 import layoutTitle from '../../public/images/layout-title.png';
 import mainPhone from '../../public/images/main-phone.png';
 import eyes from '../../public/icons/eyes.svg';
@@ -122,7 +123,7 @@ export default function RootLayout({
           <Provider>{children}</Provider>
         </main>
         <section className="mt-[100px] flex flex-col  w-[580px] items-center gap-11">
-          <div className="flex flex-col items-center justify-center">
+          <div className={variables.flexCenterCol}>
             <div className="flex gap-1.5 items-center mb-2.5">
               <h1 className="text-nutral-white-01 text-textRegular-16">
                 보드게임 중고거래 플랫폼
@@ -149,9 +150,9 @@ export default function RootLayout({
               priority
             />
           </div>
-          {/* <p className="my-4 text-center text-nutral-white-01">
+          <p className="my-4 text-nutral-white-01">
             보드살롱 문의 : thfdl0317@naver.com
-          </p> */}
+          </p>
         </section>
       </body>
     </html>

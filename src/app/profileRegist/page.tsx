@@ -9,6 +9,9 @@ import ProfileSample from '../../../public/icons/myprofile.svg';
 import CameraIcon from '../../../public/icons/camera.svg';
 import MapPinIcon from '../../../public/icons/map-in.svg';
 
+const profileContainer =
+  'relative flex flex-col gap-4 items-center justify-center mt-6 pb-[50px] border-b border-nutral-white-03';
+
 export default function Page() {
   const gameList = [
     { id: 0, title: '공포' },
@@ -36,7 +39,7 @@ export default function Page() {
         link="/mypage"
         isBack
       />
-      <div className="relative flex flex-col gap-4 items-center justify-center mt-6 pb-[50px] border-b border-nutral-white-03 ">
+      <div className={profileContainer}>
         <Image
           src={ProfileSample}
           alt="profile sample icon"

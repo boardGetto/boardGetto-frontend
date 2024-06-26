@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import BSInput from '@/components/common/BSInput';
 import BSHeader from '@/components/common/BSHeader';
 import CloseIcon from '../../../../public/icons/close.svg';
+import BSIcon from '@/components/common/BSIcon';
 
 export default function Page() {
   const router = useRouter();
@@ -57,14 +58,11 @@ export default function Page() {
             <p className="py-3 text-textRegular-14 text-nutral-black-01">
               {item.title}
             </p>
-            <Image
-              src={CloseIcon}
+            <BSIcon
+              iconUrl={CloseIcon}
               alt="Close icon"
-              width={24}
-              height={24}
-              priority
-              onClick={() => removeBtn(item.id)}
               className="cursor-pointer"
+              onClick={() => removeBtn(item.id)}
             />
           </div>
         ))}

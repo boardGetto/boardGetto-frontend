@@ -11,11 +11,12 @@ import kakaoIcon from '../../../public/icons/kakao.svg';
 import googleIcon from '../../../public/icons/google.svg';
 import naverIcon from '../../../public/images/naver.png';
 import characterIcon from '../../../public/images/character.png';
+import BSIcon from '@/components/common/BSIcon';
 
 export default function Page() {
   useEffect(() => {
     Aos.init({ duration: 1000 });
-  });
+  }, []); // 빈 배열 추가하여 컴포넌트가 처음 렌더링될 때만 실행되도록 합니다.
 
   const loginMethods = [
     {
@@ -32,14 +33,14 @@ export default function Page() {
       bgColor: '#ffffff',
       text: 'Google 로그인',
       mode: 'outlineGray',
-      onClick: () => signIn('google'),
+      onClick: () => 'google',
     },
     {
       id: 'naver',
       icon: naverIcon,
       bgColor: '#2DB400',
       text: '네이버 로그인',
-      onClick: () => signIn('naver'),
+      onClick: () => 'naver',
     },
   ];
 
@@ -81,8 +82,8 @@ export default function Page() {
               key={method.id}
               isSrc={method.icon}
               bgColor={method.bgColor}
-              mode={method.mode || 'whiteText'}
               onClick={method.onClick}
+              mode="outlineGray"
             >
               {method.text}
             </BSButton>

@@ -11,13 +11,15 @@ import React, { useState } from 'react';
 export default function Page() {
   const saleCount = 100;
   const interestGame = 8;
-  const [selected, setSelected] = useState('');
 
-  const onChangeHandler = (e) => {
-    setSelected(e.target.value);
-  };
+  const navItems = [
+    { href: '/mypage/profile', title: '나의 프로필' },
+    { href: '/mypage/active', title: '게임활동 관리' },
+    { href: '/logout', title: '로그아웃' },
+    { href: '/notice', title: '공지사항' },
+    { href: '/query', title: '문의 및 피드백' },
+  ];
 
-  console.log(selected);
   return (
     <>
       <BSHeader title="마이페이지" isHome isBack />
@@ -50,39 +52,12 @@ export default function Page() {
         </Link>
       </div>
       <div>
-        <Link href="/logout">
-          <BSNav title="로그아웃" />
-        </Link>
-        <Link href="/notice">
-          <BSNav title="공지사항" />
-        </Link>
-        <Link href="/query">
-          <BSNav title="문의 및 피드백" />
-        </Link>
+        {navItems.splice(2).map((item) => (
+          <Link href={item.href} key={item.href}>
+            <BSNav title={item.title} />
+          </Link>
+        ))}
       </div>
-
-      {/* test */}
-      <label htmlFor="test1">
-        <input
-          type="radio"
-          name="selected"
-          id="device"
-          value="test1"
-          onChange={onChangeHandler}
-        />
-        test1
-      </label>
-      <label htmlFor="test2">
-        <input
-          type="radio"
-          name="selected"
-          id="device"
-          value="test2"
-          onChange={onChangeHandler}
-        />
-        test2
-      </label>
-      {/* test */}
 
       <BSMenu />
     </>

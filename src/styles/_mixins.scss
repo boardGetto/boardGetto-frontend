@@ -1,7 +1,7 @@
-@mixin justifyPosition($jc) {
+@mixin justifyPosition($jc, $fd: row) {
   display: flex;
   align-items: center;
-  flex-direction: row;
+  flex-direction: $fd;
 
   justify-content: $jc;
 }
