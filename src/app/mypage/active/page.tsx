@@ -185,12 +185,11 @@ export default function Page() {
             title={item.title}
             gameName={item.gameName}
             price={item.price}
-            people={item.people}
             like={item.like}
             account={item.account}
             address={item.address}
             time={item.time}
-            isNew={item.isNew}
+            isNew={item.isNew === 'true'}
           />
         ))}
     </div>

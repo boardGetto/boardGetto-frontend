@@ -6,7 +6,7 @@ import BSMenu from '@/components/common/BSMenu';
 import BSNav from '@/components/common/BSNav';
 import BSProfile from '@/components/common/BSProfile';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function Page() {
   const saleCount = 100;

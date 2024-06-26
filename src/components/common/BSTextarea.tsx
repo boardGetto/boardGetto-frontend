@@ -11,9 +11,9 @@ export default function BSTextarea({
   disabled = false,
   value = '',
 }: BSTextareaProps) {
-  const [textCount, setTextCount] = useState();
+  const [textCount, setTextCount] = useState<number>(value.length);
 
-  const handleTextChange = (e) => {
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextCount(e.target.value.length);
   };
 

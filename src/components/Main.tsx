@@ -13,20 +13,20 @@ import { fetchGames } from '../service/gameService';
 import SearchIcon from '../../public/icons/search.svg';
 import homeMain from '../../public/images/main2.png';
 import BSButton from './common/BSButton';
-import BSCard from './common/BSCard';
+// import BSCard from './common/BSCard';
 
-interface Game {
-  id: number;
-  thumbnailUrl: string;
-  title: string;
-  boardGameTitle: string;
-  price: number;
-  minPlayerCount: number;
-  maxPlayerCount: number;
-}
+// interface Game {
+//   id: number;
+//   thumbnailUrl: string;
+//   title: string;
+//   boardGameTitle: string;
+//   price: number;
+//   minPlayerCount: number;
+//   maxPlayerCount: number;
+// }
 
 export default function Main() {
-  const [games, setGames] = useState<Game[]>([]);
+  // const [games, setGames] = useState<Game[]>([]);
   const [page, setPage] = useState(0);
   const [hasNextPage, setHasNextPage] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -34,7 +34,7 @@ export default function Main() {
   const loadMoreGames = async () => {
     setLoading(true);
     const result = await fetchGames(page);
-    setGames((prevGames) => [...prevGames, ...result.content]);
+    // setGames((prevGames) => [...prevGames, ...result.content]);
     setHasNextPage(!result.last);
     setPage((prevPage) => prevPage + 1);
     setLoading(false);
@@ -74,7 +74,7 @@ export default function Main() {
           어떤 게임을 해볼까요?
         </BSButton>
       </div>
-      {games.map((game) => (
+      {/* {games.map((game) => (
         <div key={`${game.id}-${game.title}`}>
           <BSCard
             title={game.title}
@@ -85,7 +85,7 @@ export default function Main() {
             maxPlayerCount={game.maxPlayerCount}
           />
         </div>
-      ))}
+      ))} */}
       <div ref={infiniteRef}>{loading && 'Loading...'}</div>
     </div>
   );

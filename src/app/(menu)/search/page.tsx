@@ -3,12 +3,11 @@
 import { useState } from 'react';
 import BSBadge from '@/components/common/BSBadge';
 import BSButton from '@/components/common/BSButton';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import BSInput from '@/components/common/BSInput';
 import BSHeader from '@/components/common/BSHeader';
-import CloseIcon from '../../../../public/icons/close.svg';
 import BSIcon from '@/components/common/BSIcon';
+import CloseIcon from '../../../../public/icons/close.svg';
 
 export default function Page() {
   const router = useRouter();

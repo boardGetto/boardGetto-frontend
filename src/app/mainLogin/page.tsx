@@ -11,7 +11,6 @@ import kakaoIcon from '../../../public/icons/kakao.svg';
 import googleIcon from '../../../public/icons/google.svg';
 import naverIcon from '../../../public/images/naver.png';
 import characterIcon from '../../../public/images/character.png';
-import BSIcon from '@/components/common/BSIcon';
 
 export default function Page() {
   useEffect(() => {

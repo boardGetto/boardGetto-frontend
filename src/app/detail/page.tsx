@@ -19,7 +19,8 @@ export default function Page() {
       return;
     }
     (async () => {
-      const detail = await fetchGameDetail(name);
+      const gameName = Array.isArray(name) ? name[0] : name;
+      const detail = await fetchGameDetail(gameName);
       setGames(detail);
     })();
   }, [name]);

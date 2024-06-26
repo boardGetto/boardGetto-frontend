@@ -1,5 +1,16 @@
 import axios from 'axios';
 
+export interface GameDetailType {
+  id: string;
+  name: string;
+  description: string;
+  releaseDate: string;
+  genre: string;
+  images: {
+    dreamWorldFront: string;
+  };
+}
+
 interface Game {
   id: string;
   name: string;
@@ -39,5 +50,13 @@ export const fetchGames = async (
 ): Promise<FetchGamesResponse> => {
   const requestUrl = `/api/products?page=${page}&size=10`;
   const response = await remote.get<FetchGamesResponse>(requestUrl);
+  return response.data;
+};
+
+export const fetchGameDetail = async (
+  gameId: string
+): Promise<GameDetailType> => {
+  const requestUrl = `/api/products/${gameId}`;
+  const response = await remote.get<GameDetailType>(requestUrl);
   return response.data;
 };
