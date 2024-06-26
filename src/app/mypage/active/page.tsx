@@ -72,11 +72,12 @@ const gameList = [
   {
     id: 0,
     title: '요즘 핫한 인기게임 팝니다.',
-    gameName: '스플렌더',
-    img: '/images/gameImage1.png',
+    boardGameTitle: '스플렌더',
+    thumbnailUrl: '/images/gameImage1.png',
     isNew: 'true',
     price: 150000,
-    people: '3~5',
+    minPlayerCount: 3,
+    maxPlayerCount: 5,
     like: true,
     account: 1,
     address: '강남구 압구정동',
@@ -86,44 +87,54 @@ const gameList = [
   {
     id: 1,
     title: '게임이름2',
-    gameName: 'test',
-    img: '/images/gameImage1.png',
+    boardGameTitle: 'test',
+    thumbnailUrl: '/images/gameImage1.png',
     isNew: 'true',
     price: 150000,
+    minPlayerCount: 3,
+    maxPlayerCount: 5,
     people: '1~2',
     like: true,
     account: 14,
     address: '강남구 압구정동',
     time: '3시간 전',
     tag: ['전략', '테마', '전쟁'],
+    createdAt: '3시간 전',
+    interestCount: 1,
   },
   {
     id: 2,
     title: '게임이름1',
-    gameName: 'test',
-    img: '/images/gameImage1.png',
+    boardGameTitle: 'test',
+    thumbnailUrl: '/images/gameImage1.png',
     isNew: 'true',
     price: 150000,
-    people: '3~5',
+    minPlayerCount: 3,
+    maxPlayerCount: 5,
     like: true,
     account: 22,
     address: '강남구 압구정동',
     time: '3시간 전',
     tag: ['전략', '테마', '전쟁'],
+    createdAt: '3시간 전',
+    interestCount: 2,
   },
   {
     id: 3,
     title: '게임이름1',
-    gameName: 'test',
-    img: '/images/gameImage1.png',
+    boardGameTitle: 'test',
+    thumbnailUrl: '/images/gameImage1.png',
     isNew: 'true',
     price: 150000,
-    people: '3~5',
+    minPlayerCount: 3,
+    maxPlayerCount: 5,
     like: false,
     account: 22,
     address: '강남구 압구정동',
     time: '3시간 전',
     tag: ['전략', '테마', '전쟁'],
+    createdAt: '3시간 전',
+    interestCount: 3,
   },
 ];
 
@@ -179,17 +190,17 @@ export default function Page() {
         ))}
 
       {currentTab === '1' &&
-        gameList.map((item) => (
+        gameList.map((game) => (
           <BSCard
-            img={item.img}
-            title={item.title}
-            gameName={item.gameName}
-            price={item.price}
-            like={item.like}
-            account={item.account}
-            address={item.address}
-            time={item.time}
-            isNew={item.isNew === 'true'}
+            key={game.id}
+            title={game.title}
+            gameName={game.boardGameTitle}
+            img={game.thumbnailUrl}
+            price={game.price}
+            minPlayerCount={game.minPlayerCount}
+            maxPlayerCount={game.maxPlayerCount}
+            createdAt={game.createdAt}
+            interestCount={game.interestCount}
           />
         ))}
     </div>
