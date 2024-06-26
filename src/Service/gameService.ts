@@ -60,3 +60,48 @@ export const fetchGameDetail = async (
   const response = await remote.get<GameDetailType>(requestUrl);
   return response.data;
 };
+
+// interface Pageable {
+//   offset: number;
+//   pageNumber: number;
+//   pageSize: number;
+//   paged: boolean;
+// }
+
+interface SaleGames {
+  boardGameTitle: string;
+  createdAt: string;
+  id: number;
+  interestCount: number;
+  maxPlayerCount: number;
+  minPlayerCount: number;
+  modifiedAt: string;
+  partsDamaged: boolean;
+  partsMissing: boolean;
+  price: number;
+  thumbnailUrl: string;
+  title: string;
+  town: string;
+}
+
+export interface SaleGameListResponseType {
+  content: SaleGames[];
+  empty: boolean;
+  first: boolean;
+  last: boolean;
+  number: number;
+  numberOfElements: number;
+  pageable: Pageable;
+  sort: Sort;
+  size: string;
+}
+
+export const fetchSaleGame = async (
+  page: number = 0
+): Promise<SaleGameListResponseType> => {
+  const defaultUrl = `/api/products?page=${page}&size=10`;
+
+  const response = await remote.get<SaleGameListResponseType>(defaultUrl);
+
+  return response.data;
+};
