@@ -3,34 +3,21 @@
 import Image from 'next/image';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
-// import { css } from '@emotion/react';
-// import styled from '@emotion/styled';
 import variables from '@/styles/variables.module.scss';
 import { useRouter } from 'next/navigation';
 import formatCreatedAt from '@/util/formatCreatedAt';
 import {
   SaleGameListResponseType,
-  fetchGames,
   fetchSaleGame,
 } from '../service/gameService';
 import SearchIcon from '../../public/icons/search.svg';
 import homeMain from '../../public/images/main2.png';
 import BSButton from './common/BSButton';
 import BSCard from './common/BSCard';
-// interface Game {
-//   id: number;
-//   thumbnailUrl: string;
-//   title: string;
-//   boardGameTitle: string;
-//   price: number;
-//   minPlayerCount: number;
-//   maxPlayerCount: number;
-// }
 
 export default function Main() {
-  // const [games, setGames] = useState<Game[]>([]);
   const [saleGames, setSaleGames] = useState<SaleGameListResponseType>({
     content: [],
     empty: true,
@@ -41,8 +28,8 @@ export default function Main() {
     pageable: {
       offset: 0,
       pageNumber: 0,
-      pageSize: 0,
-      paged: false,
+      pageSize: 10, // 페이지 사이즈를 명시적으로 설정
+      paged: true,
       unpaged: false,
       sort: {
         empty: false,
@@ -50,7 +37,7 @@ export default function Main() {
         unsorted: false,
       },
     },
-    size: '',
+    size: '10',
     sort: {
       empty: false,
       sorted: false,
@@ -61,14 +48,32 @@ export default function Main() {
   const [hasNextPage, setHasNextPage] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const loadMoreGames = async () => {
+  const loadMoreGames = useCallback(async () => {
+    if (loading) return;
+
     setLoading(true);
-    const result = await fetchGames(page);
-    // setGames((prevGames) => [...prevGames, ...result.content]);
-    setHasNextPage(!result.last);
-    setPage((prevPage) => prevPage + 1);
-    setLoading(false);
-  };
+    try {
+      const result: SaleGameListResponseType = await fetchSaleGame(page);
+      setSaleGames((prevGames) => ({
+        ...prevGames,
+        content: [...prevGames.content, ...result.content],
+        empty: result.empty,
+        first: result.first,
+        last: result.last,
+        number: result.number,
+        numberOfElements: result.numberOfElements,
+        pageable: result.pageable,
+        size: result.size,
+        sort: result.sort,
+      }));
+      setHasNextPage(!result.last);
+      setPage((prevPage) => prevPage + 1);
+    } catch (error) {
+      console.error('games', error);
+    } finally {
+      setLoading(false);
+    }
+  }, [loading, page]);
 
   const [infiniteRef] = useInfiniteScroll({
     loading,
@@ -83,15 +88,7 @@ export default function Main() {
   useEffect(() => {
     Aos.init({ duration: 800 });
     loadMoreGames();
-
-    // test
-    (async () => {
-      const fetchSaleGames = await fetchSaleGame();
-
-      setSaleGames(fetchSaleGames);
-    })();
-    // test
-  }, []);
+  }, [loadMoreGames]);
 
   return (
     <div className={`${variables.flexCetnerCol} mt-20`}>
@@ -129,7 +126,3 @@ export default function Main() {
     </div>
   );
 }
-
-// const Container = styled.div`
-//   background-color: pink;
-// `;
