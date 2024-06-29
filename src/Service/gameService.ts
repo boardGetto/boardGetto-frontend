@@ -11,11 +11,6 @@ export interface GameDetailType {
   };
 }
 
-interface Game {
-  id: string;
-  name: string;
-}
-
 interface Sort {
   empty: boolean;
   sorted: boolean;
@@ -31,27 +26,7 @@ interface Pageable {
   unpaged: boolean;
 }
 
-interface FetchGamesResponse {
-  content: Game[];
-  pageable: Pageable;
-  size: number;
-  number: number;
-  sort: Sort;
-  numberOfElements: number;
-  first: boolean;
-  last: boolean;
-  empty: boolean;
-}
-
 const remote = axios.create();
-
-export const fetchGames = async (
-  page: number = 0
-): Promise<FetchGamesResponse> => {
-  const requestUrl = `/api/products?page=${page}&size=10`;
-  const response = await remote.get<FetchGamesResponse>(requestUrl);
-  return response.data;
-};
 
 export const fetchGameDetail = async (
   gameId: string
@@ -60,13 +35,6 @@ export const fetchGameDetail = async (
   const response = await remote.get<GameDetailType>(requestUrl);
   return response.data;
 };
-
-// interface Pageable {
-//   offset: number;
-//   pageNumber: number;
-//   pageSize: number;
-//   paged: boolean;
-// }
 
 interface SaleGames {
   boardGameTitle: string;
@@ -99,9 +67,40 @@ export interface SaleGameListResponseType {
 export const fetchSaleGame = async (
   page: number = 0
 ): Promise<SaleGameListResponseType> => {
-  const defaultUrl = `/api/products?page=${page}&size=10`;
+  const requestUrl = `/api/products?page=${page}&size=10`;
+  const response = await remote.get<SaleGameListResponseType>(requestUrl);
 
-  const response = await remote.get<SaleGameListResponseType>(defaultUrl);
+  return response.data;
+};
+
+interface ThemeGames {
+  id: number;
+  difficulty: string;
+  minPlayerCount: number;
+  maxPlayerCount: number;
+  playTime: string;
+  themes: string[];
+  title: string;
+}
+
+export interface SearchThemeGame {
+  content: ThemeGames[];
+  empty: boolean;
+  first: boolean;
+  last: boolean;
+  number: number;
+  numberOfElements: number;
+  pageable: Pageable;
+  size: number;
+  sort: Sort;
+}
+
+export const fetchSearchThemeGame = async (
+  page: number = 0
+): Promise<SearchThemeGame> => {
+  const themeSearchUrl = `/api/board-games?page=${page}&size=10`;
+  const response = await remote.get<SearchThemeGame>(themeSearchUrl);
+  console.log(response);
 
   return response.data;
 };

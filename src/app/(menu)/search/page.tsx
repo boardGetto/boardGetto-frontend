@@ -83,7 +83,7 @@ export default function Page() {
         상세하게 원하는 게임을 찾고 싶다면?
       </h1>
 
-      <BSButton onClick={handleCategory}>카테고리 검색하기</BSButton>
+      <BSButton onClick={handleCategory}>테마 검색하기</BSButton>
     </div>
   );
 }

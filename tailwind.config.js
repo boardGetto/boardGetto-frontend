@@ -54,6 +54,7 @@ module.exports = {
       'textRegular-16': ['16px', { fontWeight: '400', lineHeight: 'auto' }],
       'textBold-14': ['14px', { fontWeight: '700', lineHeight: 'auto' }],
       'textRegular-14': ['14px', { fontWeight: '400', lineHeight: 'auto' }],
+      'textRegular-15': ['14px', { fontWeight: '500', lineHeight: 'auto' }],
       'captionBold-12': ['12px', { fontWeight: '700', lineHeight: 'auto' }],
       'captionRegular-12': ['12px', { fontWeight: '400', lineHeight: 'auto' }],
       'bodyRegular-16': ['16px', { fontWeight: '400', lineHeight: 'auto' }],

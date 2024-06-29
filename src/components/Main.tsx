@@ -1,36 +1,21 @@
 'use client';
 
-import Image from 'next/image';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
-import useInfiniteScroll from 'react-infinite-scroll-hook';
-// import { css } from '@emotion/react';
-// import styled from '@emotion/styled';
 import variables from '@/styles/variables.module.scss';
 import { useRouter } from 'next/navigation';
 import formatCreatedAt from '@/util/formatCreatedAt';
+import Image from 'next/image';
 import {
   SaleGameListResponseType,
-  fetchGames,
   fetchSaleGame,
-} from '../service/gameService';
+} from '../service/gameService'; // fetchSaleGame import 추가
+
 import SearchIcon from '../../public/icons/search.svg';
 import homeMain from '../../public/images/main2.png';
 import BSButton from './common/BSButton';
 import BSCard from './common/BSCard';
-// interface Game {
-//   id: number;
-//   thumbnailUrl: string;
-//   title: string;
-//   boardGameTitle: string;
-//   price: number;
-//   minPlayerCount: number;
-//   maxPlayerCount: number;
-// }
 
 export default function Main() {
-  // const [games, setGames] = useState<Game[]>([]);
   const [saleGames, setSaleGames] = useState<SaleGameListResponseType>({
     content: [],
     empty: true,
@@ -41,8 +26,8 @@ export default function Main() {
     pageable: {
       offset: 0,
       pageNumber: 0,
-      pageSize: 0,
-      paged: false,
+      pageSize: 10, // 페이지 사이즈를 명시적으로 설정
+      paged: true,
       unpaged: false,
       sort: {
         empty: false,
@@ -50,47 +35,35 @@ export default function Main() {
         unsorted: false,
       },
     },
-    size: '',
+    size: '10',
     sort: {
       empty: false,
       sorted: false,
       unsorted: false,
     },
   });
-  const [page, setPage] = useState(0);
-  const [hasNextPage, setHasNextPage] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const loadMoreGames = async () => {
-    setLoading(true);
-    const result = await fetchGames(page);
-    // setGames((prevGames) => [...prevGames, ...result.content]);
-    setHasNextPage(!result.last);
-    setPage((prevPage) => prevPage + 1);
-    setLoading(false);
-  };
+  const loadSaleGames = async () => {
+    if (loading) return;
 
-  const [infiniteRef] = useInfiniteScroll({
-    loading,
-    hasNextPage,
-    onLoadMore: loadMoreGames,
-    disabled: false,
-    rootMargin: '0px 0px 400px 0px',
-  });
+    setLoading(true);
+    try {
+      const result: SaleGameListResponseType = await fetchSaleGame(0); // 첫 페이지 호출
+      setSaleGames({
+        ...result,
+      });
+    } catch (error) {
+      console.error('Failed to fetch sale games:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const router = useRouter();
 
   useEffect(() => {
-    Aos.init({ duration: 800 });
-    loadMoreGames();
-
-    // test
-    (async () => {
-      const fetchSaleGames = await fetchSaleGame();
-
-      setSaleGames(fetchSaleGames);
-    })();
-    // test
+    loadSaleGames();
   }, []);
 
   return (
@@ -125,11 +98,7 @@ export default function Main() {
           interestCount={game.interestCount}
         />
       ))}
-      <div ref={infiniteRef}>{loading && 'Loading...'}</div>
+      {loading && <div>Loading...</div>}
     </div>
   );
 }
-
-// const Container = styled.div`
-//   background-color: pink;
-// `;

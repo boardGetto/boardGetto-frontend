@@ -149,10 +149,10 @@ export default function RootLayout({
               alt="sample-image"
               priority
             />
+            <p className="my-4 text-nutral-white-01">
+              보드살롱 문의 : thfdl0317@naver.com
+            </p>
           </div>
-          <p className="my-4 text-nutral-white-01">
-            보드살롱 문의 : thfdl0317@naver.com
-          </p>
         </section>
       </body>
     </html>
