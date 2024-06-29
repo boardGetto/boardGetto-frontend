@@ -5,6 +5,7 @@ import BSButton from '@/components/common/BSButton';
 import BSHeader from '@/components/common/BSHeader';
 import BSInput from '@/components/common/BSInput';
 import BSTextarea from '@/components/common/BSTextarea';
+import BSText from '@/components/common/BSText';
 import ProfileSample from '../../../public/icons/myprofile.svg';
 import CameraIcon from '../../../public/icons/camera.svg';
 import MapPinIcon from '../../../public/icons/map-in.svg';
@@ -58,22 +59,22 @@ export default function Page() {
         <BSInput placeholder="프로필명 입력" value="" />
       </div>
 
-      <h1 className="pt-6 pb-3 text-nutral-black-01 text-textBold-16">
+      <BSText type="TextBold16" isHeadLine>
         나의 활동
-      </h1>
+      </BSText>
       <BSButton isSrc={MapPinIcon} onClick={() => {}}>
         활동 주소 입력하기
       </BSButton>
 
-      <h1 className="pt-6 pb-3 text-nutral-black-01 text-textBold-16">
+      <BSText type="TextBold16" isHeadLine>
         프로필 소개
-      </h1>
+      </BSText>
 
       <BSTextarea placeholder="나의 프로필 소개를 입력해주세요." value="" />
 
-      <h1 className="pt-6 pb-3 text-nutral-black-01 text-textBold-16">
+      <BSText type="TextBold16" isHeadLine>
         좋아하는 게임
-      </h1>
+      </BSText>
 
       <div className="flex flex-wrap gap-3 mb-20">
         {gameList.map((item) => (

@@ -4,6 +4,7 @@ import GettoFont from 'next/font/local';
 import Image from 'next/image';
 import Provider from '@/util/Providers';
 import variables from '@/styles/variables.module.scss';
+import BSText from '@/components/common/BSText';
 import layoutTitle from '../../public/images/layout-title.png';
 import mainPhone from '../../public/images/main-phone.png';
 import eyes from '../../public/icons/eyes.svg';
@@ -125,9 +126,9 @@ export default function RootLayout({
         <section className="mt-[100px] flex flex-col  w-[580px] items-center gap-11">
           <div className={variables.flexCenterCol}>
             <div className="flex gap-1.5 items-center mb-2.5">
-              <h1 className="text-nutral-white-01 text-textRegular-16">
+              <BSText className="text-nutral-white-01">
                 보드게임 중고거래 플랫폼
-              </h1>
+              </BSText>
               <Image
                 src={eyes}
                 alt="sample-image"
@@ -149,9 +150,9 @@ export default function RootLayout({
               alt="sample-image"
               priority
             />
-            <p className="my-4 text-nutral-white-01">
+            <BSText className="my-4 text-nutral-white-01">
               보드살롱 문의 : thfdl0317@naver.com
-            </p>
+            </BSText>
           </div>
         </section>
       </body>

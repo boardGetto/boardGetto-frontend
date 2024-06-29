@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { SearchThemeGame, fetchSearchThemeGame } from '@/service/gameService';
 import BSBadge from '@/components/common/BSBadge';
+import BSText from '@/components/common/BSText';
 import GameImage1 from '../../../public/images/gameImage1.png';
 
 export default function Page() {
@@ -62,11 +63,12 @@ export default function Page() {
   return (
     <div className="flex flex-col">
       <BSHeader title="테마 검색하기" isClose isBack />
-      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+      <BSText type="TextBold16" isHeadLine>
         상품명
-      </h1>
+      </BSText>
       <BSInput placeholder="찾으려는 게임을 검색해보세요" value="" searchImg />
       {loading ? (
+        // TODO : Loading 아이콘 추가 예정
         <p>검색내용 없음</p>
       ) : (
         <div className="mt-4 overflow-y-scroll bg-nutral-white-02 rounded-lg  max-h-[456px] px-4 ">

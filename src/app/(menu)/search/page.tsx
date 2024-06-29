@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import BSInput from '@/components/common/BSInput';
 import BSHeader from '@/components/common/BSHeader';
 import BSIcon from '@/components/common/BSIcon';
+import BSText from '@/components/common/BSText';
 import CloseIcon from '../../../../public/icons/close.svg';
 
 export default function Page() {
@@ -48,15 +49,15 @@ export default function Page() {
         <BSInput placeholder="보드게임 검색하기" searchImg value="" />
       </BSHeader>
       <div>
-        <h1 className="py-4 text-nutral-gray-02 textRegular-16">최근 검색어</h1>
+        <BSText className="py-4 text-nutral-gray-02" type="TextRegular16">
+          최근 검색어
+        </BSText>
         {recommendList.map((item) => (
           <div
             key={item.id}
             className="flex items-center justify-between hover:bg-primary-getto50"
           >
-            <p className="py-3 text-textRegular-14 text-nutral-black-01">
-              {item.title}
-            </p>
+            <BSText className="py-3 text-textRegular-14">{item.title}</BSText>
             <BSIcon
               iconUrl={CloseIcon}
               alt="Close icon"
@@ -67,7 +68,9 @@ export default function Page() {
         ))}
       </div>
       <div>
-        <h1 className="py-4 text-nutral-gray-02 textRegular-16">추천 검색어</h1>
+        <BSText className="py-4 text-nutral-gray-02" type="TextRegular16">
+          추천 검색어
+        </BSText>
         <div className="flex flex-wrap gap-3">
           {recommendList.map((item) => (
             <BSBadge key={item.id} status="normal">
@@ -79,10 +82,9 @@ export default function Page() {
 
       <BSButton onClick={handleSearch}>검색하기</BSButton>
 
-      <h1 className="text-nutral-gray-02 textRegular-16">
+      <BSText className="text-nutral-gray-02" type="TextRegular16">
         상세하게 원하는 게임을 찾고 싶다면?
-      </h1>
-
+      </BSText>
       <BSButton onClick={handleCategory}>테마 검색하기</BSButton>
     </div>
   );
