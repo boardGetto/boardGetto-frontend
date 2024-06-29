@@ -72,3 +72,35 @@ export const fetchSaleGame = async (
 
   return response.data;
 };
+
+interface ThemeGames {
+  id: number;
+  difficulty: string;
+  minPlayerCount: number;
+  maxPlayerCount: number;
+  playTime: string;
+  themes: string[];
+  title: string;
+}
+
+export interface SearchThemeGame {
+  content: ThemeGames[];
+  empty: boolean;
+  first: boolean;
+  last: boolean;
+  number: number;
+  numberOfElements: number;
+  pageable: Pageable;
+  size: number;
+  sort: Sort;
+}
+
+export const fetchSearchThemeGame = async (
+  page: number = 0
+): Promise<SearchThemeGame> => {
+  const themeSearchUrl = `/api/board-games?page=${page}&size=10`;
+  const response = await remote.get<SearchThemeGame>(themeSearchUrl);
+  console.log(response);
+
+  return response.data;
+};

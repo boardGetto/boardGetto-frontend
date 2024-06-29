@@ -1,17 +1,15 @@
 'use client';
 
-import Image from 'next/image';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect, useState, useCallback } from 'react';
-import useInfiniteScroll from 'react-infinite-scroll-hook';
+import { useEffect, useState } from 'react';
 import variables from '@/styles/variables.module.scss';
 import { useRouter } from 'next/navigation';
 import formatCreatedAt from '@/util/formatCreatedAt';
+import Image from 'next/image';
 import {
   SaleGameListResponseType,
   fetchSaleGame,
-} from '../service/gameService';
+} from '../service/gameService'; // fetchSaleGame import 추가
+
 import SearchIcon from '../../public/icons/search.svg';
 import homeMain from '../../public/images/main2.png';
 import BSButton from './common/BSButton';
@@ -44,51 +42,29 @@ export default function Main() {
       unsorted: false,
     },
   });
-  const [page, setPage] = useState(0);
-  const [hasNextPage, setHasNextPage] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const loadMoreGames = useCallback(async () => {
+  const loadSaleGames = async () => {
     if (loading) return;
 
     setLoading(true);
     try {
-      const result: SaleGameListResponseType = await fetchSaleGame(page);
-      setSaleGames((prevGames) => ({
-        ...prevGames,
-        content: [...prevGames.content, ...result.content],
-        empty: result.empty,
-        first: result.first,
-        last: result.last,
-        number: result.number,
-        numberOfElements: result.numberOfElements,
-        pageable: result.pageable,
-        size: result.size,
-        sort: result.sort,
-      }));
-      setHasNextPage(!result.last);
-      setPage((prevPage) => prevPage + 1);
+      const result: SaleGameListResponseType = await fetchSaleGame(0); // 첫 페이지 호출
+      setSaleGames({
+        ...result,
+      });
     } catch (error) {
-      console.error('games', error);
+      console.error('Failed to fetch sale games:', error);
     } finally {
       setLoading(false);
     }
-  }, [loading, page]);
-
-  const [infiniteRef] = useInfiniteScroll({
-    loading,
-    hasNextPage,
-    onLoadMore: loadMoreGames,
-    disabled: false,
-    rootMargin: '0px 0px 400px 0px',
-  });
+  };
 
   const router = useRouter();
 
   useEffect(() => {
-    Aos.init({ duration: 800 });
-    loadMoreGames();
-  }, [loadMoreGames]);
+    loadSaleGames();
+  }, []);
 
   return (
     <div className={`${variables.flexCetnerCol} mt-20`}>
@@ -122,7 +98,7 @@ export default function Main() {
           interestCount={game.interestCount}
         />
       ))}
-      <div ref={infiniteRef}>{loading && 'Loading...'}</div>
+      {loading && <div>Loading...</div>}
     </div>
   );
 }

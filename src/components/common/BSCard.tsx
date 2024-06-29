@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation'; // useRouter가 올바른 import 방법입니다.
 // import { GameDetailType, fetchGameDetail } from '@/Service/gameService';
 // import { useEffect, useState } from 'react';
-// import { useIntersectionObserver } from 'react-intersection-observer-hook';
+// import { useIntersectionObserver } from 'react-intersection-observer-hook'
 
 import LikeIcon from '../../../public/icons/like-fill.svg';
 import NoLikeIcon from '../../../public/icons/like-blank.svg';
@@ -103,7 +103,7 @@ export default function BSCard({
           <p className="mb-2 text-textRegular-16">{title}</p>
           <div className="flex">
             {isNew && <BSBadge status="isAuth">새제품</BSBadge>}
-            <span className="px-2 py-1 rounded-r text-nutral-black-01 text-textRegular-14 bg-caption-subBlue01">
+            <span className="px-2 py-1 rounded-r text-textRegular-14 bg-caption-subBlue01 text-caption-subBlue02">
               {gameName}
             </span>
           </div>

@@ -24,7 +24,9 @@ export default function BSBadge({
     statusBadgeCss = 'text-nutral-gray-03 bg-nutral-white-02';
   }
   return (
-    <div className={` ${defaultBadgeCss} ${statusBadgeCss}`}>
+    <div
+      className={` ${defaultBadgeCss} ${statusBadgeCss} ${isHashTag && 'bg-primary-getto50 text-primary-getto500 text-textRegular-15'}`}
+    >
       {isHashTag ? `#${children}` : children}
     </div>
   );
