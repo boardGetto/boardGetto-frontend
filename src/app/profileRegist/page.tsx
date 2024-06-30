@@ -59,20 +59,20 @@ export default function Page() {
         <BSInput placeholder="프로필명 입력" value="" />
       </div>
 
-      <BSText type="TextBold16" isHeadLine>
+      <BSText size="TextBold16" isHeadLine>
         나의 활동
       </BSText>
       <BSButton isSrc={MapPinIcon} onClick={() => {}}>
         활동 주소 입력하기
       </BSButton>
 
-      <BSText type="TextBold16" isHeadLine>
+      <BSText size="TextBold16" isHeadLine>
         프로필 소개
       </BSText>
 
       <BSTextarea placeholder="나의 프로필 소개를 입력해주세요." value="" />
 
-      <BSText type="TextBold16" isHeadLine>
+      <BSText size="TextBold16" isHeadLine>
         좋아하는 게임
       </BSText>
 

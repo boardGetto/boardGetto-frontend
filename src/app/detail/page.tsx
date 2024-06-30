@@ -75,7 +75,7 @@ export default function Page() {
       </div>
 
       <div className="flex items-center justify-between">
-        <BSText className="py-6" type="HeadBold18">
+        <BSText className="py-6" size="HeadBold18">
           판매자의 게임 소개
         </BSText>
         <BSBadge>{gameList.level}</BSBadge>

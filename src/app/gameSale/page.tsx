@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import BSButton from '@/components/common/BSButton';
 import BSTextarea from '@/components/common/BSTextarea';
 import Link from 'next/link';
@@ -11,10 +10,6 @@ import BSRadio from '@/components/common/BSRadio';
 import BSIcon from '@/components/common/BSIcon';
 import BSText from '@/components/common/BSText';
 import CameraIcon from '../../../public/icons/camera.svg';
-import GameImage1 from '../../../public/images/gameImage1.png';
-import GameImage2 from '../../../public/images/gameImage2.png';
-import GameImage3 from '../../../public/images/gameImage3.png';
-import GameImage4 from '../../../public/images/gameImage4.png';
 import GuideIcon from '../../../public/icons/guide.svg';
 import MapPinIcon from '../../../public/icons/map-in.svg';
 import NextArrow from '../../../public/icons/next-arrow.svg';
@@ -43,61 +38,6 @@ export default function Page() {
     { id: 14, title: '어린이' },
     { id: 15, title: '순발력' },
     { id: 16, title: '경쟁' },
-  ];
-
-  const gameList = [
-    {
-      id: 0,
-      title: '게임이름1',
-      img: GameImage1,
-      new: 'true',
-      price: '150000',
-      people: '3~5',
-      like: true,
-      account: 1,
-      address: '강남구 압구정동',
-      time: '3시간 전',
-      tag: ['전략', '테마', '전쟁'],
-    },
-    {
-      id: 1,
-      title: '게임이름2',
-      img: GameImage2,
-      new: 'true',
-      price: '150000',
-      people: '1~2',
-      like: true,
-      account: 14,
-      address: '강남구 압구정동',
-      time: '3시간 전',
-      tag: ['전략', '테마', '전쟁'],
-    },
-    {
-      id: 2,
-      title: '게임이름1',
-      img: GameImage3,
-      new: 'true',
-      price: '150000',
-      people: '3~5',
-      like: true,
-      account: 22,
-      address: '강남구 압구정동',
-      time: '3시간 전',
-      tag: ['전략', '테마', '전쟁'],
-    },
-    {
-      id: 3,
-      title: '게임이름1',
-      img: GameImage4,
-      new: 'true',
-      price: '150000',
-      people: '3~5',
-      like: true,
-      account: 22,
-      address: '강남구 압구정동',
-      time: '3시간 전',
-      tag: ['전략', '테마', '전쟁'],
-    },
   ];
 
   const [playTime, setPlayTime] = useState('');
@@ -161,7 +101,7 @@ export default function Page() {
       </div>
 
       <div className="flex items-center justify-between">
-        <BSText isHeadLine type="TextBold16">
+        <BSText isHeadLine size="TextBold16">
           상품명
         </BSText>
         <BSIcon iconUrl={GuideIcon} alt="guide icon" />
@@ -170,7 +110,7 @@ export default function Page() {
       <BSInput placeholder="상품명을 입력해주세요." value="" />
 
       {/* 게임소개 */}
-      <BSText isHeadLine type="TextBold16">
+      <BSText isHeadLine size="TextBold16">
         게임 소개
       </BSText>
       <div className="flex flex-col gap-2">
@@ -183,7 +123,7 @@ export default function Page() {
         />
       </div>
       <div className="flex items-center justify-between">
-        <BSText isHeadLine type="TextBold16">
+        <BSText isHeadLine size="TextBold16">
           대표 카테고리
         </BSText>
         <Link
@@ -203,7 +143,7 @@ export default function Page() {
       </div>
 
       {/* 필요 인원 */}
-      <BSText isHeadLine type="TextBold16">
+      <BSText isHeadLine size="TextBold16">
         필요 인원
       </BSText>
       <div className="flex gap-3">
@@ -212,7 +152,7 @@ export default function Page() {
       </div>
 
       {/* 게임 플레이 시간은 어떤가요? */}
-      <BSText isHeadLine type="TextBold16">
+      <BSText isHeadLine size="TextBold16">
         게임 플레이 시간은 어떤가요?
       </BSText>
       <div className="flex flex-col gap-4">
@@ -254,7 +194,7 @@ export default function Page() {
         </BSRadio>
       </div>
 
-      <BSText isHeadLine type="TextBold16">
+      <BSText isHeadLine size="TextBold16">
         판매 가격
       </BSText>
       <BSInput placeholder="원하는 판매가격을 입력해주세요." value="" />
@@ -262,12 +202,12 @@ export default function Page() {
         거래 협의 가능
       </span>
 
-      <BSText isHeadLine type="TextBold16">
+      <BSText isHeadLine size="TextBold16">
         제품 상태는 어떤가요?
       </BSText>
       <BSInput value="" />
 
-      <BSText isHeadLine type="TextBold16">
+      <BSText isHeadLine size="TextBold16">
         제품 상태는 어떤가요?
       </BSText>
 
@@ -297,13 +237,13 @@ export default function Page() {
         </div>
       </div>
       {/* 판매자 정책에 대해 선택해주세요. */}
-      <BSText isHeadLine type="TextBold16">
+      <BSText isHeadLine size="TextBold16">
         판매자 정책에 대해 선택해주세요.
       </BSText>
       <BSInput value="" />
 
       {/* 거래 주소 */}
-      <BSText isHeadLine type="TextBold16">
+      <BSText isHeadLine size="TextBold16">
         거래 주소
       </BSText>
 
@@ -312,13 +252,13 @@ export default function Page() {
       </BSButton>
 
       {/* 카카오톡 오픈 프로필 링크 */}
-      <BSText isHeadLine type="TextBold16">
+      <BSText isHeadLine size="TextBold16">
         카카오톡 오픈 프로필 링크
       </BSText>
       <BSInput placeholder="오픈카톡방 링크를 입력해주세요" value="" />
 
       {/* 2. 게임 난이도는 어떤가요? */}
-      <BSText isHeadLine type="TextBold16">
+      <BSText isHeadLine size="TextBold16">
         게임 난이도는 어떤가요?
       </BSText>
       {gameLevel.map((item) => (
@@ -341,7 +281,7 @@ export default function Page() {
 
       {/* 5. 가격 */}
       <div className="flex items-center">
-        <BSText className="py-6" type="TextBold16">
+        <BSText className="py-6" size="TextBold16">
           게임 난이도는 어떤가요?
         </BSText>
         <span className="text-primary-getto500 text-textRegular-14">

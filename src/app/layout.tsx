@@ -126,7 +126,7 @@ export default function RootLayout({
         <section className="mt-[100px] flex flex-col  w-[580px] items-center gap-11">
           <div className={variables.flexCenterCol}>
             <div className="flex gap-1.5 items-center mb-2.5">
-              <BSText className="text-nutral-white-01">
+              <BSText color='white01'>
                 보드게임 중고거래 플랫폼
               </BSText>
               <Image
@@ -150,7 +150,7 @@ export default function RootLayout({
               alt="sample-image"
               priority
             />
-            <BSText className="my-4 text-nutral-white-01">
+            <BSText className="my-4" color='white01'>
               보드살롱 문의 : thfdl0317@naver.com
             </BSText>
           </div>

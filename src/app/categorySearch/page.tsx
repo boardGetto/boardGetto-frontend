@@ -63,7 +63,7 @@ export default function Page() {
   return (
     <div className="flex flex-col">
       <BSHeader title="테마 검색하기" isClose isBack />
-      <BSText type="TextBold16" isHeadLine>
+      <BSText size="TextBold16" isHeadLine>
         상품명
       </BSText>
       <BSInput placeholder="찾으려는 게임을 검색해보세요" value="" searchImg />

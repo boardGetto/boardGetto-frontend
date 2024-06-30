@@ -49,7 +49,7 @@ export default function Page() {
         <BSInput placeholder="보드게임 검색하기" searchImg value="" />
       </BSHeader>
       <div>
-        <BSText className="py-4 text-nutral-gray-02" type="TextRegular16">
+        <BSText className="py-4" size="TextRegular16" color='gray02'>
           최근 검색어
         </BSText>
         {recommendList.map((item) => (
@@ -57,7 +57,8 @@ export default function Page() {
             key={item.id}
             className="flex items-center justify-between hover:bg-primary-getto50"
           >
-            <BSText className="py-3 text-textRegular-14">{item.title}</BSText>
+            <BSText className="py-3" size='TextRegular14'>{item.title}</BSText>
+
             <BSIcon
               iconUrl={CloseIcon}
               alt="Close icon"
@@ -68,7 +69,7 @@ export default function Page() {
         ))}
       </div>
       <div>
-        <BSText className="py-4 text-nutral-gray-02" type="TextRegular16">
+        <BSText size='TextRegular16' color='gray02' className='py-4'>
           추천 검색어
         </BSText>
         <div className="flex flex-wrap gap-3">
@@ -82,7 +83,7 @@ export default function Page() {
 
       <BSButton onClick={handleSearch}>검색하기</BSButton>
 
-      <BSText className="text-nutral-gray-02" type="TextRegular16">
+      <BSText size="TextRegular16" color='gray02'>
         상세하게 원하는 게임을 찾고 싶다면?
       </BSText>
       <BSButton onClick={handleCategory}>테마 검색하기</BSButton>

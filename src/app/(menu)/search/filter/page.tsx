@@ -8,20 +8,20 @@ export default function Page() {
     <div className="flex flex-col">
       <BSHeader title="검색 필터" isClose />
 
-      <BSText type="TextBold16" isHeadLine>
+      <BSText size="TextBold16" isHeadLine>
         제품 상태
       </BSText>
 
-      <BSText type="TextBold16" isHeadLine>
+      <BSText size="TextBold16" isHeadLine>
         판매자 정첵
       </BSText>
 
-      <BSText type="TextBold16" isHeadLine>
+      <BSText size="TextBold16" isHeadLine>
         난이도
       </BSText>
 
       <div className="flex items-center">
-        <BSText type="TextBold16" isHeadLine>
+        <BSText size="TextBold16" isHeadLine>
           가격
         </BSText>
         <span className="mt-2 ml-4 text-primary-getto500 text-captionRegular-12">

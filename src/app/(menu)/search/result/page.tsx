@@ -30,7 +30,7 @@ export default function Page() {
       </BSHeader>
       {/* header end */}
       <div className="flex items-center py-[14px]">
-        <BSText className="text-primary-getto500 mr-[14px]">연관검색</BSText>
+        <BSText className="mr-[14px]" color='getto500'>연관검색</BSText>
         <ul className="flex gap-2">
           {sameGames.map((item) => (
             <li key={item.id}>
@@ -43,12 +43,12 @@ export default function Page() {
       {/* option start */}
       <div className="flex justify-around py-6 border-t border-b border-nutral-white-03">
         <div className="flex items-center gap-[10px]">
-          <BSText type="TextRegular14">최신순</BSText>
+          <BSText size="TextRegular14">최신순</BSText>
           <BSIcon iconUrl={DownArrow} alt="order arrow" />
         </div>
 
         <div className="flex items-center gap-[10px]">
-          <BSText type="TextRegular14">필터</BSText>
+          <BSText size="TextRegular14">필터</BSText>
           <BSIcon
             iconUrl={FilterIcon}
             alt="filter icon"
@@ -61,7 +61,7 @@ export default function Page() {
         <div className="flex items-center gap-[10px]">
           <BSIcon iconUrl={CheckBoxFill} alt="checkbox icon" />
           {/* <BSIcon iconUrl={CheckBoxBlank} alt="checkbox icon" /> */}
-          <BSText type="TextRegular14">새 제품만 보기</BSText>
+          <BSText size="TextRegular14">새 제품만 보기</BSText>
         </div>
       </div>
       {/* option end */}
