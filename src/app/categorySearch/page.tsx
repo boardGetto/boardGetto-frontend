@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import BSBadge from '@/components/common/BSBadge';
 import BSText from '@/components/common/BSText';
-import { SearchThemeGame, fetchSearchThemeGame } from '../../Service/gameService';
+import { SearchThemeGame, fetchSearchThemeGame } from '../../service/gameService';
 import GameImage1 from '../../../public/images/gameImage1.png';
 
 export default function Page() {
