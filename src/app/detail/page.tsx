@@ -7,6 +7,7 @@ import BSHeader from '@/components/common/BSHeader';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { GameDetailType, fetchGameDetail } from '@/service/gameService';
+import BSText from '@/components/common/BSText';
 import GameImage1 from '../../../public/images/gameImage1.png';
 import LikeIcon from '../../../public/icons/like-blank.svg';
 
@@ -74,9 +75,9 @@ export default function Page() {
       </div>
 
       <div className="flex items-center justify-between">
-        <h1 className="py-6 text-nutral-black-02 text-headBold-18">
+        <BSText className="py-6" size="HeadBold18">
           판매자의 게임 소개
-        </h1>
+        </BSText>
         <BSBadge>{gameList.level}</BSBadge>
       </div>
 

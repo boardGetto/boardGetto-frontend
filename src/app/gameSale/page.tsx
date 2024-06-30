@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import BSButton from '@/components/common/BSButton';
 import BSTextarea from '@/components/common/BSTextarea';
 import Link from 'next/link';
@@ -9,11 +8,8 @@ import BSHeader from '@/components/common/BSHeader';
 import { useState } from 'react';
 import BSRadio from '@/components/common/BSRadio';
 import BSIcon from '@/components/common/BSIcon';
+import BSText from '@/components/common/BSText';
 import CameraIcon from '../../../public/icons/camera.svg';
-import GameImage1 from '../../../public/images/gameImage1.png';
-import GameImage2 from '../../../public/images/gameImage2.png';
-import GameImage3 from '../../../public/images/gameImage3.png';
-import GameImage4 from '../../../public/images/gameImage4.png';
 import GuideIcon from '../../../public/icons/guide.svg';
 import MapPinIcon from '../../../public/icons/map-in.svg';
 import NextArrow from '../../../public/icons/next-arrow.svg';
@@ -42,61 +38,6 @@ export default function Page() {
     { id: 14, title: '어린이' },
     { id: 15, title: '순발력' },
     { id: 16, title: '경쟁' },
-  ];
-
-  const gameList = [
-    {
-      id: 0,
-      title: '게임이름1',
-      img: GameImage1,
-      new: 'true',
-      price: '150000',
-      people: '3~5',
-      like: true,
-      account: 1,
-      address: '강남구 압구정동',
-      time: '3시간 전',
-      tag: ['전략', '테마', '전쟁'],
-    },
-    {
-      id: 1,
-      title: '게임이름2',
-      img: GameImage2,
-      new: 'true',
-      price: '150000',
-      people: '1~2',
-      like: true,
-      account: 14,
-      address: '강남구 압구정동',
-      time: '3시간 전',
-      tag: ['전략', '테마', '전쟁'],
-    },
-    {
-      id: 2,
-      title: '게임이름1',
-      img: GameImage3,
-      new: 'true',
-      price: '150000',
-      people: '3~5',
-      like: true,
-      account: 22,
-      address: '강남구 압구정동',
-      time: '3시간 전',
-      tag: ['전략', '테마', '전쟁'],
-    },
-    {
-      id: 3,
-      title: '게임이름1',
-      img: GameImage4,
-      new: 'true',
-      price: '150000',
-      people: '3~5',
-      like: true,
-      account: 22,
-      address: '강남구 압구정동',
-      time: '3시간 전',
-      tag: ['전략', '테마', '전쟁'],
-    },
   ];
 
   const [playTime, setPlayTime] = useState('');
@@ -160,19 +101,18 @@ export default function Page() {
       </div>
 
       <div className="flex items-center justify-between">
-        <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+        <BSText isHeadLine size="TextBold16">
           상품명
-        </h1>
+        </BSText>
         <BSIcon iconUrl={GuideIcon} alt="guide icon" />
       </div>
 
       <BSInput placeholder="상품명을 입력해주세요." value="" />
 
       {/* 게임소개 */}
-      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+      <BSText isHeadLine size="TextBold16">
         게임 소개
-      </h1>
-
+      </BSText>
       <div className="flex flex-col gap-2">
         <BSInput placeholder="게시글 제목" value="" />
 
@@ -183,9 +123,9 @@ export default function Page() {
         />
       </div>
       <div className="flex items-center justify-between">
-        <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+        <BSText isHeadLine size="TextBold16">
           대표 카테고리
-        </h1>
+        </BSText>
         <Link
           href="/categoryExplain"
           className="text-textRegular-14 text-nutral-gray-02"
@@ -203,19 +143,18 @@ export default function Page() {
       </div>
 
       {/* 필요 인원 */}
-      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+      <BSText isHeadLine size="TextBold16">
         필요 인원
-      </h1>
-
+      </BSText>
       <div className="flex gap-3">
         <BSInput placeholder="최소 인원" value="" />
         <BSInput placeholder="최대 인원" value="" />
       </div>
 
       {/* 게임 플레이 시간은 어떤가요? */}
-      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+      <BSText isHeadLine size="TextBold16">
         게임 플레이 시간은 어떤가요?
-      </h1>
+      </BSText>
       <div className="flex flex-col gap-4">
         <BSRadio
           id="15minutes"
@@ -255,25 +194,22 @@ export default function Page() {
         </BSRadio>
       </div>
 
-      {/* 판매 가격 */}
-      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+      <BSText isHeadLine size="TextBold16">
         판매 가격
-      </h1>
+      </BSText>
       <BSInput placeholder="원하는 판매가격을 입력해주세요." value="" />
       <span className="mt-2 text-textRegular-14 text-nutral-gray-03">
         거래 협의 가능
       </span>
 
-      {/* 판매 가격 */}
-      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+      <BSText isHeadLine size="TextBold16">
         제품 상태는 어떤가요?
-      </h1>
+      </BSText>
       <BSInput value="" />
 
-      {/* 판매 가격 */}
-      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+      <BSText isHeadLine size="TextBold16">
         제품 상태는 어떤가요?
-      </h1>
+      </BSText>
 
       <div className="flex gap-4">
         <div className={`grow-1 ${gameStatusCss}`}>
@@ -301,52 +237,30 @@ export default function Page() {
         </div>
       </div>
       {/* 판매자 정책에 대해 선택해주세요. */}
-      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+      <BSText isHeadLine size="TextBold16">
         판매자 정책에 대해 선택해주세요.
-      </h1>
+      </BSText>
       <BSInput value="" />
 
       {/* 거래 주소 */}
-      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+      <BSText isHeadLine size="TextBold16">
         거래 주소
-      </h1>
+      </BSText>
 
       <BSButton isSrc={MapPinIcon} onClick={() => {}}>
         현 위치로 주소 지정하기
       </BSButton>
 
       {/* 카카오톡 오픈 프로필 링크 */}
-      <h1 className="pt-6 pb-[14px] text-nutral-black-01 text-textBold-16">
+      <BSText isHeadLine size="TextBold16">
         카카오톡 오픈 프로필 링크
-      </h1>
+      </BSText>
       <BSInput placeholder="오픈카톡방 링크를 입력해주세요" value="" />
 
-      <div className="mt-4 overflow-y-scroll bg-nutral-white-02 rounded-lg  max-h-[456px] px-4 ">
-        {/* result 같은 거 있음 */}
-        {/* gameList */}
-        {gameList.map((item) => (
-          <div className="py-3 pt-4 border-b border-nutral-white-03">
-            <div className="flex gap-4">
-              <Image src={GameImage1} alt="order arrow icon" priority />
-              <div className="flex flex-col justify-between">
-                <p>{item.title}</p>
-                <div className="flex justify-between mt-5">
-                  <span>{item.price}&nbsp;원</span>
-                  <div className="flex items-center">
-                    <span>{item.people}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* test */}
       {/* 2. 게임 난이도는 어떤가요? */}
-      <h1 className="py-6 text-nutral-black-01 text-textBold-16">
+      <BSText isHeadLine size="TextBold16">
         게임 난이도는 어떤가요?
-      </h1>
+      </BSText>
       {gameLevel.map((item) => (
         <div>
           <input type="checkbox" />
@@ -355,7 +269,6 @@ export default function Page() {
       ))}
 
       <div className="flex">
-        {/* 🖐️ todo : 이런 경우는 className을 컴포넌트 안에 넣어야하나, 그렇게 되면 스타일링 지정한 것들이 효율적이지 못하게 되는 거아닌가 태그가 많은 건 안좋다 방안필요 */}
         <div className="grow-[1]">
           <BSButton onClick={handleInitClick}>초기화</BSButton>
         </div>
@@ -368,7 +281,9 @@ export default function Page() {
 
       {/* 5. 가격 */}
       <div className="flex items-center">
-        <h1 className="py-6 text-nutral-black-01 text-textBold-16">가격</h1>
+        <BSText className="py-6" size="TextBold16">
+          게임 난이도는 어떤가요?
+        </BSText>
         <span className="text-primary-getto500 text-textRegular-14">
           1,000원 ~ 78,000,000원
         </span>

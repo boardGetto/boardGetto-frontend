@@ -118,7 +118,7 @@ export default function BSCard({
                 priority
               />
               <div className="flex items-center ml-1">
-                <span>{minPlayerCount} -&nbsp;</span>
+                <span>{minPlayerCount} ~&nbsp;</span>
                 <span>{maxPlayerCount}</span>
               </div>
             </div>
