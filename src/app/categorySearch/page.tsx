@@ -4,8 +4,8 @@ import BSHeader from '@/components/common/BSHeader';
 import BSInput from '@/components/common/BSInput';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { SearchThemeGame, fetchSearchThemeGame } from '@/service/gameService';
 import BSBadge from '@/components/common/BSBadge';
+import { SearchThemeGame, fetchSearchThemeGame } from '../../Service/gameService';
 import GameImage1 from '../../../public/images/gameImage1.png';
 
 export default function Page() {
